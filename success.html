@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Application Confirmed | Aultrum</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Geist:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Aultrum | Predictive Care Platform" />
+<meta property="og:description" content="Aultrum helps social care providers deliver efficient and rapid services across several sectors." />
+<meta property="og:image" content="assets/screen-index.png" />
+<link rel="stylesheet" href="./index.css">
+<style>
+.success-glow { filter: drop-shadow(0 0 15px rgba(188, 199, 222, 0.4)); }
+.data-path-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0.1; background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 40px 40px; pointer-events: none; z-index: -1;
+}
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
+</style>
+<script>document.addEventListener("DOMContentLoaded", () => document.body.classList.add("loaded"));</script>
+<script src="./main.js"></script>
+</head>
+
+<body class="font-body-md antialiased selection:bg-primary-container selection:text-primary flex flex-col min-h-screen bg-[#0A0C10]">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/5 shadow-sm">
+<div class="flex justify-between items-center px-container-padding h-20 max-w-7xl mx-auto w-full">
+<div class="flex items-center gap-3">
+<a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity"><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Aultrum</span></a>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold transition-colors duration-300" href="apply.html">Pioneer</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="https://research.aultrum.co.uk">Research</a>
+<a href="manifesto.html" class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm transition-all duration-200 active:scale-95 text-center inline-block">Manifesto</a>
+</nav>
+</div>
+</header>
+<main class="relative flex-grow flex items-center justify-center pt-20 overflow-hidden">
+<!-- Background decorative elements -->
+<div class="data-path-bg"></div>
+<div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/5 rounded-full blur-[120px]"></div>
+<!-- Success Content Container -->
+<section class="max-w-4xl mx-auto px-container-padding text-center relative z-10">
+<div class="animate-float">
+<div class="mb-stack-lg inline-flex items-center justify-center w-24 h-24 rounded-full glass-card border border-primary/20 success-glow">
+<span class="material-symbols-outlined text-5xl text-primary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<h1 class="font-display-lg text-display-lg mb-stack-md text-on-surface">
+We will reach out to you in a moment
+</h1>
+<div class="flex items-center justify-center gap-2 mb-section-gap">
+<span class="intelligence-node"></span>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+Thank you for your interest in pioneering Care Delivery Intelligence with us. Our team is currently reviewing your application to ensure a perfect alignment with our research ecosystem.
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter text-left">
+<div class="glass-card reveal-on-scroll p-stack-lg rounded-xl transition-all duration-300 hover:border-primary/40 group">
+<span class="material-symbols-outlined text-primary mb-base" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Review Process</h3>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-70">Our partner council evaluates alignment with our core ethical intelligence framework.</p>
+</div>
+<div class="glass-card reveal-on-scroll p-stack-lg rounded-xl transition-all duration-300 hover:border-primary/40 group">
+<span class="material-symbols-outlined text-primary mb-base" data-icon="mail">mail</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Email Confirmed</h3>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-70">A receipt of your submission has been dispatched to your provided contact address.</p>
+</div>
+<div class="glass-card reveal-on-scroll p-stack-lg rounded-xl transition-all duration-300 hover:border-primary/40 group">
+<span class="material-symbols-outlined text-primary mb-base" data-icon="timeline">timeline</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Next Steps</h3>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-70">Qualified candidates will be invited for a strategic technical discovery session.</p>
+</div>
+</div>
+<div class="mt-section-gap">
+<a href="https://research.aultrum.co.uk" class="inline-flex items-center gap-2 font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all group">
+<span>Return to Research Blog</span>
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Aesthetic Abstract Image Background -->
+<div class="absolute inset-0 z-0 opacity-20 mix-blend-overlay pointer-events-none">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-UxAkMCa_xz41ZUAS_2ncgjCVu7jB8sk38UNcTtY7Hsb5xQXOQAegOYZcLobDws5POs54dYg6fHNJ3goRqVF75E3PCu4R-P8rRc0kfDp9QpXKLruBVrjA-SWuYbgnFMWpT-cPRsqingQQqzYm53u0zui6ya5_oAFdz2mRGjth_Rescu-TKOTrPG2GcT3GgrStzrCeoFONuroWBde6gNvAsC-nvcY-sM-PqvwyT5gMZTGDkvxhsm8k')"></div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full relative bg-surface-container-lowest border-t border-white/5 mt-auto z-20">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center px-container-padding py-stack-lg max-w-7xl mx-auto w-full">
+<div class="mb-8 md:mb-0">
+<div class="flex items-center gap-3 mb-4">
+<a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity"><span class="font-headline-md text-headline-md text-on-surface">Aultrum</span></a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+  © 2026 Aultrum. All rights reserved. Proactive care through Empathetic Intelligence.
+</p>
+</div>
+<div class="flex flex-wrap gap-x-12 gap-y-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="https://research.aultrum.co.uk">Research</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="apply.html">Pioneer</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="privacy.html">Privacy Policy</a>
+</div>
+</div>
+</footer>
+
+<script>
+document.querySelectorAll('.glass-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
+</script>
+</body>
+</html>
