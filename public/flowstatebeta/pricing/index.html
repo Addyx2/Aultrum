@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Flowstate Beta | Pricing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config={darkMode:"class",theme:{extend:{colors:{surface:"#0e0e0e","surface-dim":"#0e0e0e","surface-bright":"#393939","surface-container-lowest":"#070708","surface-container-low":"#111111","surface-container":"#1a1a1a","surface-container-high":"#222222","surface-container-highest":"#2c2c2c","on-surface":"#e2e2e2","on-surface-variant":"#a0a0a0",outline:"#3a3a3a","outline-variant":"#2a2a2a",primary:"#ffffff","on-primary":"#0e0e0e","accent-blue":"#4a9eff","accent-green":"#00e676","accent-amber":"#ffb800","accent-red":"#ff5252","accent-purple":"#b388ff"},fontFamily:{display:["Inter"],body:["Inter"],mono:["JetBrains Mono"]},fontSize:{hero:["64px",{lineHeight:"1.05",letterSpacing:"-0.04em",fontWeight:"200"}],"hero-mobile":["36px",{lineHeight:"1.1",letterSpacing:"-0.03em",fontWeight:"300"}],"section-title":["40px",{lineHeight:"1.15",letterSpacing:"-0.03em",fontWeight:"200"}],"card-title":["20px",{lineHeight:"1.3",letterSpacing:"-0.02em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"1.6",letterSpacing:"0em",fontWeight:"300"}],"body-md":["15px",{lineHeight:"1.6",letterSpacing:"0.01em",fontWeight:"400"}],label:["11px",{lineHeight:"1.4",letterSpacing:"0.12em",fontWeight:"500"}],telemetry:["10px",{lineHeight:"1",letterSpacing:"0.06em",fontWeight:"400"}]}}}}
+</script>
+<style>
+body{background-color:#070708;color:#e2e2e2}
+.card-border{border:1px solid #2a2a2a}
+.telemetry-dot{width:6px;height:6px;border-radius:50%}
+.scanline-bg{background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,0.015) 2px,rgba(255,255,255,0.015) 4px)}
+.fade-in{opacity:0;transform:translateY(16px);transition:all .6s ease}.fade-in.visible{opacity:1;transform:translateY(0)}
+.plan-card{transition:all .3s ease;position:relative}
+.plan-card:hover{transform:translateY(-4px)}
+.plan-popular{border-color:#4a9eff!important}
+.plan-enterprise{border-color:#b388ff!important}
+</style>
+</head>
+<body class="font-body antialiased selection:bg-accent-blue selection:text-white">
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant">
+<div class="max-w-[1400px] mx-auto px-6 md:px-16 h-16 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<a href="../../index.html" class="font-mono text-label tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">AULTRUM</a>
+<span class="text-outline">/</span>
+<a href="../index.html" class="font-mono text-label tracking-[0.15em] text-on-surface-variant hover:text-primary transition-colors">FLOWSTATE</a>
+<span class="text-outline">/</span>
+<span class="font-mono text-label tracking-[0.15em] text-primary">PRICING</span>
+<span class="telemetry-dot bg-accent-green"></span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a href="../agents/index.html" class="font-mono text-telemetry text-on-surface-variant hover:text-primary transition-colors">AGENTS</a>
+<a href="../compliance/index.html" class="font-mono text-telemetry text-on-surface-variant hover:text-primary transition-colors">COMPLIANCE</a>
+<a href="#plans" class="font-mono text-telemetry text-on-surface-variant hover:text-primary transition-colors">PLANS</a>
+<a href="#metre" class="font-mono text-telemetry text-on-surface-variant hover:text-primary transition-colors">METRE</a>
+<a href="#enterprise" class="font-mono text-telemetry text-on-surface-variant hover:text-primary transition-colors">ENTERPRISE</a>
+</div>
+<button class="font-mono text-label px-4 py-2 border border-outline hover:bg-white hover:text-black transition-all">BOOK DEMO</button>
+</div>
+</nav>
+<main class="pt-16">
+
+<!-- Hero -->
+<section class="py-24 md:py-32 px-6 md:px-16 text-center scanline-bg">
+<div class="max-w-[800px] mx-auto">
+<div class="font-mono text-telemetry text-on-surface-variant mb-6 tracking-widest"><span class="text-accent-blue">FLOWSTATE</span> // PRICING</div>
+<h1 class="font-display text-hero text-hero-mobile text-primary mb-6">Simple pricing. No surprises.</h1>
+<p class="font-body text-body-lg text-on-surface-variant mb-8">Start at £49. Scale to 200+ carers. Every plan includes free phone numbers and compliance tools.</p>
+<div class="font-mono text-telemetry text-accent-green">PRICING_LOCKED // 24_MONTH_GUARANTEE</div>
+</div>
+</section>
+
+<!-- Plans -->
+<section id="plans" class="py-24 md:py-32 px-6 md:px-16 border-y border-outline-variant">
+<div class="max-w-[1400px] mx-auto">
+<div class="grid md:grid-cols-4 gap-6">
+
+<!-- Single Use -->
+<div class="plan-card card-border bg-surface-container-low p-8">
+<div class="flex items-center gap-2 mb-4">
+<span class="font-mono text-label tracking-[0.15em] text-primary">SINGLE USE</span>
+</div>
+<div class="mb-6">
+<span class="font-display text-[48px] text-primary font-light">£49</span>
+<span class="font-body text-body-md text-on-surface-variant">/mo</span>
+</div>
+<p class="font-body text-body-md text-on-surface-variant mb-6">Solo care manager. Compliance and coordination only.</p>
+<div class="glow-line mb-6" style="background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent)"></div>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">1 user</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">1 phone number (free)</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Compliance documentation</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Care coordination</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">CQC evidence export</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">GDPR tools</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-on-surface-variant/30 mt-1">close</span><span class="font-body text-body-md text-on-surface-variant/40">AI voice agents</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-on-surface-variant/30 mt-1">close</span><span class="font-body text-body-md text-on-surface-variant/40">Agents metre</span></li>
+</ul>
+<button class="w-full border border-outline text-primary font-mono text-label py-3 hover:bg-surface-container transition-colors">GET STARTED</button>
+</div>
+
+<!-- Mega Use -->
+<div class="plan-card card-border plan-popular bg-surface-container-low p-8">
+<div class="absolute top-0 left-0 right-0 h-1 bg-accent-blue"></div>
+<div class="flex items-center gap-2 mb-4">
+<span class="font-mono text-label tracking-[0.15em] text-primary">MEGA USE</span>
+<span class="font-mono text-telemetry text-accent-blue bg-accent-blue/10 px-2 py-0.5">POPULAR</span>
+</div>
+<div class="mb-6">
+<span class="font-display text-[48px] text-primary font-light">£99</span>
+<span class="font-body text-body-md text-on-surface-variant">/mo</span>
+</div>
+<p class="font-body text-body-md text-on-surface-variant mb-6">Small agency. AI agents included. Pay per carer.</p>
+<div class="glow-line mb-6"></div>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">3 users</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">3 phone numbers (free)</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">AI voice agents (24/7)</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Smart scheduling</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Real-time dashboard</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">+£15 per carer</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Agents metre (usage)</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Priority support</span></li>
+</ul>
+<button class="w-full bg-primary text-on-primary font-mono text-label py-3 hover:opacity-90 transition-opacity">GET STARTED</button>
+</div>
+
+<!-- Team Use -->
+<div class="plan-card card-border bg-surface-container-low p-8">
+<div class="flex items-center gap-2 mb-4">
+<span class="font-mono text-label tracking-[0.15em] text-primary">TEAM USE</span>
+</div>
+<div class="mb-6">
+<span class="font-display text-[48px] text-primary font-light">£299</span>
+<span class="font-body text-body-md text-on-surface-variant">/mo</span>
+</div>
+<p class="font-body text-body-md text-on-surface-variant mb-6">Growing agency. Full platform. Lowest per-carer rate.</p>
+<div class="glow-line mb-6" style="background:linear-gradient(90deg,transparent,rgba(255,184,0,0.3),transparent)"></div>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">10 users</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">5 phone numbers (free)</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">AI voice agents (24/7)</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Custom voice cloning</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">API access</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">+£7 per carer</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Discounted metre rates</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Dedicated support</span></li>
+</ul>
+<button class="w-full border border-outline text-primary font-mono text-label py-3 hover:bg-surface-container transition-colors">GET STARTED</button>
+</div>
+
+<!-- Enterprise -->
+<div class="plan-card plan-enterprise card-border bg-surface-container-low p-8">
+<div class="absolute top-0 left-0 right-0 h-1 bg-accent-purple"></div>
+<div class="flex items-center gap-2 mb-4">
+<span class="font-mono text-label tracking-[0.15em] text-primary">ENTERPRISE</span>
+<span class="font-mono text-telemetry text-accent-purple bg-accent-purple/10 px-2 py-0.5">CUSTOM</span>
+</div>
+<div class="mb-6">
+<span class="font-display text-[48px] text-primary font-light">Custom</span>
+</div>
+<p class="font-body text-body-md text-on-surface-variant mb-6">Large agency. Volume pricing. White-label options.</p>
+<div class="glow-line mb-6" style="background:linear-gradient(90deg,transparent,rgba(179,136,255,0.3),transparent)"></div>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Unlimited users</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Unlimited phone numbers</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Volume carer pricing</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">White-label option</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Custom integrations</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">On-premise deployment</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">SLA guarantee</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[16px] text-accent-green mt-1">check</span><span class="font-body text-body-md text-on-surface-variant">Dedicated account manager</span></li>
+</ul>
+<button class="w-full border border-accent-purple/50 text-accent-purple font-mono text-label py-3 hover:bg-accent-purple/10 transition-colors">CONTACT SALES</button>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Agents Metre -->
+<section id="metre" class="py-24 md:py-32 px-6 md:px-16 border-b border-outline-variant bg-surface-container-lowest scanline-bg fade-in">
+<div class="max-w-[1400px] mx-auto">
+<div class="font-mono text-telemetry text-on-surface-variant mb-4 tracking-widest"><span class="text-accent-blue">USAGE</span> // AGENTS METRE</div>
+<h2 class="font-display text-section-title text-primary mb-4">Pay for what you use</h2>
+<p class="font-body text-body-lg text-on-surface-variant max-w-[600px] mb-16">Only applies to Mega Use and Team Use. Single Use has no usage charges.</p>
+
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Mega Use Rates -->
+<div class="card-border bg-surface-container p-8">
+<div class="flex items-center gap-3 mb-6">
+<span class="font-mono text-label tracking-[0.15em] text-primary">MEGA USE RATES</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-3 border-b border-outline-variant"><span class="font-body text-body-md text-on-surface-variant">AI Voice Calls</span><span class="font-mono text-label text-primary">£0.08/min</span></div>
+<div class="flex justify-between items-center py-3 border-b border-outline-variant"><span class="font-body text-body-md text-on-surface-variant">SMS Alerts</span><span class="font-mono text-label text-primary">£0.03/sms</span></div>
+<div class="flex justify-between items-center py-3 border-b border-outline-variant"><span class="font-body text-body-md text-on-surface-variant">Call Recording</span><span class="font-mono text-label text-primary">£0.05/call</span></div>
+<div class="flex justify-between items-center py-3 border-b border-outline-variant"><span class="font-body text-body-md text-on-surface-variant">Compliance Report</span><span class="font-mono text-label text-primary">£1.00/report</span></div>
+<div class="flex justify-between items-center py-3"><span class="font-body text-body-md text-on-surface-variant">Transcript Storage</span><span class="font-mono text-label text-accent-green">FREE</span></div>
+</div>
+</div>
+
+<!-- Team Use Rates -->
+<div class="card-border bg-surface-container p-8">
+<div class="flex items-center gap-3 mb-6">
+<span class="font-mono text-label tracking-[0.15em] text-primary">TEAM USE RATES</span>
+<span class="font-mono text-telemetry text-accent-amber bg-accent-amber/10 px-2 py-0.5">DISCOUNTED</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-3 border-b border-outline-variant"><span class="font-body text-body-md text-on-surface-variant">AI Voice Calls</span><div><span class="font-mono text-label text-on-surface-variant line-through mr-2">£0.08</span><span class="font-mono text-label text-accent-green">£0.05/min</span></div></div>
+<div class="flex justify-between items-center py-3 border-b border-outline-variant"><span class="font-body text-body-md text-on-surface-variant">SMS Alerts</span><div><span class="font-mono text-label text-on-surface-variant line-through mr-2">£0.03</span><span class="font-mono text-label text-accent-green">£0.02/sms</span></div></div>
+<div class="flex justify-between items-center py-3 border-b border-outline-variant"><span class="font-body text-body-md text-on-surface-variant">Call Recording</span><div><span class="font-mono text-label text-on-surface-variant line-through mr-2">£0.05</span><span class="font-mono text-label text-accent-green">£0.03/call</span></div></div>
+<div class="flex justify-between items-center py-3 border-b border-outline-variant"><span class="font-body text-body-md text-on-surface-variant">Compliance Report</span><div><span class="font-mono text-label text-on-surface-variant line-through mr-2">£1.00</span><span class="font-mono text-label text-accent-green">£0.50/report</span></div></div>
+<div class="flex justify-between items-center py-3"><span class="font-body text-body-md text-on-surface-variant">Transcript Storage</span><span class="font-mono text-label text-accent-green">FREE</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Calculator -->
+<section class="py-24 md:py-32 px-6 md:px-16 border-b border-outline-variant fade-in">
+<div class="max-w-[1400px] mx-auto">
+<div class="font-mono text-telemetry text-on-surface-variant mb-4 tracking-widest"><span class="text-accent-blue">EXAMPLES</span> // REAL_AGENCY_COSTS</div>
+<h2 class="font-display text-section-title text-primary mb-16">What agencies actually pay</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+<!-- Small Agency -->
+<div class="card-border bg-surface-container-low p-8">
+<div class="font-mono text-telemetry text-on-surface-variant mb-2">SMALL AGENCY</div>
+<div class="font-display text-card-title text-primary mb-4">10 carers, 200 calls/mo</div>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Mega Use</span><span class="text-primary">£99 + £150 + £48</span></div>
+<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Team Use</span><span class="text-primary">£299 + £70 + £30</span></div>
+</div>
+<div class="glow-line mb-4"></div>
+<div class="flex justify-between items-center"><span class="font-body text-body-md text-on-surface-variant">Best value</span><span class="font-mono text-label text-accent-green">MEGA USE £297/mo</span></div>
+</div>
+
+<!-- Medium Agency -->
+<div class="card-border bg-surface-container-low p-8">
+<div class="font-mono text-telemetry text-on-surface-variant mb-2">MEDIUM AGENCY</div>
+<div class="font-display text-card-title text-primary mb-4">50 carers, 600 calls/mo</div>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Mega Use</span><span class="text-primary">£99 + £750 + £144</span></div>
+<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Team Use</span><span class="text-primary">£299 + £350 + £90</span></div>
+</div>
+<div class="glow-line mb-4" style="background:linear-gradient(90deg,transparent,rgba(255,184,0,0.3),transparent)"></div>
+<div class="flex justify-between items-center"><span class="font-body text-body-md text-on-surface-variant">Best value</span><span class="font-mono text-label text-accent-amber">TEAM USE £739/mo</span></div>
+</div>
+
+<!-- Large Agency -->
+<div class="card-border bg-surface-container-low p-8">
+<div class="font-mono text-telemetry text-on-surface-variant mb-2">LARGE AGENCY</div>
+<div class="font-display text-card-title text-primary mb-4">200 carers, 2,000 calls/mo</div>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Mega Use</span><span class="text-primary">£99 + £3,000 + £480</span></div>
+<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Team Use</span><span class="text-primary">£299 + £1,400 + £300</span></div>
+</div>
+<div class="glow-line mb-4" style="background:linear-gradient(90deg,transparent,rgba(179,136,255,0.3),transparent)"></div>
+<div class="flex justify-between items-center"><span class="font-body text-body-md text-on-surface-variant">Best value</span><span class="font-mono text-label text-accent-purple">TEAM USE £1,999/mo</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Enterprise Detail -->
+<section id="enterprise" class="py-24 md:py-32 px-6 md:px-16 border-b border-outline-variant bg-surface-container-lowest fade-in">
+<div class="max-w-[1400px] mx-auto grid md:grid-cols-12 gap-12">
+<div class="md:col-span-5">
+<div class="font-mono text-telemetry text-on-surface-variant mb-4 tracking-widest"><span class="text-accent-purple">ENTERPRISE</span> // CUSTOM_SOLUTIONS</div>
+<h2 class="font-display text-section-title text-primary mb-6">Built for large care organisations</h2>
+<p class="font-body text-body-lg text-on-surface-variant mb-8">NHS trusts, multi-site agencies, and care groups with 200+ carers.</p>
+<button class="bg-accent-purple/10 border border-accent-purple/50 text-accent-purple font-mono text-label px-8 py-3 hover:bg-accent-purple/20 transition-colors">CONTACT SALES</button>
+</div>
+<div class="md:col-span-7 grid grid-cols-2 gap-4">
+<div class="card-border bg-surface-container p-6"><span class="material-symbols-outlined text-[24px] text-accent-purple mb-3">groups</span><h3 class="font-display text-card-title text-primary mb-2">Volume Pricing</h3><p class="font-body text-body-md text-on-surface-variant">Discounted rates for 200+ carers. Custom pricing based on your specific needs.</p></div>
+<div class="card-border bg-surface-container p-6"><span class="material-symbols-outlined text-[24px] text-accent-purple mb-3">palette</span><h3 class="font-display text-card-title text-primary mb-2">White-Label</h3><p class="font-body text-body-md text-on-surface-variant">Rebrand Flowstate as your own. Your logo, your domain, your identity.</p></div>
+<div class="card-border bg-surface-container p-6"><span class="material-symbols-outlined text-[24px] text-accent-purple mb-3">dns</span><h3 class="font-display text-card-title text-primary mb-2">On-Premise</h3><p class="font-body text-body-md text-on-surface-variant">Deploy on your own infrastructure. Full data control and sovereignty.</p></div>
+<div class="card-border bg-surface-container p-6"><span class="material-symbols-outlined text-[24px] text-accent-purple mb-3">handshake</span><h3 class="font-display text-card-title text-primary mb-2">SLA Guarantee</h3><p class="font-body text-body-md text-on-surface-variant">99.99% uptime guarantee. Dedicated support with 1-hour response time.</p></div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 md:py-32 px-6 md:px-16 text-center fade-in">
+<div class="max-w-[700px] mx-auto">
+<h2 class="font-display text-section-title text-primary mb-6">Start at £49. Scale to 200+ carers.</h2>
+<p class="font-body text-body-lg text-on-surface-variant mb-12">14-day free trial. No credit card required. Cancel anytime.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="bg-primary text-on-primary font-mono text-label px-10 py-4 hover:opacity-90 transition-opacity">START FREE TRIAL</button>
+<button class="border border-outline text-primary font-mono text-label px-10 py-4 hover:bg-surface-container transition-colors">BOOK A DEMO</button>
+</div>
+</div>
+</section>
+
+<footer class="border-t border-outline-variant bg-surface-container-lowest">
+<div class="max-w-[1400px] mx-auto px-6 md:px-16 py-12">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-4">
+<a href="../../index.html" class="font-mono text-label tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">AULTRUM</a>
+<span class="text-outline">/</span>
+<a href="../index.html" class="font-mono text-label tracking-[0.15em] text-on-surface-variant hover:text-primary transition-colors">FLOWSTATE</a>
+<span class="text-outline">/</span>
+<span class="font-mono text-label tracking-[0.15em] text-primary">PRICING</span>
+</div>
+<div class="font-mono text-telemetry text-on-surface-variant/40">&copy; 2026 Aultrum Technologies Ltd.</div>
+</div>
+</div>
+</footer>
+</main>
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

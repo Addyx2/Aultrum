@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance — Flowstate Beta by Aultrum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        surface: '#0e0e0e',
+                        'surface-container-lowest': '#070708',
+                        'surface-container-low': '#111111',
+                        'surface-container': '#1a1a1a',
+                        'on-surface': '#e2e2e2',
+                        'on-surface-variant': '#a0a0a0',
+                        outline: '#3a3a3a',
+                        'outline-variant': '#2a2a2a',
+                        primary: '#ffffff',
+                        'on-primary': '#0e0e0e',
+                        'accent-blue': '#4a9eff',
+                        'accent-green': '#00e676',
+                        'accent-amber': '#ffb800',
+                        'accent-red': '#ff5252',
+                        'accent-purple': '#b388ff',
+                    },
+                    fontFamily: {
+                        display: 'Inter, sans-serif',
+                        body: 'Inter, sans-serif',
+                        mono: 'JetBrains Mono, monospace',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background: #070708; color: #e2e2e2; }
+        .card-border { border: 1px solid #2a2a2a; transition: border-color 0.3s ease; }
+        .card-border:hover { border-color: #00e676; }
+        .scanline-bg { position: relative; }
+        .scanline-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.015) 2px,
+                rgba(255,255,255,0.015) 4px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .glow-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,230,118,0.3), transparent);
+        }
+        .doc-preview {
+            background: rgba(17,17,17,0.8);
+            border: 1px solid #2a2a2a;
+            backdrop-filter: blur(20px);
+        }
+        .doc-line {
+            border-left: 2px solid transparent;
+            padding-left: 12px;
+            margin-left: -14px;
+        }
+        .doc-line.highlight {
+            border-left-color: #00e676;
+            background: rgba(0,230,118,0.04);
+        }
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.1em;
+            background: #00e676;
+            margin-left: 2px;
+            vertical-align: text-bottom;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .hero-title {
+            font-size: 64px;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            font-weight: 200;
+        }
+        .hero-title-mobile {
+            font-size: 36px;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            font-weight: 300;
+        }
+        .section-title {
+            font-size: 40px;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            font-weight: 200;
+        }
+        .card-title {
+            font-size: 20px;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            font-weight: 400;
+        }
+        .body-lg { font-size: 18px; line-height: 1.6; letter-spacing: 0; font-weight: 300; }
+        .body-md { font-size: 15px; line-height: 1.6; letter-spacing: 0.01em; font-weight: 400; }
+        .label {
+            font-size: 11px;
+            line-height: 1.4;
+            letter-spacing: 0.12em;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .telemetry {
+            font-size: 10px;
+            line-height: 1;
+            letter-spacing: 0.06em;
+            font-weight: 400;
+        }
+        .stat-number {
+            font-size: 48px;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            font-weight: 200;
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 36px; line-height: 1.1; letter-spacing: -0.03em; font-weight: 300; }
+            .section-title { font-size: 28px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 300; }
+            .stat-number { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2 label text-on-surface-variant">
+                <a href="../../index.html" class="hover:text-on-surface transition-colors">Aultrum</a>
+                <span class="text-outline">/</span>
+                <a href="../index.html" class="hover:text-on-surface transition-colors">Flowstate</a>
+                <span class="text-outline">/</span>
+                <span class="text-on-surface">Compliance</span>
+            </div>
+            <a href="../index.html" class="label text-on-surface-variant hover:text-on-surface transition-colors hidden md:block">
+                ← Back to Flowstate
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center pt-20 scanline-bg">
+        <div class="max-w-6xl mx-auto px-6 py-24 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left -->
+                <div>
+                    <p class="label text-accent-green mb-6">Intelligent Care Documentation</p>
+                    <h1 class="hero-title text-on-surface mb-6">
+                        Documentation that writes itself.
+                    </h1>
+                    <p class="body-lg text-on-surface-variant max-w-lg">
+                        Flowstate Compliance is the AI documentation engine built for social care. It generates, audits, and manages compliant care records — so your team can focus on delivering care, not paperwork.
+                    </p>
+                </div>
+
+                <!-- Right: Document Preview -->
+                <div class="doc-preview rounded-xl p-6 scanline-bg">
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-outline-variant">
+                            <div class="w-2.5 h-2.5 rounded-full bg-accent-red/60"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-accent-amber/60"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-accent-green/60"></div>
+                            <span class="ml-auto font-mono telemetry text-on-surface-variant">care_plan_gen.json</span>
+                        </div>
+                        <pre class="font-mono text-sm leading-relaxed text-on-surface-variant"><span class="text-accent-blue">{</span>
+  <span class="text-on-surface">"client_id"</span>: <span class="text-accent-green">"CLT-04821"</span>,
+  <span class="text-on-surface">"assessment_date"</span>: <span class="text-accent-green">"2026-08-25"</span>,
+  <span class="text-on-surface">"care_type"</span>: <span class="text-accent-green">"residential"</span>,
+  <span class="doc-line highlight"><span class="text-on-surface">"risk_level"</span>: <span class="text-accent-amber">"moderate"</span>,</span>
+  <span class="text-on-surface">"carer_requirements"</span>: <span class="text-accent-blue">[</span>
+    <span class="text-accent-green">"24hr supervision"</span>,
+    <span class="text-accent-green">"medication management"</span>,
+    <span class="text-accent-green">"mobility assistance"</span>
+  <span class="text-accent-blue">]</span>,
+  <span class="text-on-surface">"next_review"</span>: <span class="text-accent-green">"2026-11-25"</span>,
+  <span class="doc-line highlight"><span class="text-on-surface">"compliance_status"</span>: <span class="text-accent-green">"CQC_READY"</span><span class="typing-cursor"></span></span>
+<span class="text-accent-blue">}</span></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glow Line -->
+    <div class="glow-line"></div>
+
+    <!-- Problem -->
+    <section class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in">
+                <p class="label text-on-surface-variant mb-4">The Documentation Burden</p>
+                <h2 class="section-title text-on-surface mb-16 max-w-lg">
+                    Your care teams are buried in paperwork.
+                </h2>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="fade-in">
+                    <div class="stat-number text-accent-amber mb-3">40%</div>
+                    <p class="body-md text-on-surface-variant">of carer time spent on documentation instead of care delivery</p>
+                </div>
+                <div class="fade-in">
+                    <div class="stat-number text-accent-red mb-3">23%</div>
+                    <p class="body-md text-on-surface-variant">of inspections reveal compliance gaps in care records</p>
+                </div>
+                <div class="fade-in">
+                    <div class="stat-number text-on-surface mb-3">£12k</div>
+                    <p class="body-md text-on-surface-variant">average cost of an inspection failure including remediation</p>
+                </div>
+                <div class="fade-in">
+                    <div class="stat-number text-accent-blue mb-3">3.2hr</div>
+                    <p class="body-md text-on-surface-variant">average time to produce a single compliant care report</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-24 bg-surface-container-low">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in mb-16">
+                <p class="label text-on-surface-variant mb-4">Capabilities</p>
+                <h2 class="section-title text-on-surface max-w-lg">
+                    Built for compliance. Designed for care.
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="card-border rounded-xl p-8 bg-surface-container fade-in">
+                    <div class="w-10 h-10 rounded-lg bg-accent-green/10 flex items-center justify-center mb-5">
+                        <svg class="w-5 h-5 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-3">Auto-Generated Care Plans</h3>
+                    <p class="body-md text-on-surface-variant">AI produces fully compliant care plans from resident profiles, assessments, and daily observations. Structured to CQC standards from the first draft.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="card-border rounded-xl p-8 bg-surface-container fade-in">
+                    <div class="w-10 h-10 rounded-lg bg-accent-blue/10 flex items-center justify-center mb-5">
+                        <svg class="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-3">Compliance Auditing</h3>
+                    <p class="body-md text-on-surface-variant">Continuous, real-time checks against regulatory frameworks. Catches gaps before they become inspection findings. Flags missing signatures, overdue reviews, and incomplete records.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="card-border rounded-xl p-8 bg-surface-container fade-in">
+                    <div class="w-10 h-10 rounded-lg bg-accent-purple/10 flex items-center justify-center mb-5">
+                        <svg class="w-5 h-5 text-accent-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-3">Version Control</h3>
+                    <p class="body-md text-on-surface-variant">Every change tracked with user, timestamp, and diff. Full audit trail from first draft to final sign-off. Roll back to any previous version instantly.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="card-border rounded-xl p-8 bg-surface-container fade-in">
+                    <div class="w-10 h-10 rounded-lg bg-accent-amber/10 flex items-center justify-center mb-5">
+                        <svg class="w-5 h-5 text-accent-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-3">Inspection Reports</h3>
+                    <p class="body-md text-on-surface-variant">Generate CQC-ready inspection reports in minutes. Collates evidence, populates frameworks, and produces submission-ready documents with supporting data.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="card-border rounded-xl p-8 bg-surface-container fade-in">
+                    <div class="w-10 h-10 rounded-lg bg-accent-green/10 flex items-center justify-center mb-5">
+                        <svg class="w-5 h-5 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-3">Voice-to-Document</h3>
+                    <p class="body-md text-on-surface-variant">Dictate observations, handover notes, or incident reports directly. Transcription converts speech to structured, formatted documents in real time.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="card-border rounded-xl p-8 bg-surface-container fade-in">
+                    <div class="w-10 h-10 rounded-lg bg-accent-blue/10 flex items-center justify-center mb-5">
+                        <svg class="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-3">System Integration</h3>
+                    <p class="body-md text-on-surface-variant">Connects to existing care management platforms, EPRs, and scheduling systems via API. Bi-directional sync keeps records consistent across your stack.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow -->
+    <section class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in mb-16">
+                <p class="label text-on-surface-variant mb-4">Workflow</p>
+                <h2 class="section-title text-on-surface max-w-lg">
+                    From observation to audit-ready.
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="fade-in relative">
+                    <div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center mb-5">
+                        <span class="font-mono text-on-surface-variant text-xs">01</span>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-2">Capture</h3>
+                    <p class="body-md text-on-surface-variant">Record observations via voice, text, or structured forms during care delivery.</p>
+                    <div class="hidden md:block absolute top-5 left-12 w-[calc(100%-48px)] h-px bg-outline-variant"></div>
+                </div>
+                <div class="fade-in relative">
+                    <div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center mb-5">
+                        <span class="font-mono text-on-surface-variant text-xs">02</span>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-2">Generate</h3>
+                    <p class="body-md text-on-surface-variant">AI structures raw input into compliant care records, plans, and risk assessments.</p>
+                    <div class="hidden md:block absolute top-5 left-12 w-[calc(100%-48px)] h-px bg-outline-variant"></div>
+                </div>
+                <div class="fade-in relative">
+                    <div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center mb-5">
+                        <span class="font-mono text-on-surface-variant text-xs">03</span>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-2">Audit</h3>
+                    <p class="body-md text-on-surface-variant">Continuous compliance checks flag gaps and missing elements in real time.</p>
+                    <div class="hidden md:block absolute top-5 left-12 w-[calc(100%-48px)] h-px bg-outline-variant"></div>
+                </div>
+                <div class="fade-in">
+                    <div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center mb-5">
+                        <span class="font-mono text-on-surface-variant text-xs">04</span>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-2">Report</h3>
+                    <p class="body-md text-on-surface-variant">Generate inspection-ready reports with full evidence chains and audit trails.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glow Line -->
+    <div class="glow-line"></div>
+
+    <!-- Compliance Specs -->
+    <section class="py-24 bg-surface-container-low">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in mb-16">
+                <p class="label text-on-surface-variant mb-4">Compliance Specifications</p>
+                <h2 class="section-title text-on-surface max-w-lg">
+                    Built to the standard. Not around it.
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card-border rounded-xl p-8 bg-surface-container fade-in">
+                    <div class="w-8 h-8 rounded-lg bg-accent-green/10 flex items-center justify-center mb-4">
+                        <svg class="w-4 h-4 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-2">CQC Aligned</h3>
+                    <p class="body-md text-on-surface-variant">Every template and output maps directly to CQC key lines of enquiry. Documentation meets inspection standards by default.</p>
+                </div>
+                <div class="card-border rounded-xl p-8 bg-surface-container fade-in">
+                    <div class="w-8 h-8 rounded-lg bg-accent-blue/10 flex items-center justify-center mb-4">
+                        <svg class="w-4 h-4 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-2">GDPR Compliant</h3>
+                    <p class="body-md text-on-surface-variant">End-to-end encryption. Data residency in UK. Role-based access controls and automatic data retention policies enforced.</p>
+                </div>
+                <div class="card-border rounded-xl p-8 bg-surface-container fade-in">
+                    <div class="w-8 h-8 rounded-lg bg-accent-amber/10 flex items-center justify-center mb-4">
+                        <svg class="w-4 h-4 text-accent-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-2">Audit Trail</h3>
+                    <p class="body-md text-on-surface-variant">Immutable, tamper-evident logs of every document action. Who changed what, when, and why — fully traceable for inspections.</p>
+                </div>
+                <div class="card-border rounded-xl p-8 bg-surface-container fade-in">
+                    <div class="w-8 h-8 rounded-lg bg-accent-purple/10 flex items-center justify-center mb-4">
+                        <svg class="w-4 h-4 text-accent-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-on-surface mb-2">Evidence-Based</h3>
+                    <p class="body-md text-on-surface-variant">Every recommendation backed by source data. Full citation chain from observation to generated record. Nothing unexplained.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="card-border rounded-2xl p-16 bg-surface-container text-center fade-in scanline-bg">
+                <div class="relative z-10">
+                    <p class="label text-accent-green mb-4">Get Started</p>
+                    <h2 class="section-title text-on-surface mb-6">
+                        Stop writing reports.<br>Start delivering care.
+                    </h2>
+                    <p class="body-lg text-on-surface-variant max-w-lg mx-auto mb-10">
+                        Flowstate Compliance is available for care providers across the UK. Request access for your organisation.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="#" class="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-on-primary rounded-lg font-medium text-sm tracking-wide hover:opacity-90 transition-opacity">
+                            Request Access
+                        </a>
+                        <a href="#" class="inline-flex items-center justify-center px-8 py-3.5 border border-outline-variant text-on-surface-variant rounded-lg font-medium text-sm tracking-wide hover:border-outline hover:text-on-surface transition-all">
+                            View Documentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-outline-variant">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-6">
+                    <span class="text-on-surface font-medium text-sm">Aultrum</span>
+                    <a href="../index.html" class="text-on-surface-variant hover:text-on-surface text-sm transition-colors">Flowstate</a>
+                    <a href="#" class="text-on-surface-variant hover:text-on-surface text-sm transition-colors">Privacy</a>
+                    <a href="#" class="text-on-surface-variant hover:text-on-surface text-sm transition-colors">Terms</a>
+                </div>
+                <p class="telemetry text-on-surface-variant">© 2026 Aultrum. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fade-in Observer -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px',
+            });
+
+            document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>

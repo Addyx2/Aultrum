@@ -2,3 +2,8 @@ node_modules
 dist
 .env
 .DS_Store
+_archive/
+aultrum_landing_page/
+flowstate/
+fundraising/
+voice_demo/

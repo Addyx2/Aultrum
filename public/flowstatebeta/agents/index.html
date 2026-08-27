@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Flowstate Agents | AI Care Agents | Flowstate Beta</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config={darkMode:"class",theme:{extend:{colors:{surface:"#0e0e0e","surface-dim":"#0e0e0e","surface-bright":"#393939","surface-container-lowest":"#070708","surface-container-low":"#111111","surface-container":"#1a1a1a","surface-container-high":"#222222","surface-container-highest":"#2c2c2c","on-surface":"#e2e2e2","on-surface-variant":"#a0a0a0",outline:"#3a3a3a","outline-variant":"#2a2a2a",primary:"#ffffff","on-primary":"#0e0e0e","accent-blue":"#4a9eff","accent-green":"#00e676","accent-amber":"#ffb800","accent-red":"#ff5252","accent-purple":"#b388ff"},fontFamily:{display:["Inter"],body:["Inter"],mono:["JetBrains Mono"]},fontSize:{hero:["64px",{lineHeight:"1.05",letterSpacing:"-0.04em",fontWeight:"200"}],"hero-mobile":["36px",{lineHeight:"1.1",letterSpacing:"-0.03em",fontWeight:"300"}],"section-title":["40px",{lineHeight:"1.15",letterSpacing:"-0.03em",fontWeight:"200"}],"card-title":["20px",{lineHeight:"1.3",letterSpacing:"-0.02em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"1.6",letterSpacing:"0em",fontWeight:"300"}],"body-md":["15px",{lineHeight:"1.6",letterSpacing:"0.01em",fontWeight:"400"}],label:["11px",{lineHeight:"1.4",letterSpacing:"0.12em",fontWeight:"500"}],telemetry:["10px",{lineHeight:"1",letterSpacing:"0.06em",fontWeight:"400"}]}}}}
+</script>
+<style>
+body{background-color:#070708;color:#e2e2e2}
+.card-border{border:1px solid #2a2a2a}.card-border:hover{border-color:#4a9eff}
+.glow-line{height:1px;background:linear-gradient(90deg,transparent,rgba(74,158,255,0.3),transparent)}
+.telemetry-dot{width:6px;height:6px;border-radius:50%}
+.scanline-bg{background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,0.015) 2px,rgba(255,255,255,0.015) 4px)}
+.fade-in{opacity:0;transform:translateY(16px);transition:all .6s ease}.fade-in.visible{opacity:1;transform:translateY(0)}
+.product-card{transition:all .3s ease}.product-card:hover{transform:translateY(-2px);border-color:#4a9eff}
+</style>
+</head>
+<body class="font-body antialiased selection:bg-accent-blue selection:text-white">
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant">
+<div class="max-w-[1400px] mx-auto px-6 md:px-16 h-16 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<a href="../../index.html" class="font-mono text-label tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">AULTRUM</a>
+<span class="text-outline">/</span>
+<a href="../index.html" class="font-mono text-label tracking-[0.15em] text-on-surface-variant hover:text-primary transition-colors">FLOWSTATE</a>
+<span class="text-outline">/</span>
+<span class="font-mono text-label tracking-[0.15em] text-primary">AGENTS</span>
+<span class="telemetry-dot bg-accent-green"></span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a href="#products" class="font-mono text-telemetry text-on-surface-variant hover:text-primary transition-colors">PRODUCTS</a>
+<a href="#how-it-works" class="font-mono text-telemetry text-on-surface-variant hover:text-primary transition-colors">HOW IT WORKS</a>
+<a href="#compliance" class="font-mono text-telemetry text-on-surface-variant hover:text-primary transition-colors">COMPLIANCE</a>
+</div>
+<button class="font-mono text-label px-4 py-2 border border-outline hover:bg-white hover:text-black transition-all">BOOK DEMO</button>
+</div>
+</nav>
+<main class="pt-16">
+
+<!-- Hero -->
+<section class="min-h-screen flex flex-col justify-center px-6 md:px-16 relative scanline-bg">
+<div class="max-w-[900px]">
+<div class="font-mono text-telemetry text-on-surface-variant mb-6 tracking-widest"><span class="text-accent-blue">FLOWSTATE</span> / <span class="text-accent-blue">AGENTS</span> // AI_CARE_AGENTS</div>
+<h1 class="font-display text-hero text-hero-mobile text-primary mb-8">AI agents that never clock out.</h1>
+<p class="font-body text-body-lg text-on-surface-variant max-w-[640px] mb-12">Flowstate Agents combine Dialogue and Runners — your always-on contact centre and intelligent field operations. One sub-product, complete coverage.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary font-mono text-label px-8 py-3 hover:opacity-90 transition-opacity">BOOK A DEMO</button>
+<button class="border border-outline text-primary font-mono text-label px-8 py-3 hover:bg-surface-container transition-colors">VIEW PRODUCTS</button>
+</div>
+</div>
+</section>
+
+<!-- Products -->
+<section id="products" class="py-24 md:py-32 px-6 md:px-16 border-y border-outline-variant fade-in">
+<div class="max-w-[1400px] mx-auto">
+<div class="font-mono text-telemetry text-on-surface-variant mb-4 tracking-widest"><span class="text-accent-blue">01</span> // PRODUCTS</div>
+<h2 class="font-display text-section-title text-primary mb-16">Two agents. Complete coverage.</h2>
+<div class="grid md:grid-cols-2 gap-6">
+
+<a href="dialogue/index.html" class="product-card card-border bg-surface-container-low p-10 block relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-accent-blue/5 to-transparent pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 border border-accent-blue/30 flex items-center justify-center"><span class="material-symbols-outlined text-[24px] text-accent-blue">call</span></div>
+<div><span class="font-mono text-label tracking-[0.15em] text-primary">DIALOGUE</span><span class="font-mono text-telemetry text-accent-blue ml-2">VOICE_AI</span></div>
+</div>
+<h3 class="font-display text-[28px] text-primary mb-4">Always-On Contact Centre</h3>
+<p class="font-body text-body-lg text-on-surface-variant mb-8">AI agents that answer calls 24/7. Handle enquiries, book clients, and escalate complex cases. Never miss a client again.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">VOICE_SYNTHESIS</span>
+<span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">NLU</span>
+<span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">24_7</span>
+<span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">CQC</span>
+</div>
+<div class="flex items-center gap-2 font-mono text-label text-accent-blue">EXPLORE DIALOGUE<span class="material-symbols-outlined text-[16px]">arrow_forward</span></div>
+</div>
+</a>
+
+<a href="runners/index.html" class="product-card card-border bg-surface-container-low p-10 block relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-accent-amber/5 to-transparent pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 border border-accent-amber/30 flex items-center justify-center"><span class="material-symbols-outlined text-[24px] text-accent-amber">directions_run</span></div>
+<div><span class="font-mono text-label tracking-[0.15em] text-primary">RUNNERS</span><span class="font-mono text-telemetry text-accent-amber ml-2">FIELD_AI</span></div>
+</div>
+<h3 class="font-display text-[28px] text-primary mb-4">Intelligent Field Operations</h3>
+<p class="font-body text-body-lg text-on-surface-variant mb-8">AI agents that manage care worker scheduling, route optimisation, and real-time field coordination.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">ROUTE_AI</span>
+<span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">SCHEDULING</span>
+<span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">GPS_TRACK</span>
+<span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">REAL_TIME</span>
+</div>
+<div class="flex items-center gap-2 font-mono text-label text-accent-amber">EXPLORE RUNNERS<span class="material-symbols-outlined text-[16px]">arrow_forward</span></div>
+</div>
+</a>
+
+</div>
+</div>
+</section>
+
+<!-- How It Works -->
+<section id="how-it-works" class="py-24 md:py-32 px-6 md:px-16 border-b border-outline-variant bg-surface-container-lowest scanline-bg fade-in">
+<div class="max-w-[1400px] mx-auto">
+<div class="font-mono text-telemetry text-on-surface-variant mb-4 tracking-widest"><span class="text-accent-blue">02</span> // HOW_IT_WORKS</div>
+<h2 class="font-display text-section-title text-primary mb-16">Deploy agents in three steps</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="relative"><div class="font-mono text-[60px] text-outline-variant font-light leading-none mb-4">01</div><div class="glow-line mb-4"></div><h3 class="font-display text-card-title text-primary mb-2">Connect</h3><p class="font-body text-body-md text-on-surface-variant">Forward your phone lines and connect your care management system. Zero disruption to your existing operations.</p></div>
+<div class="relative"><div class="font-mono text-[60px] text-outline-variant font-light leading-none mb-4">02</div><div class="glow-line mb-4"></div><h3 class="font-display text-card-title text-primary mb-2">Configure</h3><p class="font-body text-body-md text-on-surface-variant">Define care services, booking protocols, escalation rules, and routing parameters. Your agents learn your exact requirements.</p></div>
+<div class="relative"><div class="font-mono text-[60px] text-outline-variant font-light leading-none mb-4">03</div><div class="glow-line mb-4"></div><h3 class="font-display text-card-title text-primary mb-2">Deploy</h3><p class="font-body text-body-md text-on-surface-variant">Go live in hours, not weeks. AI agents handle contact and field operations around the clock.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Compliance -->
+<section id="compliance" class="py-24 md:py-32 px-6 md:px-16 border-b border-outline-variant fade-in">
+<div class="max-w-[1400px] mx-auto">
+<div class="font-mono text-telemetry text-on-surface-variant mb-4 tracking-widest"><span class="text-accent-green">03</span> // COMPLIANCE</div>
+<h2 class="font-display text-section-title text-primary mb-4">Audit-ready by design</h2>
+<p class="font-body text-body-lg text-on-surface-variant max-w-[600px] mb-16">Every agent interaction meets the highest standards of care regulation and data protection.</p>
+<div class="grid md:grid-cols-4 gap-px bg-outline-variant">
+<div class="bg-surface-container-lowest p-8"><div class="font-mono text-telemetry text-accent-blue mb-3">COMP_01</div><h3 class="font-display text-card-title text-primary mb-3">CQC Ready</h3><p class="font-body text-body-md text-on-surface-variant">End-to-end encryption and audit trails compliant with CQC Digital Care standards.</p></div>
+<div class="bg-surface-container-lowest p-8"><div class="font-mono text-telemetry text-accent-green mb-3">COMP_02</div><h3 class="font-display text-card-title text-primary mb-3">GDPR Enhanced</h3><p class="font-body text-body-md text-on-surface-variant">Zero-retention LLM processing and localised data storage for sensitive care data.</p></div>
+<div class="bg-surface-container-lowest p-8"><div class="font-mono text-telemetry text-accent-amber mb-3">COMP_03</div><h3 class="font-display text-card-title text-primary mb-3">DTAC Aligned</h3><p class="font-body text-body-md text-on-surface-variant">NHS Digital Technology Assessment Criteria for clinical safety and technical stability.</p></div>
+<div class="bg-surface-container-lowest p-8"><div class="font-mono text-telemetry text-accent-purple mb-3">COMP_04</div><h3 class="font-display text-card-title text-primary mb-3">DSP Toolkit</h3><p class="font-body text-body-md text-on-surface-variant">Annual Data Security and Protection Toolkit at Standards Met level.</p></div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 md:py-32 px-6 md:px-16 text-center fade-in">
+<div class="max-w-[700px] mx-auto">
+<div class="font-mono text-telemetry text-on-surface-variant/30 mb-8 tracking-[0.4em]">DEPLOY_AGENTS</div>
+<h2 class="font-display text-section-title text-primary mb-6">Ready to deploy your AI care agents?</h2>
+<p class="font-body text-body-lg text-on-surface-variant mb-12">Book a demo. See how Dialogue and Runners work together to create always-on care operations.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="bg-primary text-on-primary font-mono text-label px-10 py-4 hover:opacity-90 transition-opacity">BOOK A DEMO</button>
+<button class="border border-outline text-primary font-mono text-label px-10 py-4 hover:bg-surface-container transition-colors">CONTACT SALES</button>
+</div>
+</div>
+</section>
+
+<footer class="border-t border-outline-variant bg-surface-container-lowest">
+<div class="max-w-[1400px] mx-auto px-6 md:px-16 py-12">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-4">
+<a href="../../index.html" class="font-mono text-label tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">AULTRUM</a>
+<span class="text-outline">/</span>
+<a href="../index.html" class="font-mono text-label tracking-[0.15em] text-on-surface-variant hover:text-primary transition-colors">FLOWSTATE</a>
+<span class="text-outline">/</span>
+<span class="font-mono text-label tracking-[0.15em] text-primary">AGENTS</span>
+</div>
+<div class="font-mono text-telemetry text-on-surface-variant/40">&copy; 2026 Aultrum Technologies Ltd.</div>
+</div>
+</div>
+</footer>
+</main>
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
