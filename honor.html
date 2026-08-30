@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Geist:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Honor | The Carer's App" />
+<meta property="og:description" content="Live CV, verified references, and recognition for professional caregivers — inside Flowstate." />
+<link rel="stylesheet" href="./index.css">
+<title>Honor | The Carer's App</title>
+<script>document.addEventListener("DOMContentLoaded", () => document.body.classList.add("loaded"));</script>
+<script type="module" src="./main.js"></script>
+<style>
+  .honor-accent { color: #e6b356; }
+  .honor-border { border-color: rgba(230,179,86,0.25); }
+  .honor-glow:hover { box-shadow: 0 0 24px rgba(230,179,86,0.18); border-color: rgba(230,179,86,0.5); }
+</style>
+</head>
+<body class="font-body-md text-on-surface flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/5 shadow-sm">
+<div class="flex justify-between items-center px-container-padding h-20 max-w-7xl mx-auto w-full">
+<div class="flex items-center gap-3">
+<a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity"><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Aultrum</span></a>
+<span class="text-outline-variant">/</span>
+<a href="honor.html" class="font-headline-md text-headline-md tracking-tight honor-accent hover:opacity-90 transition-opacity">Honor</a>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold transition-colors duration-300" href="apply.html">Pioneer</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="flowstatebeta/">Flowstate Beta</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="https://research.aultrum.co.uk">Research</a>
+<a href="#apply" class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm transition-all duration-200 active:scale-95 text-center inline-block">Download</a>
+</nav>
+</div>
+</header>
+<main class="flex-grow">
+
+<!-- Hero -->
+<section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20 md:py-32">
+<div class="absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(230,179,86,0.10),transparent_60%)]"></div>
+<div class="relative z-10 max-w-4xl mx-auto px-container-padding text-center">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card mb-8">
+<span class="intelligence-node honor-accent" style="background:#e6b356;box-shadow:0 0 10px rgba(230,179,86,.6)"></span>
+<span class="font-label-sm honor-accent uppercase tracking-widest">honor · for professional caregivers</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 leading-tight">A career in care,<br><i class="honor-accent">proven and portable.</i></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">Honor is the professional caregiver's app, inside Flowstate. Live CV, verified references, and recognition that travels with you — between jobs, between employers, for life.</p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-4">
+<a href="https://flowstate.aultrum.co.uk/honor" class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-sm text-lg hover:bg-white transition-colors text-center inline-block shadow-[0_0_20px_rgba(230,179,86,0.25)]">Open Honor</a>
+<a href="#features" class="glass-card reveal-on-scroll text-on-surface px-10 py-4 rounded-full font-label-sm text-lg glow-hover transition-all text-center inline-block">What it is</a>
+</div>
+</div>
+</section>
+
+<!-- What Honor is -->
+<section id="features" class="py-section-gap max-w-7xl mx-auto px-container-padding">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Built for the person who delivers the care.</h2>
+<p class="font-body-md text-on-surface-variant max-w-xl mx-auto">Every carer is a professional with a record of their quality. Honor makes that record real — and it belongs to them.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="group">
+<div class="glass-card reveal-on-scroll rounded-xl p-stack-lg h-full relative overflow-hidden honor-glow transition-all duration-500">
+<span class="material-symbols-outlined honor-accent text-4xl mb-6">badge</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Live CV</h3>
+<p class="font-body-md text-on-surface-variant">Always-current proof of skills, qualifications, rating, and tier. Portable across employers.</p>
+</div>
+</div>
+<div class="group">
+<div class="glass-card reveal-on-scroll rounded-xl p-stack-lg h-full relative overflow-hidden honor-glow transition-all duration-500">
+<span class="material-symbols-outlined honor-accent text-4xl mb-6">verified_user</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Verified References</h3>
+<p class="font-body-md text-on-surface-variant">Real-time references from managers and the people you care for. Verifiable, never fabricated.</p>
+</div>
+</div>
+<div class="group">
+<div class="glass-card reveal-on-scroll rounded-xl p-stack-lg h-full relative overflow-hidden honor-glow transition-all duration-500">
+<span class="material-symbols-outlined honor-accent text-4xl mb-6">workspace_premium</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Chorals &amp; Tiers</h3>
+<p class="font-body-md text-on-surface-variant">Applause becomes a choral — recognition converted to points, and points to standing, tier, and growth.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- How it works -->
+<section class="py-section-gap bg-surface-container-low/50">
+<div class="max-w-7xl mx-auto px-container-padding">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Your work, one place.</h2>
+<p class="font-body-md text-on-surface-variant max-w-xl mx-auto">Inside Flowstate, not a separate app. Like Calendar inside Outlook.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="relative">
+<div class="text-6xl font-display-lg honor-accent/40 mb-4 italic">01</div>
+<h4 class="font-headline-md text-on-surface mb-2">Prove it</h4>
+<p class="text-on-surface-variant text-sm">Your Live CV and references — built from real work, verifiable at a glance.</p>
+</div>
+<div class="relative">
+<div class="text-6xl font-display-lg honor-accent/40 mb-4 italic">02</div>
+<h4 class="font-headline-md text-on-surface mb-2">Own it</h4>
+<p class="text-on-surface-variant text-sm">Recognition and tier travel with you. Change agencies without losing your record.</p>
+</div>
+<div class="relative">
+<div class="text-6xl font-display-lg honor-accent/40 mb-4 italic">03</div>
+<h4 class="font-headline-md text-on-surface mb-2">Grow it</h4>
+<p class="text-on-surface-variant text-sm">Chorals convert to training and growth at a discount. A career that compounds.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section id="apply" class="py-section-gap">
+<div class="max-w-3xl mx-auto px-container-padding text-center">
+<div class="glass-card reveal-on-scroll rounded-3xl p-stack-lg md:p-16 relative overflow-hidden honor-border">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-6">Ready to own your proof?</h2>
+<p class="font-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">Honor ships inside Flowstate. Open it from your Flowstate account — no second install.</p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-4">
+<a href="https://flowstate.aultrum.co.uk/honor" class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-sm text-lg hover:bg-white transition-colors text-center inline-block">Open Honor</a>
+<a href="flowstatebeta/" class="glass-card text-on-surface px-10 py-4 rounded-full font-label-sm text-lg glow-hover transition-all text-center inline-block">Explore Flowstate Beta</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="w-full relative bg-surface-container-lowest border-t border-white/5 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center px-container-padding py-stack-lg max-w-7xl mx-auto w-full">
+<div class="mb-8 md:mb-0">
+<div class="flex items-center gap-3 mb-4">
+<a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity"><span class="font-headline-md text-headline-md text-on-surface">Aultrum</span></a>
+<span class="text-outline-variant">/</span>
+<span class="font-headline-md text-headline-md honor-accent">Honor</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+  © 2026 Aultrum. All rights reserved. Proactive care through Empathetic Intelligence.
+</p>
+</div>
+<div class="flex flex-wrap items-center gap-x-12 gap-y-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="flowstatebeta/">Flowstate</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="honor.html">Honor</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="privacy.html">Privacy Policy</a>
+<a href="manifesto.html" class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm transition-all duration-200 active:scale-95 text-center inline-block">Manifesto</a>
+</div>
+</div>
+</footer>
+</body>
+</html>
