@@ -6,6 +6,7 @@ export default {
     "./apply.html",
     "./success.html",
     "./privacy.html",
+    "./honor.html",
     "./**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
