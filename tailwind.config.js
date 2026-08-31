@@ -7,12 +7,20 @@ export default {
     "./success.html",
     "./privacy.html",
     "./honor.html",
+    "./shop.html",
+    "./research/**/*.html",
+    "./flowstatebeta/**/*.html",
     "./**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
     extend: {
       "colors": {
+        "accent-blue": "#4a9eff",
+        "accent-green": "#00e676",
+        "accent-amber": "#ffb800",
+        "accent-red": "#ff5252",
+        "accent-purple": "#b388ff",
         "surface-tint": "#c6c6cc",
         "primary-fixed": "#e2e2e8",
         "on-tertiary-container": "#827970",
@@ -94,7 +102,8 @@ export default {
         "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
         "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
         "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+        "telemetry": ["10px", {"lineHeight": "1", "letterSpacing": "0.06em", "fontWeight": "400"}]
       }
     },
   },

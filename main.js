@@ -57,3 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+import { initGooseParticles } from './particles.js';
+initGooseParticles();

@@ -38,6 +38,7 @@
 <div class="absolute inset-0 z-0">
 <img class="w-full h-full object-cover animate-[pulse_10s_ease-in-out_infinite]" alt="A cinematic, high-definition visualization of a deep midnight blue nebula with ethereal light trails and glowing geometric patterns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzPPONg8dqGYqFQVBZO925S5app8IffwStTVF1AuyS3errMJZ2d40cDRlngWoLkJLzstOuG4hSs77LAe6m3D4dNPZhtBRljYvtWqpWxJXbKdMMKxsDhWiS6HhwW-bS1txVV-VsorFPk_Ne5wetmz8IQyC5OyyH7Lt5QM-8LVTm1wRvUnmv3mLFVaLcTpJund7ziF1p6BvCf3L1zvESJn5YnlYT24CUdl8GQKhUjjOM81zRHBXuhu6rLCMRFQqR1lOHu4CdZfAW6wU">
 <div class="absolute inset-0 cinematic-overlay"></div>
+<canvas id="gooseCanvas" class="absolute inset-0 z-0 w-full h-full opacity-60 pointer-events-none"></canvas>
 </div>
 <div class="relative z-10 max-w-5xl mx-auto px-container-padding text-center">
 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card mb-8 animate-[bounce_3s_infinite]">
@@ -112,6 +113,49 @@
 </div>
 </div>
 </section>
+<!-- Flowstate Architecture -->
+<section class="py-section-gap max-w-7xl mx-auto px-container-padding">
+<div class="text-center mb-16">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card mb-4">
+<span class="material-symbols-outlined text-primary text-sm">memory</span>
+<span class="font-label-sm text-primary uppercase tracking-widest">Flowstate Runners</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Context-Aware AI Workforce</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">Our Runners don't just read scripts—they connect directly to your agency's knowledge base and live rostering systems to triage, qualify, and secure care placements automatically.</p>
+</div>
+<div class="glass-card rounded-3xl p-8 md:p-12 border border-outline-variant/30 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center relative z-10 text-center md:text-left">
+    <!-- Step 1 -->
+    <div class="flex flex-col items-center md:items-start gap-4">
+        <div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center border border-outline-variant shadow-lg">
+            <span class="material-symbols-outlined text-on-surface text-2xl">record_voice_over</span>
+        </div>
+        <h4 class="font-headline-md text-on-surface">1. Voice Triage</h4>
+        <p class="text-on-surface-variant text-sm">A family calls out-of-hours. The Receptionist Runner answers instantly with empathy, capturing specific clinical and logistical requirements.</p>
+    </div>
+    <!-- Step 2 -->
+    <div class="flex flex-col items-center md:items-start gap-4 relative">
+        <div class="hidden md:block absolute top-8 -left-8 w-12 border-t-2 border-dashed border-primary/40"></div>
+        <div class="hidden md:block absolute top-8 -right-8 w-12 border-t-2 border-dashed border-primary/40"></div>
+        <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center border border-primary glow-hover shadow-[0_0_20px_rgba(var(--color-primary),0.3)]">
+            <span class="material-symbols-outlined text-primary text-2xl">database</span>
+        </div>
+        <h4 class="font-headline-md text-on-surface">2. RAG Knowledge Base</h4>
+        <p class="text-on-surface-variant text-sm">In milliseconds, the Runner queries your bespoke Vector Database—reading your CQC policies, service lists, and pricing brochures to answer accurately.</p>
+    </div>
+    <!-- Step 3 -->
+    <div class="flex flex-col items-center md:items-start gap-4">
+        <div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center border border-outline-variant shadow-lg">
+            <span class="material-symbols-outlined text-on-surface text-2xl">api</span>
+        </div>
+        <h4 class="font-headline-md text-on-surface">3. Live API Integration</h4>
+        <p class="text-on-surface-variant text-sm">The Runner pings your CRM and Rostering software via API to confirm live capacity in a specific postcode, securing the private client lead immediately.</p>
+    </div>
+</div>
+</div>
+</section>
+
 <!-- Trust & Compliance -->
 <section class="py-section-gap" id="trust-and-compliance">
 <div class="max-w-5xl mx-auto px-container-padding text-center">
@@ -136,66 +180,7 @@
 </section>
 </main>
 <!-- Footer -->
-<footer class="w-full relative bg-surface-container-lowest border-t border-white/5 mt-auto z-20">
-<div class="max-w-7xl mx-auto px-container-padding pt-stack-lg pb-8 w-full">
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
-<div class="col-span-2 lg:col-span-2">
-<div class="flex items-center gap-3 mb-4">
-<a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity"><span class="font-headline-md text-headline-md text-on-surface">Aultrum</span></a>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mb-6">Proactive care through Empathetic Intelligence. AI-native infrastructure for social care.</p>
-<div class="flex flex-col gap-2">
-<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="https://x.com"><span class="material-symbols-outlined text-[18px]">alternate_email</span>X (Twitter)</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="https://instagram.com"><span class="material-symbols-outlined text-[18px]">photo_camera</span>Instagram</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="https://linkedin.com"><span class="material-symbols-outlined text-[18px]">link</span>LinkedIn</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="https://youtube.com"><span class="material-symbols-outlined text-[18px]">smart_display</span>YouTube</a>
-</div>
-</div>
-<div>
-<h4 class="font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-widest mb-4">Products</h4>
-<div class="flex flex-col gap-2">
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="flowstatebeta/">Flowstate</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="honor.html">Honor</a>
-<span class="text-on-surface-variant/50 cursor-default">Drive <span class="font-label-sm text-label-sm text-on-surface-variant/40 uppercase">(coming soon)</span></span>
-<span class="text-on-surface-variant/50 cursor-default">Tender <span class="font-label-sm text-label-sm text-on-surface-variant/40 uppercase">(coming soon)</span></span>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="flowstatebeta/pricing/index.html">Pricing</a>
-</div>
-</div>
-<div>
-<h4 class="font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-widest mb-4">Resources</h4>
-<div class="flex flex-col gap-2">
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="research/index.html">Blog</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="shop.html">Merch</a>
-<span class="text-on-surface-variant/50 cursor-default">Case Studies <span class="font-label-sm text-label-sm text-on-surface-variant/40 uppercase">(coming soon)</span></span>
-<span class="text-on-surface-variant/50 cursor-default">Events <span class="font-label-sm text-label-sm text-on-surface-variant/40 uppercase">(coming soon)</span></span>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="research/index.html">Research</a>
-<span class="text-on-surface-variant/50 cursor-default">Engineering &amp; Design <span class="font-label-sm text-label-sm text-on-surface-variant/40 uppercase">(coming soon)</span></span>
-</div>
-</div>
-<div>
-<h4 class="font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-widest mb-4">Company</h4>
-<div class="flex flex-col gap-2">
-<span class="text-on-surface-variant/50 cursor-default">About <span class="font-label-sm text-label-sm text-on-surface-variant/40 uppercase">(coming soon)</span></span>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="manifesto.html">Manifesto</a>
-<span class="text-on-surface-variant/50 cursor-default">Careers <span class="font-label-sm text-label-sm text-on-surface-variant/40 uppercase">(coming soon)</span></span>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="apply.html">Contact</a>
-</div>
-</div>
-<div>
-<h4 class="font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-widest mb-4">Privacy</h4>
-<div class="flex flex-col gap-2">
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="privacy.html">Privacy Policy</a>
-<span class="text-on-surface-variant/50 cursor-default">Terms <span class="font-label-sm text-label-sm text-on-surface-variant/40 uppercase">(coming soon)</span></span>
-<span class="text-on-surface-variant/50 cursor-default">Cookies <span class="font-label-sm text-label-sm text-on-surface-variant/40 uppercase">(coming soon)</span></span>
-</div>
-</div>
-</div>
-<div class="border-t border-white/5 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="font-body-md text-body-md text-on-surface-variant/60">  © 2026 Aultrum. All rights reserved. Proactive care through Empathetic Intelligence.</p>
-<a href="manifesto.html" class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm transition-all duration-200 active:scale-95 text-center inline-block">Manifesto</a>
-</div>
-</div>
-</footer>
+<load src="./components/footer.html" />
 <style>
 @keyframes fade-in-up {
   0% { opacity: 0; transform: translateY(20px); }
