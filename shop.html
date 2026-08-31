@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="description" content="Official Aultrum, Flowstate, and Honor merch. Wear the brand behind AI-native social care.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=EB+Garamond:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<title>Aultrum Merch | Shop</title>
+<link rel="stylesheet" href="./index.css">
+<script>document.addEventListener("DOMContentLoaded", () => document.body.classList.add("loaded"));</script>
+<style>
+  .mk { color: #c6c6cc; }
+  .gold { color: #e6b356; }
+  .prod-card { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+  .prod-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -20px rgba(0,0,0,0.6); border-color: rgba(255,255,255,0.18); }
+  .qty-btn { cursor: pointer; user-select: none; }
+</style>
+</head>
+<body class="font-body-md text-on-surface flex flex-col min-h-screen bg-background">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/5 shadow-sm">
+<div class="flex justify-between items-center px-container-padding h-20 max-w-7xl mx-auto w-full">
+<div class="flex items-center gap-2">
+<a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity"><span class="font-headline-md text-headline-md tracking-tight text-on-surface display-text font-bold">Aultrum</span></a>
+<span class="text-outline-variant">/</span>
+<a href="shop.html" class="font-headline-md text-headline-md tracking-tight mk hover:opacity-90 transition-opacity">Shop</a>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="research/index.html">Research</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="honor.html">Honor</a>
+<a href="index.html#manifesto" class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm transition-all duration-200 active:scale-95 text-center inline-block">Manifesto</a>
+</nav>
+</div>
+</header>
+
+<main class="flex-grow pt-[120px] pb-section-gap px-container-padding relative z-10">
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#c6c6cc 0.5px, transparent 0.5px); background-size: 40px 40px;"></div>
+<div class="max-w-7xl w-full mx-auto">
+<section class="mb-16">
+<div class="inline-flex items-center gap-2 bg-surface-container-high px-3 py-1.5 rounded-full w-fit border border-white/5 mb-8">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-[pulse_2s_infinite]"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.15em]">Official Store</span>
+</div>
+<h1 class="display-text text-display-lg text-on-surface leading-tight mb-6">Wear the <span class="italic">brand</span> behind AI-native care.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant scholarly-measure max-w-2xl">
+Aultrum, Flowstate, and Honor apparel and goods. Every purchase supports the mission — upgrading social care with Empathetic Intelligence.
+</p>
+<div class="flex items-center gap-4 mt-8" id="cartBar"></div>
+</section>
+
+<section id="catalog" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></section>
+
+<section class="mt-20">
+<div class="glass-panel rounded-xl p-8 md:p-12 max-w-3xl mx-auto text-center border border-white/10" id="checkoutWrap" style="display:none"></div>
+</section>
+
+<footer class="w-full relative bg-surface-container-lowest border-t border-white/5 mt-auto z-20 mt-24">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center px-container-padding py-stack-lg max-w-7xl mx-auto w-full">
+<div class="mb-8 md:mb-0">
+<div class="flex items-center gap-3 mb-4"><a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity"><span class="font-headline-md text-headline-md text-on-surface">Aultrum</span></a><span class="text-outline-variant">/</span><span class="font-headline-md text-headline-md mk">Shop</span></div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">© 2026 Aultrum. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap items-center gap-x-12 gap-y-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="research/index.html">Research</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="honor.html">Honor</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="privacy.html">Privacy Policy</a>
+<a href="manifesto.html" class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm transition-all duration-200 active:scale-95 text-center inline-block">Manifesto</a>
+</div>
+</div>
+</footer>
+</main>
+
+<script>
+const PRODUCTS = [
+  { id:"fs-tee", brand:"flowstate", name:"Flowstate Tee", price:25, desc:"Heavyweight organic cotton tee with the Flowstate wordmark in Obsidian Precision.", img:null },
+  { id:"aultrum-tee", brand:"aultrum", name:"Aultrum Garamond Tee", price:28, desc:"EB Garamond serif wordmark. The quiet confidence of the Aultrum brand.", img:null },
+  { id:"honor-gold", brand:"honor", name:"Honor Gold Cap", price:22, desc:"Embroidered Honor crest in gold on black. Wear the standard you earn.", img:null },
+  { id:"fs-mug", brand:"flowstate", name:"Telemetry Mug", price:18, desc:"Black 11oz mug with the Flowstate telemetry readout.", img:null },
+  { id:"aultrum-tote", brand:"aultrum", name:"Aultrum Canvas Tote", price:20, desc:"Heavy canvas tote. Carry the layers.", img:null },
+  { id:"honor-pin", brand:"honor", name:"Honor Enamel Pin", price:9, desc:"Gold enamel lapel pin. Silver / Gold / Platinum tier flair.", img:null },
+  { id:"layers-book", brand:"aultrum", name:"The Six Layers — Field Notes", price:24, desc:"Pocket field notes on the Aultrum Layers: Competence to Purpose.", img:null },
+  { id:"fs-hoodie", brand:"flowstate", name:"Flowstate Hoodie", price:55, desc:"Midweight fleece hoodie, embroidered chest mark.", img:null }
+];
+const BRAND_COLOR = { aultrum:"#c6c6cc", flowstate:"#4a9eff", honor:"#e6b356" };
+let cart = JSON.parse(localStorage.getItem("aultrum_cart") || "[]");
+
+function brandBadge(b){ return '<span class="inline-block px-2 py-0.5 rounded-full border font-label-sm text-label-sm uppercase tracking-widest mb-3" style="color:'+BRAND_COLOR[b]+';border-color:'+BRAND_COLOR[b]+'55">'+b+'</span>'; }
+function money(n){ return "£"+n.toFixed(2); }
+
+function renderCatalog(){
+  const el = document.getElementById("catalog");
+  el.innerHTML = PRODUCTS.map(p => `
+    <div class="prod-card glass-panel rounded-xl border border-white/10 overflow-hidden flex flex-col">
+      <div class="aspect-square w-full flex items-center justify-center" style="background:radial-gradient(circle at 50% 30%, #1c1b1c, #0e0e0e)">
+        <span class="font-headline-lg text-headline-lg display-text" style="color:${BRAND_COLOR[p.brand]}">${p.brand === "honor" ? "Honor" : p.brand === "flowstate" ? "Flowstate" : "Aultrum"}</span>
+      </div>
+      <div class="p-6 flex flex-col flex-1">
+        ${brandBadge(p.brand)}
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-1">${p.name}</h3>
+        <p class="font-body-sm text-body-md text-on-surface-variant text-sm mb-4 flex-1">${p.desc}</p>
+        <div class="flex items-center justify-between mt-auto">
+          <span class="font-headline-md text-headline-md mk">${money(p.price)}</span>
+          <button onclick="addToCart('${p.id}')" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 transition-opacity">Add</button>
+        </div>
+      </div>
+    </div>`).join("");
+}
+
+function addToCart(id){ const p = PRODUCTS.find(x=>x.id===id); const i = cart.find(c=>c.id===id); if(i) i.qty++; else cart.push({id, qty:1, name:p.name, price:p.price, brand:p.brand}); save(); }
+
+function save(){ localStorage.setItem("aultrum_cart", JSON.stringify(cart)); renderBar(); }
+
+function renderBar(){
+  const total = cart.reduce((s,c)=>s+c.price*c.qty,0);
+  const n = cart.reduce((s,c)=>s+c.qty,0);
+  document.getElementById("cartBar").innerHTML = `
+    <button onclick="toggleCheckout()" class="btn-primary-alto px-6 py-3 rounded-lg font-label-sm text-label-sm uppercase tracking-[0.2em]">Cart (${n}) — ${money(total)}</button>
+    ${cart.length ? '<button onclick="clearCart()" class="text-on-surface-variant hover:text-primary font-label-sm text-label-sm uppercase tracking-widest">Clear</button>' : ""}
+    ${cart.length ? `<button onclick="toggleCheckout()" class="ml-auto flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">shopping_bag</span></button>` : ""}
+  `;
+}
+
+function toggleCheckout(){
+  const w = document.getElementById("checkoutWrap");
+  if (w.style.display !== "block"){ w.style.display = "block"; renderCheckout(); }
+  else w.style.display = "none";
+}
+function clearCart(){ cart=[]; save(); document.getElementById("checkoutWrap").style.display="none"; }
+
+function renderCheckout(){
+  const total = cart.reduce((s,c)=>s+c.price*c.qty,0);
+  document.getElementById("checkoutWrap").innerHTML = `
+    <h3 class="display-text text-headline-lg text-on-surface mb-4">Your order</h3>
+    <div class="flex flex-col gap-3 text-left mb-8">
+      ${cart.map(c=>`<div class="flex items-center justify-between">
+        <span class="text-on-surface">${c.name}</span>
+        <span class="flex items-center gap-3">
+          <span class="qty-btn text-on-surface-variant" onclick="changeQty('${c.id}',-1)">−</span>
+          <span class="text-on-surface w-6 text-center">${c.qty}</span>
+          <span class="qty-btn text-on-surface-variant" onclick="changeQty('${c.id}',1)">+</span>
+          <span class="mk w-16 text-right">${money(c.price*c.qty)}</span>
+        </span>
+      </div>`).join("")}
+      <div class="border-t border-white/10 pt-3 flex justify-between text-on-surface"><span>Total</span><span>${money(total)}</span></div>
+    </div>
+    <form id="orderForm" class="flex flex-col gap-4 text-left">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input class="w-full bg-surface-container-lowest/50 border border-outline/20 px-4 py-3 rounded-lg" name="name" placeholder="Full name" required>
+        <input class="w-full bg-surface-container-lowest/50 border border-outline/20 px-4 py-3 rounded-lg" name="email" type="email" placeholder="Email" required>
+      </div>
+      <input class="w-full bg-surface-container-lowest/50 border border-outline/20 px-4 py-3 rounded-lg" name="address" placeholder="Shipping address" required>
+      <button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-sm text-label-sm uppercase tracking-widest">Place order</button>
+      <p class="font-label-sm text-label-sm text-on-surface-variant/50">Order confirmation is sent to your email. Fulfilled on demand.</p>
+    </form>
+  `;
+  document.getElementById("orderForm").addEventListener("submit", submitOrder);
+}
+function changeQty(id,d){ const i=cart.find(c=>c.id===id); if(!i)return; i.qty+=d; if(i.qty<=0) cart=cart.filter(c=>c.id!==id); save(); renderCheckout(); }
+
+async function submitOrder(e){
+  e.preventDefault();
+  const f = e.target;
+  const lineItems = cart.map(c=>`${c.qty} x ${c.name} (${money(c.price*c.qty)})`).join("\n");
+  const total = cart.reduce((s,c)=>s+c.price*c.qty,0);
+  const p = new FormData();
+  p.append("name", f.name.value); p.append("email", f.email.value);
+  p.append("address", f.address.value);
+  p.append("items", lineItems); p.append("total", money(total));
+  p.append("_subject", "[Aultrum Shop] New merch order");
+  try {
+    const r = await fetch("https://formsubmit.co/ajax/Wisdom@aultrum.co.uk", { method:"POST", headers:{Accept:"application/json"}, body:p });
+    if(r.ok){
+      document.getElementById("checkoutWrap").innerHTML =
+        '<span class="material-symbols-outlined text-primary text-6xl">check_circle</span>'+
+        '<h3 class="display-text text-headline-lg text-on-surface mt-4 mb-2">Order placed.</h3>'+
+        '<p class="text-on-surface-variant">We\'ll confirm by email and ship once printed.</p>';
+      cart=[]; save();
+    } else alert("There was an error placing your order. Please try again.");
+  } catch(err){ alert("Network error. Please try again."); }
+}
+
+renderCatalog();
+renderBar();
+</script>
+</body>
+</html>
