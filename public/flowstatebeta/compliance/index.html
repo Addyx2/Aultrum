@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -148,9 +148,6 @@
             .stat-number { font-size: 36px; }
         }
     </style>
-
-
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
 <body>
 
@@ -444,14 +441,19 @@ View Documentation
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-outline-variant bg-surface-container-lowest">
-<div class="max-w-[1400px] mx-auto px-6 md:px-16 py-12">
-<div class="flex flex-col md:flex-row justify-between items-center gap-4">
-<div class="flex items-center gap-4"><a href="../../index.html" class="font-mono text-label tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">AULTRUM</a><span class="text-outline">/</span><span class="font-mono text-label tracking-[0.15em] text-primary">FLOWSTATE</span></div>
-<div class="font-mono text-telemetry text-on-surface-variant/40">&copy; 2026 Aultrum Technologies Ltd.</div>
-</div>
-</div>
-</footer>
+    <footer class="py-12 border-t border-outline-variant">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-6">
+                    <span class="text-on-surface font-medium text-sm">Aultrum</span>
+                    <a href="../index.html" class="text-on-surface-variant hover:text-on-surface text-sm transition-colors">Flowstate</a>
+                    <a href="#" class="text-on-surface-variant hover:text-on-surface text-sm transition-colors">Privacy</a>
+                    <a href="#" class="text-on-surface-variant hover:text-on-surface text-sm transition-colors">Terms</a>
+                </div>
+                <p class="telemetry text-on-surface-variant">© 2026 Aultrum. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Fade-in Observer -->
     <script>
