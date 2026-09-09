@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Peak | Flowstate — Recognition that Pays</title>
+<meta name="description" content="Peak is Flowstate's recognition and rewards engine for social care workers. Earn points for shifts, spare points, cash out or spend on benefits. No compliance constraint.">
+<meta name="robots" content="index,follow">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config={darkMode:"class",theme:{extend:{colors:{surface:"#0e0e0e","surface-dim":"#0e0e0e","surface-bright":"#393939","surface-container-lowest":"#070708","surface-container-low":"#111111","surface-container":"#1a1a1a","surface-container-high":"#222222","surface-container-highest":"#2c2c2c","on-surface":"#e2e2e2","on-surface-variant":"#a0a0a0",outline:"#3a3a3a","outline-variant":"#2a2a2a",primary:"#ffffff","on-primary":"#0e0e0e","accent-blue":"#4a9eff","accent-green":"#00e676","accent-amber":"#ffb800","accent-red":"#ff5252","accent-purple":"#b388ff","cloud-white":"#f0f2f5","cloud-grey":"#c8ccd2"},fontFamily:{display:["Inter"],body:["Inter"],mono:["JetBrains Mono"]},fontSize:{hero:["64px",{lineHeight:"1.05",letterSpacing:"-0.04em",fontWeight:"200"}],"hero-mobile":["36px",{lineHeight:"1.1",letterSpacing:"-0.03em",fontWeight:"300"}],"section-title":["40px",{lineHeight:"1.15",letterSpacing:"-0.03em",fontWeight:"200"}],"card-title":["20px",{lineHeight:"1.3",letterSpacing:"-0.02em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"1.6",letterSpacing:"0em",fontWeight:"300"}],"body-md":["15px",{lineHeight:"1.6",letterSpacing:"0.01em",fontWeight:"400"}],label:["11px",{lineHeight:"1.4",letterSpacing:"0.12em",fontWeight:"500"}],telemetry:["10px",{lineHeight:"1",letterSpacing:"0.06em",fontWeight:"400"}]}}}}
+</script>
+<style>
+body{background-color:#070708;color:#e2e2e2}
+.card-border{border:1px solid #2a2a2a}.card-border:hover{border-color:#4a9eff}
+.glow-line{height:1px;background:linear-gradient(90deg,transparent,rgba(74,158,255,0.3),transparent)}
+.telemetry-dot{width:6px;height:6px;border-radius:50%}
+.scanline-bg{background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,0.015) 2px,rgba(255,255,255,0.015) 4px)}
+.fade-in{opacity:0;transform:translateY(16px);transition:all .6s ease}.fade-in.visible{opacity:1;transform:translateY(0)}
+.product-card{transition:all .3s ease}.product-card:hover{transform:translateY(-2px);border-color:#4a9eff}
+
+.goose-flock{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+.goose{position:absolute;opacity:0;animation:flyGoose linear infinite}
+.goose svg{filter:drop-shadow(0 0 6px rgba(255,255,255,0.15))}
+.goose-1{top:12%;animation-duration:28s;animation-delay:0s}
+.goose-2{top:28%;animation-duration:32s;animation-delay:4s}
+.goose-3{top:8%;animation-duration:26s;animation-delay:8s}
+.goose-4{top:35%;animation-duration:34s;animation-delay:12s}
+.goose-5{top:20%;animation-duration:30s;animation-delay:2s}
+.goose-6{top:15%;animation-duration:36s;animation-delay:6s}
+.goose-7{top:40%;animation-duration:29s;animation-delay:10s}
+@keyframes flyGoose{0%{transform:translateX(-80px) translateY(0);opacity:0}3%{opacity:.35}50%{transform:translateX(calc(50vw)) translateY(-18px);opacity:.25}97%{opacity:.35}100%{transform:translateX(calc(100vw + 80px)) translateY(4px);opacity:0}}
+</style>
+</head>
+<body class="font-body antialiased selection:bg-accent-blue selection:text-white">
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant">
+<div class="max-w-[1400px] mx-auto px-6 md:px-16 h-16 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<a href="/index.html" class="font-mono text-label tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">AULTRUM</a>
+<span class="text-outline">/</span>
+<a href="/flowstatebeta/index.html" class="font-mono text-label tracking-[0.15em] text-on-surface-variant hover:text-primary transition-colors">FLOWSTATE</a>
+<span class="text-outline">/</span>
+<span class="font-mono text-label tracking-[0.15em] text-accent-blue">PEAK</span>
+<span class="telemetry-dot bg-accent-blue"></span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a href="#earn" class="font-mono text-telemetry text-on-surface-variant hover:text-primary transition-colors">EARN</a>
+<a href="#cashout" class="font-mono text-telemetry text-on-surface-variant hover:text-primary transition-colors">CASH OUT</a>
+<a href="#perks" class="font-mono text-telemetry text-on-surface-variant hover:text-primary transition-colors">PERKS</a>
+<a href="#why" class="font-mono text-telemetry text-on-surface-variant hover:text-primary transition-colors">WHY</a>
+</div>
+<a href="/flowstatebeta/book-a-demo.html" class="bg-accent-blue text-on-primary font-mono text-label px-4 py-2 hover:opacity-90 transition-opacity">BOOK DEMO</a>
+</div>
+</nav>
+<main class="pt-16">
+
+<!-- Hero -->
+<section class="min-h-screen flex flex-col justify-center px-6 md:px-16 relative scanline-bg overflow-hidden">
+<div class="goose-flock" aria-hidden="true">
+<div class="goose goose-1"><svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-2"><svg width="28" height="14" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-3"><svg width="24" height="12" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-4"><svg width="30" height="15" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-5"><svg width="26" height="13" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-6"><svg width="34" height="17" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-7"><svg width="22" height="11" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none"/></svg></div>
+</div>
+<div class="max-w-[900px] relative z-10">
+<div class="font-mono text-telemetry text-on-surface-variant mb-6 tracking-widest"><span class="text-accent-blue">FLOWSTATE</span> / <span class="text-accent-blue">PEAK</span> // RECOGNITION_THAT_PAYS</div>
+<h1 class="font-display text-hero text-hero-mobile text-primary mb-8">Recognition that <span class="text-accent-blue">pays.</span></h1>
+<p class="font-body text-body-lg text-on-surface-variant max-w-[640px] mb-12">Peak turns good care into points. Carers earn for shifts, punctuality, and praise — then cash out, spend on benefits, or unlock financial perks. The incentive standard for social care.</p>
+<div class="flex flex-wrap gap-4 mb-16">
+<a href="/flowstatebeta/book-a-demo.html" class="bg-accent-blue text-on-primary font-mono text-label px-8 py-3 hover:opacity-90 transition-opacity">BOOK A DEMO</a>
+<a href="#earn" class="border border-accent-blue text-accent-blue font-mono text-label px-8 py-3 hover:bg-accent-blue hover:text-on-primary transition-colors">HOW IT WORKS</a>
+</div>
+<div class="grid grid-cols-3 gap-4 max-w-[500px]">
+<div class="card-border bg-surface-container p-4"><div class="font-mono text-telemetry text-on-surface-variant mb-1">RULES ENGINE</div><div class="font-display text-[28px] text-primary font-light">AUTO</div></div>
+<div class="card-border bg-surface-container p-4"><div class="font-mono text-telemetry text-on-surface-variant mb-1">CASH OUT</div><div class="font-display text-[28px] text-accent-blue font-light">INSTANT</div></div>
+<div class="card-border bg-surface-container p-4"><div class="font-mono text-telemetry text-on-surface-variant mb-1">COMPLIANCE</div><div class="font-display text-[28px] text-accent-green font-light">ZERO</div></div>
+</div>
+</div>
+<div class="absolute bottom-12 right-16 hidden lg:block z-10">
+<div class="font-mono text-telemetry text-on-surface-variant/30 text-right space-y-1">
+<div>PEAK_v0.9.0</div>
+<div>LEDGER: ACTIVE</div>
+<div class="text-accent-green">STATUS: NOMINAL</div>
+</div>
+</div>
+</section>
+
+<!-- The Why -->
+<section id="why" class="py-24 md:py-32 px-6 md:px-16 border-y border-outline-variant bg-surface-container-lowest">
+<div class="max-w-[1400px] mx-auto grid md:grid-cols-12 gap-12">
+<div class="md:col-span-5">
+<div class="font-mono text-telemetry text-on-surface-variant mb-4 tracking-widest"><span class="text-accent-red">PROBLEM</span> // THE_TURNOVER_GAP</div>
+<h2 class="font-display text-section-title text-primary mb-6">Good carers are leaving. Little is stopping them.</h2>
+<p class="font-body text-body-lg text-on-surface-variant">Social care turnovers at ~30% a year. Recruitment costs thousands per carer. Retention is the untapped saving — and recognition is the untapped lever.</p>
+</div>
+<div class="md:col-span-7 grid grid-cols-2 gap-4">
+<div class="card-border bg-surface-container p-6"><div class="font-display text-[48px] text-accent-red font-light mb-2">30%</div><div class="font-mono text-telemetry text-on-surface-variant mb-3">YEARLY TURNOVER</div><p class="font-body text-body-md text-on-surface-variant">Proportion of carers leaving each year</p></div>
+<div class="card-border bg-surface-container p-6"><div class="font-display text-[48px] text-accent-amber font-light mb-2">£5k</div><div class="font-mono text-telemetry text-on-surface-variant mb-3">COST PER REPLACE</div><p class="font-body text-body-md text-on-surface-variant">Median cost of recruiting and onboarding a carer</p></div>
+<div class="card-border bg-surface-container p-6"><div class="font-display text-[48px] text-primary font-light mb-2">£20</div><div class="font-mono text-telemetry text-on-surface-variant mb-3">MONTHLY SPEND</div><p class="font-body text-body-md text-on-surface-variant">Estimated Peak cost to hold a carer a month</p></div>
+<div class="card-border bg-surface-container p-6"><div class="font-display text-[48px] text-accent-purple font-light mb-2">20x</div><div class="font-mono text-telemetry text-on-surface-variant mb-3">RETURN</div><p class="font-body text-body-md text-on-surface-variant">Recruitment saved vs rewards spent per retained carer</p></div>
+</div>
+</div>
+</section>
+
+<!-- Earn -->
+<section id="earn" class="py-24 md:py-32 px-6 md:px-16 border-b border-outline-variant fade-in">
+<div class="max-w-[1400px] mx-auto">
+<div class="font-mono text-telemetry text-on-surface-variant mb-4 tracking-widest"><span class="text-accent-blue">01</span> // EARN</div>
+<h2 class="font-display text-section-title text-primary mb-4">Points for the things that matter.</h2>
+<p class="font-body text-body-lg text-on-surface-variant max-w-[600px] mb-16">Agencies set the rules. Carers earn automatically. Every quality signal becomes rewardable.</p>
+<div class="grid md:grid-cols-3 gap-6">
+
+<div class="card-border bg-surface-container-low p-8">
+<div class="w-12 h-12 border border-accent-blue/30 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-[24px] text-accent-blue">schedule</span></div>
+<span class="font-mono text-label tracking-[0.15em] text-primary">SHIFT WORKED</span>
+<p class="font-body text-body-md text-on-surface-variant mt-3 mb-6">Base points per completed shift, fed in from the rota or Gateway.</p>
+<div class="flex flex-wrap gap-2"><span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">CONFIGURABLE</span><span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">AUTO</span></div>
+</div>
+
+<div class="card-border bg-surface-container-low p-8">
+<div class="w-12 h-12 border border-accent-green/30 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-[24px] text-accent-green">verified</span></div>
+<span class="font-mono text-label tracking-[0.15em] text-primary">ON-TIME + PRAISE</span>
+<p class="font-body text-body-md text-on-surface-variant mt-3 mb-6">Bonuses for punctual arrivals, client praise, and completed training.</p>
+<div class="flex flex-wrap gap-2"><span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">STREAKS</span><span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">PRAISE</span><span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">TRAINING</span></div>
+</div>
+
+<div class="card-border bg-surface-container-low p-8">
+<div class="w-12 h-12 border border-accent-amber/30 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-[24px] text-accent-amber">workspace_premium</span></div>
+<span class="font-mono text-label tracking-[0.15em] text-primary">LONGEVITY</span>
+<p class="font-body text-body-md text-on-surface-variant mt-3 mb-6">Milestone bonuses for tenure. Staying should be celebrated, not assumed.</p>
+<div class="flex flex-wrap gap-2"><span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">ANNIVERSARY</span><span class="font-mono text-telemetry text-on-surface-variant/60 border border-outline-variant px-3 py-1.5">MILESTONE</span></div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Cash out + Perks -->
+<section id="cashout" class="py-24 md:py-32 px-6 md:px-16 border-b border-outline-variant bg-surface-container-lowest scanline-bg fade-in">
+<div class="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-12">
+
+<div>
+<div class="font-mono text-telemetry text-on-surface-variant mb-4 tracking-widest"><span class="text-accent-blue">02</span> // CASH OUT</div>
+<h2 class="font-display text-section-title text-primary mb-6">Points that become a card in your phone.</h2>
+<p class="font-body text-body-lg text-on-surface-variant mb-8">Convert points to a virtual prepaid card issued instantly on Stripe. Tap to pay, online or in store. Agency sets the value: 100 points = £1.</p>
+<ul class="space-y-4">
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[20px] text-accent-green mt-0.5">check_circle</span><span class="font-body text-body-md text-on-surface-variant">Instant virtual card issuance — no physical card, no wait.</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[20px] text-accent-green mt-0.5">check_circle</span><span class="font-body text-body-md text-on-surface-variant">Programmable controls: spend limits, merchant blocks, freeze.</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[20px] text-accent-green mt-0.5">check_circle</span><span class="font-body text-body-md text-on-surface-variant">PCI compliance outsourced to Stripe Issuing.</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[20px] text-accent-green mt-0.5">check_circle</span><span class="font-body text-body-md text-on-surface-variant">Double-entry ledger — every point reconciled against settlements.</span></li>
+</ul>
+</div>
+
+<div>
+<div class="font-mono text-telemetry text-on-surface-variant mb-4 tracking-widest"><span class="text-accent-blue">03</span> // PERKS &amp; FINANCIAL</div>
+<h2 class="font-display text-section-title text-primary mb-6">A marketplace that makes the job worthwhile.</h2>
+<p class="font-body text-body-lg text-on-surface-variant mb-8">Hybrid funding: the agency funds the cashable value; Aultrum layers on the perks catalog at volume — retail discounts, memberships, and financial wellbeing.</p>
+<ul class="space-y-4">
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[20px] text-accent-amber mt-0.5">local_mall</span><span class="font-body text-body-md text-on-surface-variant">Retail and membership perks sourced by Aultrum's volume deals.</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[20px] text-accent-amber mt-0.5">paid</span><span class="font-body text-body-md text-on-surface-variant">Financial perks: salary advance hooks and funded certifications.</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[20px] text-accent-amber mt-0.5">redeem</span><span class="font-body text-body-md text-on-surface-variant">Cash-out is always available as the fallback — perks are the enhancement.</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-[20px] text-accent-amber mt-0.5">verified_user</span><span class="font-body text-body-md text-on-surface-variant">No CQC surface, no health data, no compliance constraint.</span></li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 md:py-32 px-6 md:px-16 text-center fade-in">
+<div class="max-w-[700px] mx-auto">
+<div class="font-mono text-telemetry text-on-surface-variant/30 mb-8 tracking-[0.4em]">DEPLOY_PEAK</div>
+<h2 class="font-display text-section-title text-primary mb-6">Hold your carers. Reward your carers.</h2>
+<p class="font-body text-body-lg text-on-surface-variant mb-12">Deploy Peak in weeks, not months. The incentive standard for social care — no regulator in the loop.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="/flowstatebeta/book-a-demo.html" class="bg-accent-blue text-on-primary font-mono text-label px-10 py-4 hover:opacity-90 transition-opacity">BOOK A DEMO</a>
+<a href="/flowstatebeta/sales.html" class="border border-accent-blue text-accent-blue font-mono text-label px-10 py-4 hover:bg-accent-blue hover:text-on-primary transition-colors">CONTACT SALES</a>
+</div>
+</div>
+</section>
+
+</main>
+<footer class="border-t border-outline-variant bg-surface-container-lowest">
+<div class="max-w-[1400px] mx-auto px-6 md:px-16 py-12">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-4"><a href="/index.html" class="font-mono text-label tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">AULTRUM</a><span class="text-outline">/</span><a href="/flowstatebeta/index.html" class="font-mono text-label tracking-[0.15em] text-on-surface-variant hover:text-primary transition-colors">FLOWSTATE</a><span class="text-outline">/</span><span class="font-mono text-label tracking-[0.15em] text-accent-blue">PEAK</span></div>
+<div class="font-mono text-telemetry text-on-surface-variant/40">&copy; 2026 Aultrum Technologies Ltd.</div>
+</div>
+</div>
+</footer>
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
+</body>
+</html>
