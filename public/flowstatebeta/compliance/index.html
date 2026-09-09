@@ -147,7 +147,18 @@
             .section-title { font-size: 28px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 300; }
             .stat-number { font-size: 36px; }
         }
-    </style>
+    
+.goose-flock{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+.goose{position:absolute;opacity:0;animation:flyGoose linear infinite}
+.goose svg{filter:drop-shadow(0 0 6px rgba(255,255,255,0.15))}
+.goose-1{top:12%;animation-duration:28s;animation-delay:0s}
+.goose-2{top:28%;animation-duration:32s;animation-delay:4s}
+.goose-3{top:8%;animation-duration:26s;animation-delay:8s}
+.goose-4{top:35%;animation-duration:34s;animation-delay:12s}
+.goose-5{top:20%;animation-duration:30s;animation-delay:2s}
+.goose-6{top:15%;animation-duration:36s;animation-delay:6s}
+.goose-7{top:40%;animation-duration:29s;animation-delay:10s}
+@keyframes flyGoose{0%{transform:translateX(-80px) translateY(0);opacity:0}3%{opacity:.35}50%{transform:translateX(calc(50vw)) translateY(-18px);opacity:.25}97%{opacity:.35}100%{transform:translateX(calc(100vw + 80px)) translateY(4px);opacity:0}}</style>
 </head>
 <body>
 
@@ -169,6 +180,15 @@
 
     <!-- Hero -->
     <section class="min-h-screen flex items-center pt-20 scanline-bg">
+<div class="goose-flock" aria-hidden="true">
+<div class="goose goose-1"><svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-2"><svg width="28" height="14" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-3"><svg width="24" height="12" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-4"><svg width="30" height="15" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-5"><svg width="26" height="13" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-6"><svg width="34" height="17" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-7"><svg width="22" height="11" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none"/></svg></div>
+</div>
         <div class="max-w-6xl mx-auto px-6 py-24 w-full">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <!-- Left -->
@@ -184,6 +204,15 @@
 
                 <!-- Right: Document Preview -->
                 <div class="doc-preview rounded-xl p-6 scanline-bg">
+<div class="goose-flock" aria-hidden="true">
+<div class="goose goose-1"><svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-2"><svg width="28" height="14" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-3"><svg width="24" height="12" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-4"><svg width="30" height="15" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-5"><svg width="26" height="13" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-6"><svg width="34" height="17" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-7"><svg width="22" height="11" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none"/></svg></div>
+</div>
                     <div class="relative z-10">
                         <div class="flex items-center gap-2 mb-4 pb-3 border-b border-outline-variant">
                             <div class="w-2.5 h-2.5 rounded-full bg-accent-red/60"></div>
@@ -419,6 +448,15 @@
     <section class="py-24">
         <div class="max-w-6xl mx-auto px-6">
             <div class="card-border rounded-2xl p-16 bg-surface-container text-center fade-in scanline-bg">
+<div class="goose-flock" aria-hidden="true">
+<div class="goose goose-1"><svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-2"><svg width="28" height="14" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-3"><svg width="24" height="12" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-4"><svg width="30" height="15" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-5"><svg width="26" height="13" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-6"><svg width="34" height="17" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none"/></svg></div>
+<div class="goose goose-7"><svg width="22" height="11" viewBox="0 0 32 16" fill="none"><path d="M0 12 L14 2 L16 6 L18 0 L20 6 L22 2 L32 12" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none"/></svg></div>
+</div>
                 <div class="relative z-10">
                     <p class="label text-accent-green mb-4">Get Started</p>
                     <h2 class="section-title text-on-surface mb-6">
@@ -428,7 +466,7 @@
                         Flowstate Compliance is available for care providers across the UK. Request access for your organisation.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-<a href="../../sales.html" class="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-on-primary rounded-lg font-medium text-sm tracking-wide hover:opacity-90 transition-opacity">
+<a href="../../sales.html" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent-blue text-on-primary rounded-lg font-medium text-sm tracking-wide hover:opacity-90 transition-opacity">
 Request Access
 </a>
 <a href="#" class="inline-flex items-center justify-center px-8 py-3.5 border border-outline-variant text-on-surface-variant rounded-lg font-medium text-sm tracking-wide hover:border-outline hover:text-on-surface transition-all">
