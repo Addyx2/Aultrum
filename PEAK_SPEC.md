@@ -1,5 +1,7 @@
 # Flowstate Peak — Caregiver Recognition & Rewards Engine
 
+> **STATUS: v1 BUILD · Sep–Nov 2026** — see `ROADMAP.md`. Peak first, Gateway by December 2026.
+
 ## 1. Product Summary
 
 **Peak** is Flowstate's recognition and rewards engine for social care workers. Agencies give carers a points account: points are earned for working shifts, on-time arrivals, client praise, training, and longevity — then cashed out as real money or spent on benefits and financial perks.
@@ -81,6 +83,35 @@ Aultrum (company)
 
 - Salary advance hooks (funded certifications, shift advances) via downstream partners.
 - Vouchers for CPD/training credits.
+
+### 4.5 Layers Qualifier Engine (The Moat)
+
+Peak is both a **social** and **technical** product. The social half (recognition, streaks, status, belonging) is what agencies feel and what lifts retention. The technical half (ledger, rules, cards) is the plumbing. The **Layers Qualifier Engine** is where the two meet — and where the product becomes proprietary.
+
+Rewards are **gated by measured care quality** across the Aultrum Layers, not by attendance alone. Points become the visible currency of the Layers score.
+
+| Layer | Example qualifier | Reward unlocked |
+|-------|------------------|-----------------|
+| **Shift Readiness** *(v1 — first)* | On-time, prepared, consistent (rota + clock-in) | Priority shift pick, streak bonuses |
+| **Rapport** *(v1 — second)* | Client NPS + praise signals | Number badge, shout-outs, Gold tier |
+| Competence | Training + skill certs current | CPD credits, skill-certified tier bump |
+| Compliance | Records complete, no flags | Boosted points multiplier |
+| Satisfaction | Client + carer survey data | Perk tier access, wellbeing credit |
+| Purpose | Tenure, mentorship, impact moments | Anniversary awards, mentor track |
+
+**Engine mechanics**
+
+- Qualifier inputs come from rota, clock-in, training records, compliance flags, client feedback, and tenure.
+- Each layer emits a **score**; rules gate reward triggers on score thresholds.
+- A retry/threshold ladder prevents perverse gaming (e.g. on-time bonus caps, streak decay).
+
+**Commercial consequence**
+
+- Agencies see incentive spend tied to *better care outcomes*, not just attendance — easier CFO approval.
+- The reward ledger doubles as a quality/engagement audit trail.
+- The qualifier logic is Aultrum Layers IP — not a generic loyalty play competitors can copy.
+
+**Sequencing:** the engine is architected in P0, **Shift Readiness + Rapport qualifiers go live in P2** (Oct 2026). Gateway (Dec 2026) feeds the same pipeline post-launch. See `ROADMAP.md`.
 
 ---
 
@@ -180,25 +211,24 @@ This is the build-fastest wedge: **no regulator in the loop**.
 
 ---
 
-## 9. Two-Week Build Plan
+## 9. Build Plan — v1 (Sep–Nov 2026)
 
-| Day | Task |
-|-----|------|
-| 1–2 | Ledger schema (double-entry) + Fastify API skeleton |
-| 3 | Agency admin: rules config + points value |
-| 4–5 | Carer points portal: balance, earn history, redeem UI |
-| 6 | Stripe Issuing: card issuance + load-from-points flow |
-| 7 | Perks catalog stub: first 20 perks, redemption links |
-| 8 | Honor integration seam: exposed incentive APIs |
-| 9 | Auth + invite flow (agency → carer) |
-| 10 | Demo build: seeded agency, rules, cards live in test mode |
+Sequenced against `ROADMAP.md` (Gateway = Dec 2026).
 
-### Phase 2 (Weeks 3–6)
+| Phase | Window | Focus |
+|-------|--------|-------|
+| P0 · Core | Sep 2026 | Ledger schema (double-entry) + Fastify API skeleton · agency admin (rules config + points value) · carer points portal (balance, earn history) |
+| P1 · Payments | Sep–Oct 2026 | Stripe Issuing: card issuance + load-from-points flow · auth + invite flow (agency → carer) |
+| P2 · Qualifier Engine | Oct 2026 | Layers gating: **Shift Readiness + Rapport** qualifiers live · rule threshold ladders |
+| P3 · Pilots | Oct–Nov 2026 | 3–5 agencies, 150+ carers · perks catalog stub (first 20 perks) · retention cohort dashboard |
+
+**Phase 2 (Dec 2026+)**
 
 - Real perks partner agreements (volume catalogue).
-- Salary-advance partner integration.
+- Salary-advance partner integration (post-Gateway-launch).
 - Attendance/clock-in data connectors (rota systems).
 - Full reporting + retention cohort dashboard.
+- Remaining Layers qualifiers: Competence, Compliance, Satisfaction, Purpose.
 
 ---
 

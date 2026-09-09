@@ -216,35 +216,38 @@ Personnel pairs with Abilities: when booking, payment, or a complex case needs a
 
 ---
 
-## 7. Two-Week Build Plan
+## 7. Build Plan — Phase 2 (Nov–Dec 2026)
 
-### Week 1: Core Pipeline
+> **Sequencing:** Peak ships first (Sep–Nov 2026) and funds + de-risks this build. Gateway is the Phase 2 flagship — **launch target December 2026**. See `ROADMAP.md`.
+
+### Phase P4: Core Pipeline (Nov 2026)
 
 | Day | Task |
 |-----|------|
 | 1–2 | Twilio/Telnyx SIP trunk setup, +44 number provisioning |
-| 2–3 | Deepgram Nova-2 STT integration, real-time streaming |
-| 3–4 | LiteLLM routing, GPT-4o-mini intent classification |
-| 4–5 | Fish Audio TTS integration, voice selection |
-| 5 | End-to-end call flow testing |
+| 3–4 | Deepgram Nova-2 STT integration, real-time streaming |
+| 5–6 | LiteLLM routing, GPT-4o-mini intent classification |
+| 7–8 | Fish Audio TTS integration, voice selection |
+| 9–10 | End-to-end call flow testing |
 
-### Week 2: Features + Compliance
+### Phase P5: Features + Compliance (Nov–Dec 2026)
 
 | Day | Task |
 |-----|------|
-| 6–7 | CRM integration (webhook + REST API) |
-| 7–8 | Abilities framework (Default, Payments, Book Assessment) |
-| 8–9 | Personnel alerting (push/SMS/warm transfer) |
-| 9–10 | Audit trail, call recording, GDPR compliance |
-| 10 | Load testing, failover testing, production deployment |
+| 1–2 | CRM integration (webhook + REST API) |
+| 3–4 | Abilities framework (Default, Payments, Book Assessment) |
+| 5–6 | Personnel alerting (push/SMS/warm transfer) |
+| 7–8 | Audit trail, call recording, GDPR compliance (eu-west-2) |
+| 9–10 | Load testing, failover testing, 999/111 escalation verified |
 
-### Post-Launch (Weeks 3–4)
+### Phase P6: Launch (Dec 2026)
 
-- CQC compliance documentation
+- Production deploy, first paying clients
+- CQC compliance documentation + audit trail delivery
 - NHS DSP Toolkit self-assessment
 - Client onboarding flow
-- Monitoring dashboards
 - Billing integration (Stripe)
+- GO / NO-GO review (see ROADMAP risk gates)
 
 ---
 
@@ -277,11 +280,14 @@ Personnel pairs with Abilities: when booking, payment, or a complex case needs a
 
 ## 10. Future Roadmap
 
+> Sequencing note: Peak ships first (Sep–Nov 2026). Gateway launches Dec 2026 as Phase 2 flagship. See `ROADMAP.md`.
+
 | Phase | Timeline | Capabilities |
 |-------|----------|-------------|
-| **Phase 1: CX** | Now | Enquiry qualification, assessment booking, payment collection |
-| **Phase 2: Coordination** | Q2 2026 | Shift scheduling, carer matching, visit coordination |
-| **Phase 3: Compliance** | Q3 2026 | Automated documentation, CQC audit trails, risk scoring |
-| **Phase 4: Intelligence** | Q4 2026 | Predictive analytics, demand forecasting, outcome tracking |
+| **P0–P3: Peak** | Sep–Nov 2026 | Rewards engine + Unified Layers Qualifier Engine (Shift Readiness + Rapport live) |
+| **P4–P6: Gateway CX** | Nov–Dec 2026 | Enquiry qualification, assessment booking, payment collection — **DEC 2026 LAUNCH** |
+| **Phase: Coordination** | Q1 2027 | Shift scheduling, carer matching, visit coordination |
+| **Phase: Compliance** | Q1–Q2 2027 | Automated documentation, CQC audit trails, risk scoring |
+| **Phase: Intelligence** | Q2–Q3 2027 | Predictive analytics, demand forecasting, outcome tracking |
 
-**Note:** Coordination (Phase 2) is a separate capability from CX (Phase 1). Gateway's current scope is explicitly CX for enquiry only. Coordination will be built as a distinct module within Flowstate, not as an extension of Gateway's contact centre.
+**Note:** Coordination is a separate capability from CX. Gateway's launch scope is explicitly CX for enquiry only. Coordination will be built as a distinct module within Flowstate, not as an extension of Gateway's contact centre.
