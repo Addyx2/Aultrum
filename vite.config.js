@@ -1,9 +1,7 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
-import htmlInject from 'vite-plugin-html-inject';
 
 export default defineConfig({
-  plugins: [htmlInject()],
   build: {
     rollupOptions: {
       input: {
