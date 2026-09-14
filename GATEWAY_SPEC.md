@@ -2,11 +2,13 @@
 
 ## 1. Product Summary
 
-**Gateway** is Flowstate's always-on contact centre for social care agencies. It answers inbound calls, qualifies enquiries, books assessments, takes payments, and logs every interaction directly into the client's CRM.
+**Gateway** is Flowstate's always-on contact centre for social care agencies. It answers inbound calls, qualifies enquiries, books assessments, confirms follow-ups, takes payments, and logs every interaction directly into the client's CRM.
 
-**Positioning:** The first AI-native contact centre built specifically for UK social care. Gateway replaces after-hours gaps, reduces manual inbound handling costs, and creates a single source of truth for every client interaction.
+**Positioning:** The first AI-native contact centre built specifically for UK social care — **always-on, from first enquiry to booked assessment**. Gateway replaces after-hours gaps, reduces manual inbound handling costs, and creates a single source of truth for every client interaction.
 
-**Launch scope:** CX for enquiry only — qualifies callers, makes services clear, books the assessment into the sales funnel. Gateway does **not** extend to in-house care delivery operations. Coordination is a separate future capability.
+**Launch scope:** Contact-to-close for enquiry — qualifies callers, makes services clear, **books the assessment meeting and confirms it**, then automates the post-assessment follow-up (quote delivery, re-engagement). **Pricing is human-approved** — Gateway never prices a care package itself. Gateway does **not** extend to in-house care delivery operations. Coordination is a separate future capability.
+
+**Contact-to-close definition:** "Close" = the assessment meeting is booked and confirmed. The priced quote is authored by the coordinator after assessment; Gateway delivers it, tracks the reply, and books the follow-up. The **CRM is the system of record** — Gateway is the actor that enters, advances, and updates the CRM row in real time.
 
 ---
 
@@ -81,6 +83,7 @@ Every call is logged with:
 - Sentiment analysis
 - Duration, cost, and model usage
 - CRM write status (success/failure/retry)
+- Follow-up state (quote sent, booking confirmed, re-engaged, won/lost)
 
 ### 3.3 Abilities
 
@@ -89,8 +92,21 @@ Abilities are modular capabilities that Gateway activates during calls:
 | Ability | Status | Description |
 |---------|--------|-------------|
 | **Default** | Always ON | Answer, understand, route |
-| **Payments** | Optional | Collect card/deposit during call (PCI-safe) |
 | **Book Assessment** | Optional | Book first care assessment into CRM funnel |
+| **Payments** | Optional | Collect card/deposit during call (PCI-safe) |
+| **Follow-Up** | Optional | Automate the close: send quote, confirm booking, re-engage no-responders |
+
+**Follow-Up (ability) detail:**
+
+| Step | Action | Trigger | Channel |
+|------|--------|---------|---------|
+| 1 | Send quote + care plan summary | Coordinator authors quote post-assessment | SMS / Email |
+| 2 | Confirm assessment booking | Booking made in call | SMS confirmation + calendar |
+| 3 | Re-engage no-responders | Quote → no reply in 48h | Scheduled SMS / Email reminder |
+| 4 | Book follow-up meeting | Reply received | SMS / Email with booking link |
+| 5 | Update CRM row at every step | Each action | CRM write (status: enquiry → quoted → booked → won/lost) |
+
+> **Pricing guardrail:** Gateway sends quotes authored by a human. It never generates pricing itself — needs-based care pricing (hours, medication, live-in vs visits) is a human decision, and auto-quoting risks misquotes, broken trust, and fair-trading exposure.
 
 ### 3.4 Personnel
 
@@ -235,7 +251,7 @@ Personnel pairs with Abilities: when booking, payment, or a complex case needs a
 | Day | Task |
 |-----|------|
 | 1–2 | CRM integration (webhook + REST API) |
-| 3–4 | Abilities framework (Default, Payments, Book Assessment) |
+| 3–4 | Abilities framework (Default, Payments, Book Assessment, **Follow-Up**) |
 | 5–6 | Personnel alerting (push/SMS/warm transfer) |
 | 7–8 | Audit trail, call recording, GDPR compliance (eu-west-2) |
 | 9–10 | Load testing, failover testing, 999/111 escalation verified |
@@ -270,6 +286,8 @@ Personnel pairs with Abilities: when booking, payment, or a complex case needs a
 |--------|--------|
 | Calls handled | 5,000+ |
 | Enquiry-to-assessment conversion | >35% |
+| Assessment-to-quote sent | >80% |
+| Quote-to-won (booked start) | >40% |
 | Average call duration | <3 minutes |
 | CRM write success rate | >99% |
 | Uptime | >99.9% |
@@ -285,7 +303,7 @@ Personnel pairs with Abilities: when booking, payment, or a complex case needs a
 | Phase | Timeline | Capabilities |
 |-------|----------|-------------|
 | **P0–P3: Peak** | Sep–Nov 2026 | Rewards engine + Unified Layers Qualifier Engine (Shift Readiness + Rapport live) |
-| **P4–P6: Gateway CX** | Nov–Dec 2026 | Enquiry qualification, assessment booking, payment collection — **DEC 2026 LAUNCH** |
+| **P4–P6: Gateway CX** | Nov–Dec 2026 | Contact-to-close: enquiry qualification, assessment booking, payment collection, automated follow-up (quote send / re-engagement) — **DEC 2026 LAUNCH** |
 | **Phase: Coordination** | Q1 2027 | Shift scheduling, carer matching, visit coordination |
 | **Phase: Compliance** | Q1–Q2 2027 | Automated documentation, CQC audit trails, risk scoring |
 | **Phase: Intelligence** | Q2–Q3 2027 | Predictive analytics, demand forecasting, outcome tracking |
