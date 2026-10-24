@@ -51,9 +51,11 @@ MAIN_LINKS = [
 ]
 
 SUB_LINKS = [
-    ("/canvas/#modules", "Modules", "modules"),
-    ("/canvas/#platforms", '<span class="sm:hidden">Platforms</span><span class="hidden sm:inline">For platforms</span>', "platforms"),
-    ("/canvas/book-a-demo/", '<span class="sm:hidden">Demo</span><span class="hidden sm:inline">Book demo</span>', "demo"),
+    ("/canvas/#persona", "Persona", "persona"),
+    ("/canvas/#elements", "Elements", "elements"),
+    ("/canvas/#custom", '<span class="sm:hidden">Custom</span><span class="hidden sm:inline">Custom builds</span>', "custom"),
+    # On phones "Book a demo" is the hero's main button, so the menu leaves it out to fit.
+    ("/canvas/book-a-demo/", "Book demo", "demo", "hidden sm:inline-block"),
 ]
 
 
@@ -68,8 +70,8 @@ def header(active: str) -> str:
         for href, label in MAIN_LINKS
     )
     sub = "\n".join(
-        f'<a href="{href}" class="subnav-link"{" aria-current=\"page\"" if key == active else ""}>{label}</a>'
-        for href, label, key in SUB_LINKS
+        f'<a href="{link[0]}" class="subnav-link {link[3] if len(link) > 3 else ""}"{" aria-current=\"page\"" if link[2] == active else ""}>{link[1]}</a>'
+        for link in SUB_LINKS
     )
     return f"""<header class="relative z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur">
   <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
@@ -107,9 +109,9 @@ FOOTER = f"""<footer class="mt-24 border-t border-slate-200 bg-white">
     <div>
       <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Products</p>
       <ul class="mt-3 space-y-2 text-sm text-slate-600">
-        <li><a class="hover:text-ink" href="/canvas/">Canvas</a></li>
-        <li><a class="hover:text-ink" href="/pleasant/">Pleasant</a></li>
         <li><a class="hover:text-ink" href="/flowstatebeta/">Flowstate</a></li>
+        <li><a class="hover:text-ink" href="/pleasant/">Pleasant</a></li>
+        <li><a class="hover:text-ink" href="/canvas/">Canvas</a></li>
         <li><a class="hover:text-ink" href="{APP}/login">Log in to Canvas</a></li>
       </ul>
     </div>
@@ -156,15 +158,15 @@ def checks(items: list[str], dark: bool = False) -> str:
 
 
 STEPS = [
-    ("Install", "A platform switches a module on for one of its customers with one API call. Repeating it is safe."),
-    ("Show", "The module's screens appear inside the platform, signed in as the platform's user, on links that last five minutes and only open on that platform's site."),
-    ("Exchange", "Events flow both ways: the platform tells the module what changed, and the module sends signed webhooks back."),
-    ("Act", "Modules never touch a platform's data. They ask the platform to act through its own tools, so its permissions, approvals and audit trail still apply."),
+    ("Get your keys", "Create your organisation in Canvas and get API credentials for your own systems."),
+    ("Switch on what you need", "Add Persona, add Elements such as Gateway, or both, for the services you run."),
+    ("Connect your systems", "Show Elements inside your software, exchange signed events, and give Persona the tools it may use, under your own rules."),
+    ("Watch it work", "See every installation, conversation and event in one console, with delivery status and an audit trail."),
 ]
 
 overview = head(
-    "Aultrum Canvas · Build once, stream everywhere | Aultrum",
-    "Aultrum Canvas runs modules such as Gateway and Peak once, and streams them into Pleasant and the other platforms your teams already use.",
+    "Aultrum Canvas · The console for Persona and Elements | Aultrum",
+    "Aultrum Canvas gives care organisations Persona AI and Elements such as Gateway inside the systems they already use, plus custom modules built for them.",
     "/canvas/",
 ) + header("home") + f"""<main id="main">
 <section class="hero-glow relative -mt-16 overflow-hidden pt-28">
@@ -172,29 +174,61 @@ overview = head(
   <div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6">
     <p class="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/80 px-3 py-1 text-xs font-medium text-brand-800">
       <span class="rounded-full bg-brand-600 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">New</span>
-      The module platform behind Gateway and Peak
+      Persona and Elements, without switching platforms
     </p>
     <h1 class="mt-7 font-display text-[44px] font-bold leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-      Build once. <span class="font-serif font-normal italic text-brand-600">Stream</span> everywhere.
+      The console for <span class="font-serif font-normal italic text-brand-600">Persona</span> and Elements.
     </h1>
     <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-      Aultrum Canvas runs our modules once and streams them into Pleasant and the other platforms your teams already use: their screens, their events and their actions, always under the platform's own rules.
+      Keep the systems you already run. Canvas brings Aultrum's AI and care modules into them: Persona to reason and act with your tools, Elements such as Gateway to answer every call and message, and custom modules built for exactly how you work.
     </p>
     <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
       {button("/canvas/book-a-demo/", "Book a demo")}
-      {button("#platforms", "Connect a platform", dark=False)}
+      {button("#how", "See how it works", dark=False)}
     </div>
   </div>
   <div class="relative mx-auto mt-16 max-w-6xl px-4 sm:px-6">
-    {frame("dashboard.jpg", "The Aultrum Canvas console: modules, connected platforms, installations and recent events", "canvas.aultrum.co.uk/dashboard", "reveal")}
+    {frame("dashboard.jpg", "The Aultrum Canvas console: elements, connected systems, installations and recent events", "canvas.aultrum.co.uk/dashboard", "reveal")}
   </div>
 </section>
 
-<section class="mx-auto mt-28 max-w-6xl px-4 sm:px-6">
+<section class="mx-auto mt-16 max-w-6xl px-4 sm:px-6">
+  <p class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">One Persona and the same Elements, built for</p>
+  <ul class="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 font-display text-lg font-semibold text-slate-400">
+    <li>Flowstate · care coordination</li><li>Pleasant · care staffing</li><li>Tender · NHS discharge <span class="text-sm font-medium">(coming)</span></li><li>Your own systems, through Canvas</li>
+  </ul>
+</section>
+
+<section id="persona" class="mx-auto mt-28 grid max-w-6xl scroll-mt-24 grid-cols-1 items-start gap-6 px-4 sm:px-6 lg:grid-cols-2">
+  <div class="reveal rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
+    <div class="flex items-center justify-between gap-3">
+      <h2 class="font-display text-2xl font-semibold">Persona</h2>
+      <span class="rounded-full bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand-800 ring-1 ring-inset ring-brand-600/15">Early access</span>
+    </div>
+    <p class="mt-3 text-[15px] leading-relaxed text-slate-600">The AI that understands care delivery. Persona answers questions from your data and prepares work for your team, using the tools you choose to give it. Nothing changes until a person approves it.</p>
+    <ul class="mt-5 space-y-2.5 text-[15px] text-slate-700">
+{checks(["Works with your systems' tools, inside each person's permissions", "Every change waits for approval, and every action is audited", "Automations such as a morning briefing or a compliance watch"])}
+    </ul>
+  </div>
+  <div id="elements" class="reveal scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
+    <div class="flex items-center justify-between gap-3">
+      <h2 class="font-display text-2xl font-semibold">Elements</h2>
+      <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700">Gateway pilot · Peak soon</span>
+    </div>
+    <p class="mt-3 text-[15px] leading-relaxed text-slate-600">Ready-made care modules that slot into your software. Each one runs on Canvas and appears inside your own screens.</p>
+    <ul class="mt-5 space-y-3 text-[15px] text-slate-700">
+      <li><span class="font-semibold text-ink">Gateway</span>: one conversation layer for phone, SMS, WhatsApp and web chat. It recognises who is calling, routes to the right agent or person, and hands emergencies straight to a human.</li>
+      <li><span class="font-semibold text-ink">Peak</span>: points, streaks and rewards for carers, built from clock-ins and praise.</li>
+    </ul>
+    <div class="mt-6">{frame("embed.jpg", "Gateway shown inside another system, streamed from Canvas", "Inside your system · streamed from Canvas")}</div>
+  </div>
+</section>
+
+<section id="how" class="mx-auto mt-28 max-w-6xl scroll-mt-24 px-4 sm:px-6">
   <div class="reveal max-w-2xl">
-    <p class="text-sm font-semibold text-brand-700">How streaming works</p>
-    <h2 class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">One contract between every module and every platform.</h2>
-    <p class="mt-4 text-lg leading-relaxed text-slate-600">A module is written once against the Canvas contract. Any platform that speaks the same contract can install it, show it and work with it, without rebuilding anything.</p>
+    <p class="text-sm font-semibold text-brand-700">How it works</p>
+    <h2 class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Your systems stay in charge.</h2>
+    <p class="mt-4 text-lg leading-relaxed text-slate-600">Persona and Elements never write to your data directly. They ask your system to act through its own tools, so your permissions, approvals and records still apply.</p>
   </div>
   <ol class="mt-12 grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
 """ + "\n".join(
@@ -208,53 +242,26 @@ overview = head(
   </ol>
 </section>
 
-<section id="modules" class="mx-auto mt-28 max-w-6xl scroll-mt-24 px-4 sm:px-6">
-  <div class="reveal max-w-2xl">
-    <p class="text-sm font-semibold text-brand-700">Modules</p>
-    <h2 class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Add-ons that work wherever your teams work.</h2>
-  </div>
-  <div class="mt-10 grid grid-cols-1 items-start gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-    <div class="reveal rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
-      <div class="flex items-center justify-between gap-3">
-        <h3 class="font-display text-2xl font-semibold">Gateway</h3>
-        <span class="rounded-full bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand-800 ring-1 ring-inset ring-brand-600/15">Pilot programme open</span>
-      </div>
-      <p class="mt-3 text-[15px] leading-relaxed text-slate-600">One conversation layer for every channel, agent and person. Gateway takes calls and messages on phone, SMS, WhatsApp and web chat, works out who is speaking, and routes the conversation to the right AI agent or person. Agents such as Persona Assist join as participants; staff watch, take over and hand back.</p>
-      <ul class="mt-5 space-y-2.5 text-[15px] text-slate-700">
-{checks(["A carer rings in sick at 6am: the shift is marked uncovered and offered to carers who are free and cleared to work", "Emergencies are told to ring 999 and handed to a person straight away", "Every message, handover and action recorded in one audit trail"])}
-      </ul>
-      <div class="mt-6">{frame("embed.jpg", "Gateway shown inside a platform, streamed from Canvas", "Inside Pleasant · streamed from Canvas")}</div>
-    </div>
-    <div class="reveal rounded-3xl border border-dashed border-slate-300 bg-white/60 p-6 sm:p-8">
-      <div class="flex items-center justify-between gap-3">
-        <h3 class="font-display text-2xl font-semibold">Peak</h3>
-        <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700">Coming soon</span>
-      </div>
-      <p class="mt-3 text-[15px] leading-relaxed text-slate-600">Recognition that pays. Points, streaks and rewards for carers, built from clock-ins and client praise, and the reliability record that feeds Shift Readiness.</p>
-      <p class="mt-6 text-sm text-slate-500">More modules follow the same contract, so they arrive in every connected platform at once.</p>
-    </div>
-  </div>
-</section>
-
-<section id="platforms" class="mt-28 scroll-mt-24 bg-ink py-24 text-white">
+<section id="custom" class="mt-28 scroll-mt-24 bg-ink py-24 text-white">
   <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
     <div class="reveal">
-      <p class="text-sm font-semibold text-brand-300">For platforms</p>
-      <h2 class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Connect once. Every module <span class="font-serif font-normal italic text-brand-300">follows</span>.</h2>
-      <p class="mt-4 text-lg leading-relaxed text-slate-300">Pleasant is the first platform on Canvas. Any product can join with a client ID, a few API calls and an iframe.</p>
+      <p class="text-sm font-semibold text-brand-300">Custom builds</p>
+      <h2 class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Have an idea? We build it <span class="font-serif font-normal italic text-brand-300">on</span> Elements.</h2>
+      <p class="mt-4 text-lg leading-relaxed text-slate-300">Tell us the workflow you wish you had. We build it as a custom module for your organisation, on the same foundations as Gateway and Peak, and it appears in Canvas alongside them.</p>
       <ul class="mt-6 space-y-3 text-[15px] text-slate-200">
-{checks(["Install and uninstall modules per customer with one call", "Show module screens with five-minute links that only open on your own site", "Signed webhooks with timestamps, so you can verify every event", "Credentials shown once, rotated or revoked in a click"], dark=True)}
+{checks(["Private to your organisation by default", "The same security as every Element: signed links, signed events, full audit trail", "Works with Persona, so your AI can use it too"], dark=True)}
       </ul>
+      <div class="mt-8">{button("/canvas/book-a-demo/", "Talk to us about a build", dark=False)}</div>
     </div>
     <div class="reveal min-w-0">
-      <pre class="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 p-5 text-[13px] leading-relaxed text-slate-200"><code><span class="text-slate-500"># Switch Gateway on for one of your customers</span>
+      <pre class="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 p-5 text-[13px] leading-relaxed text-slate-200"><code><span class="text-slate-500"># Switch Gateway on for one of your services</span>
 curl -X POST {APP}/api/v1/installations \\
   -u "$CLIENT_ID:$CLIENT_SECRET" \\
   -H "Content-Type: application/json" \\
-  -d '{{"module":"gateway","tenantId":"agency_123",
-       "tenantName":"Brightwater Care"}}'
+  -d '{{"module":"gateway","tenantId":"north_branch",
+       "tenantName":"North branch"}}'
 
-<span class="text-slate-500"># Show it inside your app</span>
+<span class="text-slate-500"># Show it inside your own system</span>
 curl -X POST {APP}/api/v1/embed-tokens \\
   -u "$CLIENT_ID:$CLIENT_SECRET" \\
   -d '{{"installationId":"…","user":{{"id":"u_42","name":"Amara"}}}}'
@@ -266,17 +273,17 @@ curl -X POST {APP}/api/v1/embed-tokens \\
 <section class="mx-auto mt-28 grid max-w-6xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
   <div class="reveal">
     <p class="text-sm font-semibold text-brand-700">The console</p>
-    <h2 class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">See every installation and every event.</h2>
-    <p class="mt-4 text-lg leading-relaxed text-slate-600">One place to manage modules, connected platforms and their customers, and to follow everything flowing between them.</p>
+    <h2 class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Everything in one place.</h2>
+    <p class="mt-4 text-lg leading-relaxed text-slate-600">Manage your keys, the systems you've connected, what's switched on where, and everything flowing between them.</p>
     <ul class="mt-6 space-y-3 text-[15px] text-slate-700">
-{checks(["Preview any module exactly as the customer sees it", "Pause a customer's module, or send a test event to check the connection", "Delivery status on every webhook, with one-click retry"])}
+{checks(["Preview any Element exactly as your team sees it", "Pause an installation, or send a test event to check the connection", "Credentials shown once, rotated or revoked in a click"])}
     </ul>
   </div>
-  <div class="reveal">{frame("installations.jpg", "Canvas installations: each module and customer with its status and events", "canvas.aultrum.co.uk/installations")}</div>
+  <div class="reveal">{frame("installations.jpg", "Canvas installations: each element and service with its status and events", "canvas.aultrum.co.uk/installations")}</div>
 </section>
 
 <section class="mx-auto mt-28 max-w-6xl px-4 sm:px-6">
-  <h2 class="reveal font-display text-3xl font-bold tracking-tight sm:text-4xl">The platform stays in charge.</h2>
+  <h2 class="reveal font-display text-3xl font-bold tracking-tight sm:text-4xl">Built for care data.</h2>
   <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 """ + "\n".join(
     f"""    <div class="reveal rounded-2xl border border-slate-200 bg-white p-6">
@@ -284,9 +291,9 @@ curl -X POST {APP}/api/v1/embed-tokens \\
       <p class="mt-2 text-sm leading-relaxed text-slate-600">{b}</p>
     </div>"""
     for t, b in [
-        ("No direct writes", "Modules ask; the platform acts, with its own permissions and approvals."),
-        ("Locked-down screens", "Module screens only open inside the platform they were issued for."),
-        ("Signed everything", "Embed links and webhooks are signed and expire, so they can't be forged or replayed."),
+        ("No direct writes", "Persona and Elements ask your system to act; your rules decide."),
+        ("Locked-down screens", "Element screens only open inside the systems you allow."),
+        ("Signed everything", "Links and events are signed and expire, so they can't be forged or replayed."),
         ("Full event log", "Every event in and out is recorded, with delivery status."),
     ]
 ) + f"""
@@ -296,8 +303,8 @@ curl -X POST {APP}/api/v1/embed-tokens \\
 <section class="mx-auto mt-28 max-w-6xl px-4 sm:px-6">
   <div class="reveal relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-700 to-brand-950 px-6 py-16 text-center text-white sm:px-12">
     <div class="grid-lines pointer-events-none absolute inset-0 opacity-20"></div>
-    <h2 class="relative font-display text-3xl font-bold tracking-tight sm:text-5xl">Bring Aultrum modules to your platform.</h2>
-    <p class="relative mx-auto mt-4 max-w-xl text-lg text-brand-100">Join the Gateway pilot, or talk to us about connecting your product to Canvas.</p>
+    <h2 class="relative font-display text-3xl font-bold tracking-tight sm:text-5xl">Bring Persona and Elements to your systems.</h2>
+    <p class="relative mx-auto mt-4 max-w-xl text-lg text-brand-100">Join the Gateway pilot, get early access to Persona, or tell us what you'd like built.</p>
     <div class="relative mt-8 flex flex-wrap justify-center gap-3">
       <a href="/canvas/book-a-demo/" class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:bg-brand-50">Book a demo {ARROW}</a>
       <a href="{APP}/login" class="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">Log in to Canvas</a>
@@ -309,18 +316,18 @@ curl -X POST {APP}/api/v1/embed-tokens \\
 
 demo = head(
     "Book a demo · Aultrum Canvas | Aultrum",
-    "Book a demo of Aultrum Canvas and the Gateway pilot.",
+    "Book a demo of Aultrum Canvas: Persona, Elements and custom builds.",
     "/canvas/book-a-demo/",
 ) + header("demo") + f"""<main id="main">
 <section class="hero-glow -mt-16 pt-28">
   <div class="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
     <div>
       <p class="text-sm font-semibold text-brand-700">Book a demo</p>
-      <h1 class="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">See a module <span class="font-serif font-normal italic text-brand-600">stream</span> into your platform.</h1>
+      <h1 class="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">See Persona and Elements <span class="font-serif font-normal italic text-brand-600">in</span> your systems.</h1>
       <p class="mt-5 text-lg text-slate-600">Pick a time that suits you. We'll confirm straight away and send a calendar invite.</p>
       <h2 class="mt-10 text-sm font-semibold uppercase tracking-wider text-slate-400">What we'll cover</h2>
       <ul class="mt-4 space-y-3 text-[15px] text-slate-700">
-{checks(["The Gateway pilot, and the calls and messages it handles", "How a module appears inside Pleasant, or inside your own product", "The contract: install, show, exchange events, act", "Security: signed links, signed webhooks, origin-locked screens"])}
+{checks(["Persona working with your own systems' tools, with approvals", "The Gateway pilot, and the calls and messages it handles", "How Elements appear inside the software you already use", "A custom module you'd like built"])}
       </ul>
       <p class="mt-10 text-sm text-slate-500">Prefer email? <a href="mailto:{CONTACT}?subject=Aultrum%20Canvas" class="font-semibold text-brand-700 hover:text-brand-800">{CONTACT}</a></p>
     </div>
