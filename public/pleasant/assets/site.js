@@ -1,4 +1,4 @@
-// Mobile menu, scroll reveals and the pricing billing toggle for /pleasant.
+// Mobile menu, scroll reveals and the pricing billing toggle for the product pages.
 document.addEventListener("DOMContentLoaded", () => {
   const menuButton = document.getElementById("menu-button");
   const menu = document.getElementById("mobile-menu");

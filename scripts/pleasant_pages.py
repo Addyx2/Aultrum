@@ -45,6 +45,7 @@ def head(title: str, description: str, path: str) -> str:
 MAIN_LINKS = [
     ("/flowstatebeta/", "Flowstate"),
     ("/pleasant/", "Pleasant"),
+    ("/canvas/", "Canvas"),
     ("/research/index.html", "Research"),
     ("/blog/", "Blog"),
     ("/manifesto.html", "Manifesto"),
@@ -119,6 +120,7 @@ FOOTER = f"""<footer class="mt-24 border-t border-slate-200 bg-white">
       <ul class="mt-3 space-y-2 text-sm text-slate-600">
         <li><a class="hover:text-ink" href="/manifesto.html">Manifesto</a></li>
         <li><a class="hover:text-ink" href="/research/index.html">Research</a></li>
+        <li><a class="hover:text-ink" href="/canvas/">Canvas</a></li>
         <li><a class="hover:text-ink" href="/flowstatebeta/">Flowstate</a></li>
         <li><a class="hover:text-ink" href="/blog/">Blog</a></li>
       </ul>
