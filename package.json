@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:pleasant-css": "tailwindcss -c tailwind.pleasant.config.cjs -i styles/pleasant.css -o public/pleasant/assets/pleasant.css --minify",
     "build:canvas-css": "tailwindcss -c tailwind.canvas.config.cjs -i styles/canvas.css -o public/canvas/assets/canvas.css --minify",
-    "build:home-css": "tailwindcss -c tailwind.home.config.cjs -i styles/home.css -o public/assets/home.css --minify"
+    "build:home-css": "tailwindcss -c tailwind.home.config.cjs -i styles/home.css -o public/assets/home.css --minify",
+    "build:pleasant-home-css": "tailwindcss -c tailwind.pleasant-home.config.cjs -i styles/home.css -o public/pleasant/assets/pleasant-home.css --minify"
   },
   "keywords": [],
   "author": "",

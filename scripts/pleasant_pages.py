@@ -576,7 +576,7 @@ changelog = head(
 """ + FOOTER
 
 PAGES = {
-    ROOT / "index.html": overview,
+    # ROOT / "index.html" is written by scripts/pleasant_home.py (homepage layout, purple).
     ROOT / "pricing" / "index.html": pricing,
     ROOT / "book-a-demo" / "index.html": demo,
     ROOT / "changelog" / "index.html": changelog,
