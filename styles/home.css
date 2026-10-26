@@ -13,3 +13,39 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
+
+/* Homepage hero: sky, drifting clouds and the flock of geese from Flowstate beta. */
+.sky-hero { position: relative; overflow: hidden; }
+.sky { position: absolute; inset: 0 0 auto 0; height: 860px; pointer-events: none; z-index: 0;
+  background: linear-gradient(180deg, #a9cbef 0%, #cfe2f6 38%, #e9f1f6 62%, #fff9ed 100%); }
+.cloud { position: absolute; left: 0; opacity: .9; animation: cloudDrift linear infinite; will-change: transform; }
+.cloud svg { display: block; width: 100%; height: auto; filter: blur(1.5px); }
+.cloud-1 { top: 6%;  width: 260px; animation-duration: 140s; animation-delay: -20s; }
+.cloud-2 { top: 18%; width: 180px; animation-duration: 110s; animation-delay: -75s; opacity: .75; }
+.cloud-3 { top: 2%;  width: 340px; animation-duration: 170s; animation-delay: -120s; }
+.cloud-4 { top: 30%; width: 220px; animation-duration: 130s; animation-delay: -45s; opacity: .7; }
+.cloud-5 { top: 12%; width: 150px; animation-duration: 95s;  animation-delay: -5s;  opacity: .65; }
+.cloud-6 { top: 40%; width: 300px; animation-duration: 160s; animation-delay: -95s; opacity: .55; }
+@keyframes cloudDrift { from { transform: translateX(-360px); } to { transform: translateX(calc(100vw + 40px)); } }
+
+.goose-flock { position: absolute; inset: 0; overflow: hidden; color: #34407d; }
+.goose { position: absolute; left: 0; opacity: 0; animation: flyGoose linear infinite; }
+.goose-1 { top: 12%; animation-duration: 28s; animation-delay: 0s; }
+.goose-2 { top: 28%; animation-duration: 32s; animation-delay: 4s; }
+.goose-3 { top: 8%;  animation-duration: 26s; animation-delay: 8s; }
+.goose-4 { top: 35%; animation-duration: 34s; animation-delay: 12s; }
+.goose-5 { top: 20%; animation-duration: 30s; animation-delay: 2s; }
+.goose-6 { top: 15%; animation-duration: 36s; animation-delay: 6s; }
+.goose-7 { top: 40%; animation-duration: 29s; animation-delay: 10s; }
+@keyframes flyGoose {
+  0% { transform: translateX(-80px) translateY(0); opacity: 0; }
+  3% { opacity: .55; }
+  50% { transform: translateX(50vw) translateY(-18px); opacity: .45; }
+  97% { opacity: .55; }
+  100% { transform: translateX(calc(100vw + 80px)) translateY(4px); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cloud { animation: none; transform: translateX(var(--rest, 10vw)); }
+  .cloud-2 { --rest: 55vw; } .cloud-3 { --rest: 70vw; } .cloud-4 { --rest: 30vw; } .cloud-5 { --rest: 85vw; } .cloud-6 { --rest: 45vw; }
+  .goose { display: none; }
+}
