@@ -2,128 +2,48 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book a demo · Pleasant | Aultrum</title>
 <meta name="description" content="Book a demo of Pleasant, the operating system for UK care staffing agencies.">
-<link rel="canonical" href="https://aultrum.co.uk/pleasant/book-a-demo/">
-<meta property="og:title" content="Book a demo · Pleasant | Aultrum">
-<meta property="og:description" content="Book a demo of Pleasant, the operating system for UK care staffing agencies.">
 <meta property="og:image" content="https://aultrum.co.uk/pleasant/img/oversight.jpg">
-<meta name="theme-color" content="#fbfcfc">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/pleasant/assets/pleasant.css">
-<script defer src="/pleasant/assets/site.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&display=block">
+<link rel="stylesheet" href="/pleasant/assets/pleasant-home.css">
 </head>
-<body class="font-sans">
-<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:shadow">Skip to content</a>
-<header class="relative z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur">
-  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-    <a href="/" class="font-display text-lg font-bold tracking-tight text-ink">Aultrum</a>
-    <nav aria-label="Aultrum" class="hidden items-center gap-1 md:flex">
-<a href="/flowstatebeta/" class="rounded-full px-3 py-1.5 text-sm font-medium transition text-slate-500 hover:text-ink">Flowstate</a>
-<a href="/pleasant/" class="rounded-full px-3 py-1.5 text-sm font-medium transition text-ink" aria-current="page">Pleasant</a>
-<a href="/canvas/" class="rounded-full px-3 py-1.5 text-sm font-medium transition text-slate-500 hover:text-ink">Canvas</a>
-<a href="/research/index.html" class="rounded-full px-3 py-1.5 text-sm font-medium transition text-slate-500 hover:text-ink">Research</a>
-<a href="/blog/" class="rounded-full px-3 py-1.5 text-sm font-medium transition text-slate-500 hover:text-ink">Blog</a>
-<a href="/manifesto.html" class="rounded-full px-3 py-1.5 text-sm font-medium transition text-slate-500 hover:text-ink">Manifesto</a>
-    </nav>
-    <div class="flex items-center gap-2">
-      <a href="/pleasant/book-a-demo/" class="hidden rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 sm:inline-flex">Book a demo</a>
-      <button id="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu" class="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-700 md:hidden">
-        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
-  </div>
-  <nav id="mobile-menu" aria-label="Aultrum" class="hidden border-t border-slate-200 bg-white px-4 py-3 md:hidden">
-<a href="/flowstatebeta/" class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700">Flowstate</a>
-<a href="/pleasant/" class="block rounded-lg px-3 py-2 text-base font-medium bg-brand-50 text-brand-800">Pleasant</a>
-<a href="/canvas/" class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700">Canvas</a>
-<a href="/research/index.html" class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700">Research</a>
-<a href="/blog/" class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700">Blog</a>
-<a href="/manifesto.html" class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700">Manifesto</a>
-  </nav>
-</header>
-<div class="subnav pt-3">
-  <nav aria-label="Pleasant" class="subnav-pill">
-    <a href="/pleasant/" class="subnav-brand" aria-label="Pleasant overview"><span class="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-b from-brand-500 to-brand-700 text-[13px] font-bold text-white">P</span><span class="hidden sm:inline">Pleasant</span></a>
-<a href="/pleasant/pricing/" class="subnav-link">Pricing</a>
-<a href="/pleasant/book-a-demo/" class="subnav-link" aria-current="page"><span class="sm:hidden">Demo</span><span class="hidden sm:inline">Book demo</span></a>
-<a href="/pleasant/changelog/" class="subnav-link">Changelog</a>
-    <a href="https://pleasant.aultrum.co.uk/login" class="subnav-cta inline-flex items-center gap-1">Log in <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-  </nav>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-border-editorial"><div class="h-16 max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-xs text-ink-primary font-headline-sm text-headline-sm tracking-tight" data-path="ecosystem" href="/pleasant/"><span class="">AULTRUM</span><span class="text-outline-variant font-body-sm">/</span><span class="text-ink-dark">PLEASANT</span></a></div><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-ink-primary font-headline-sm"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/pleasant/#product">Product</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/pleasant/#assist">Persona</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/pleasant/#elements">Elements</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/pleasant/pricing/">Pricing</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/pleasant/changelog/">Changelog</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-block font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors py-1.5 px-space-xs" data-path="login" href="https://pleasant.aultrum.co.uk/login">Log in</a><a class="inline-flex items-center gap-space-xs bg-ink-primary text-on-primary font-body-sm text-body-sm px-space-md py-2 rounded-full hover:bg-primary-container hover:text-on-primary transition-all duration-150 shadow-sm" data-path="book-a-demo" href="/pleasant/book-a-demo/"><span class="">Book a demo</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a><a class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0" href="https://workspace.aultrum.co.uk" aria-label="Aultrum Workspace"><span class="material-symbols-outlined text-on-primary text-[18px]" aria-hidden="true">person</span></a><button type="button" class="lg:hidden w-9 h-9 rounded-full border border-border-editorial bg-surface-container-lowest text-ink-dark flex items-center justify-center shrink-0" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-button><span class="material-symbols-outlined text-[20px]" aria-hidden="true">menu</span></button></div></div><div id="mobile-menu" class="lg:hidden border-t border-border-editorial bg-surface" hidden><nav class="max-w-[1320px] mx-auto px-margin md:px-margin-md py-2 flex flex-col" aria-label="Menu" data-menu-list></nav></div><script>(()=>{const b=document.querySelector("[data-menu-button]"),m=document.getElementById("mobile-menu"),l=document.querySelector("[data-menu-list]");if(!b||!m||!l)return;const links=[...document.querySelectorAll("header nav.hidden a"),...document.querySelectorAll("header a[data-path=login]")];for(const a of links){const c=document.createElement("a");c.href=a.getAttribute("href");c.textContent=a.textContent.trim();c.className="py-3 border-b border-border-editorial last:border-0 font-body-md text-body-md text-ink-dark hover:text-ink-primary";l.appendChild(c);}const set=o=>{m.hidden=!o;b.setAttribute("aria-expanded",String(o));b.setAttribute("aria-label",o?"Close menu":"Open menu");b.firstElementChild.textContent=o?"close":"menu";};b.addEventListener("click",()=>set(m.hidden));l.addEventListener("click",e=>{if(e.target.closest("a"))set(false);});document.addEventListener("keydown",e=>{if(e.key==="Escape")set(false);});})();</script></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full text-on-surface"><section class="w-full pt-10 pb-16 md:pt-16 md:pb-24 max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+<div class="lg:col-span-5 flex flex-col items-start gap-space-md min-w-0"><div class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-2">BOOK A DEMO</div><h1 class="font-display-hero text-headline-lg md:text-display-hero text-ink-primary tracking-tight">See Pleasant run your week.</h1><p class="font-body-lg text-body-lg text-on-surface-variant">Pick a time that suits you. We'll confirm straight away and send a calendar invite.</p>
+<div class="w-full mt-4"><div class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-2">WHAT WE'LL COVER</div><ul class="w-full"><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">A care home's shift request, matched to a carer who is cleared to work</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Clock-in, client sign-off through a Pleasant Link, and approval</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">A payroll run and the client invoice from the same hours</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Persona Assist preparing work for you to approve</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Moving your workers and clients across</span></li></ul></div>
+<p class="font-body-sm text-body-sm text-ink-muted mt-2">Prefer email? <a class="text-ink-primary font-medium hover:underline" href="mailto:Wisdom@aultrum.co.uk?subject=Pleasant%20demo">Wisdom@aultrum.co.uk</a></p></div>
+<div class="lg:col-span-7 min-w-0 bg-surface-container-lowest border border-border-editorial rounded-xl p-2 sm:p-4 shadow-sm"><div id="cal-pleasant-demo" style="width:100%;min-height:680px;overflow:auto"></div></div>
+</section></div></main><footer class="w-full bg-canvas-warm border-t border-border-editorial"><div class="max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-16 pb-10">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10">
+<div class="col-span-2 md:col-span-3 lg:col-span-2 flex flex-col gap-4 max-w-sm">
+<a class="flex items-center gap-space-xs text-ink-primary font-headline-sm text-headline-sm tracking-tight" href="/"><span>AULTRUM</span><span class="text-outline-variant font-body-sm">/</span></a>
+<p class="font-body-sm text-body-sm text-ink-muted">Proactive care through Empathetic Intelligence. AI-native infrastructure for social care.</p>
+<div class="flex flex-wrap gap-x-4 gap-y-2"><a class="inline-flex items-center gap-1.5 font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="https://x.com/aultrumai"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">alternate_email</span>X (Twitter)</a><a class="inline-flex items-center gap-1.5 font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="https://instagram.com/aultrumai"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">photo_camera</span>Instagram</a><a class="inline-flex items-center gap-1.5 font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="https://linkedin.com"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">link</span>LinkedIn</a><a class="inline-flex items-center gap-1.5 font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="https://youtube.com"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">smart_display</span>YouTube</a></div>
 </div>
-<main id="main">
-<section class="hero-glow -mt-16 pt-28">
-  <div class="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
-    <div>
-      <p class="text-sm font-semibold text-brand-700">Book a demo</p>
-      <h1 class="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">See Pleasant run <span class="font-serif font-normal italic text-brand-700">your</span> week.</h1>
-      <p class="mt-5 text-lg text-slate-600">Pick a time that suits you. We'll confirm straight away and send a calendar invite.</p>
-      <h2 class="mt-10 text-sm font-semibold uppercase tracking-wider text-slate-400">What we'll cover</h2>
-      <ul class="mt-4 space-y-3 text-[15px] text-slate-700">
-        <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>A care home's shift request, matched to a carer who is cleared to work</span></li>
-        <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Clock-in, client sign-off through a Pleasant Link, and approval</span></li>
-        <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>A payroll run and the client invoice from the same hours</span></li>
-        <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Persona Assist preparing work for you to approve</span></li>
-        <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Moving your workers and clients across</span></li>
-      </ul>
-      <p class="mt-10 text-sm text-slate-500">Prefer email? <a href="mailto:Wisdom@aultrum.co.uk?subject=Pleasant%20demo" class="font-semibold text-brand-700 hover:text-brand-800">Wisdom@aultrum.co.uk</a></p>
-    </div>
-    <div class="rounded-3xl border border-slate-200 bg-white p-2 shadow-frame sm:p-4">
-      <div id="cal-pleasant-demo" style="width:100%;min-height:680px;overflow:auto"></div>
-    </div>
-  </div>
-</section>
-</main>
-<script>
+<div><h4 class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-4">Products</h4><div class="flex flex-col gap-3"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/elements/">Elements</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/pleasant/">Pleasant</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/pleasant/pricing/">Pricing</a></div></div>
+<div><h4 class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-4">Resources</h4><div class="flex flex-col gap-3"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/research/index.html">Blog</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/shop.html">Merch</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/research/index.html">Research</a></div></div>
+<div><h4 class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-4">Company</h4><div class="flex flex-col gap-3"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/manifesto.html">Manifesto</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="https://clumsy-bellflower-61e.notion.site/Careers-3d8547e8d49a808e9582e864183d1d9f?source=copy_link">Careers</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/apply.html">Contact</a></div></div>
+<div><h4 class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-4">Privacy</h4><div class="flex flex-col gap-3"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/privacy.html">Privacy Policy</a></div></div>
+</div>
+<div class="mt-12 pt-6 border-t border-border-editorial flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<p class="font-label-mono text-label-mono text-ink-muted">© 2026 Aultrum. All rights reserved. Proactive care through Empathetic Intelligence.</p>
+<a class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider hover:text-ink-dark" href="/manifesto.html">Manifesto</a>
+</div>
+</div></footer><script>
   (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
   Cal("init", "pleasantdemo", { origin: "https://app.cal.com" });
+  const email = new URLSearchParams(location.search).get("email") || undefined;
   Cal.ns.pleasantdemo("inline", {
     elementOrSelector: "#cal-pleasant-demo",
-    config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
+    config: { layout: "month_view", useSlotsViewOnSmallScreen: "true", ...(email ? { email } : {}) },
     calLink: "addyadeyeri/flowstatedemo",
   });
   Cal.ns.pleasantdemo("ui", { hideEventTypeDetails: false, layout: "month_view" });
 </script>
-<footer class="mt-24 border-t border-slate-200 bg-white">
-  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
-    <div>
-      <a href="/" class="font-display text-lg font-bold tracking-tight">Aultrum</a>
-      <p class="mt-3 max-w-xs text-sm text-slate-500">Quality care is computable. Personalised care is protectable.</p>
-    </div>
-    <div>
-      <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Pleasant</p>
-      <ul class="mt-3 space-y-2 text-sm text-slate-600">
-        <li><a class="hover:text-ink" href="/pleasant/">Overview</a></li>
-        <li><a class="hover:text-ink" href="/pleasant/pricing/">Pricing</a></li>
-        <li><a class="hover:text-ink" href="/pleasant/book-a-demo/">Book a demo</a></li>
-        <li><a class="hover:text-ink" href="/pleasant/changelog/">Changelog</a></li>
-        <li><a class="hover:text-ink" href="https://pleasant.aultrum.co.uk/login">Log in</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Aultrum</p>
-      <ul class="mt-3 space-y-2 text-sm text-slate-600">
-        <li><a class="hover:text-ink" href="/manifesto.html">Manifesto</a></li>
-        <li><a class="hover:text-ink" href="/research/index.html">Research</a></li>
-        <li><a class="hover:text-ink" href="/canvas/">Canvas</a></li>
-        <li><a class="hover:text-ink" href="/flowstatebeta/">Flowstate</a></li>
-        <li><a class="hover:text-ink" href="/blog/">Blog</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Company</p>
-      <ul class="mt-3 space-y-2 text-sm text-slate-600">
-        <li><a class="hover:text-ink" href="mailto:Wisdom@aultrum.co.uk">Wisdom@aultrum.co.uk</a></li>
-        <li><a class="hover:text-ink" href="/privacy.html">Privacy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="border-t border-slate-100">
-    <p class="mx-auto max-w-6xl px-4 py-6 text-xs text-slate-400 sm:px-6">&copy; 2026 Aultrum Technologies Ltd. Pleasant is part of the Aultrum family.</p>
-  </div>
-</footer>
 </body>
 </html>

@@ -10,6 +10,6 @@ const purple = {
 };
 module.exports = {
   ...config,
-  content: ["./public/pleasant/index.html"],
+  content: ["./public/pleasant/**/*.html"],
   theme: { ...config.theme, extend: { ...config.theme.extend, colors: { ...config.theme.extend.colors, ...purple } } },
 };
