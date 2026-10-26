@@ -36,3 +36,6 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 @media (prefers-reduced-motion: reduce) {
   .goose { display: none; }
 }
+
+/* Elements hidden with the hidden attribute stay hidden, whatever display class they carry. */
+[hidden] { display: none !important; }
