@@ -137,6 +137,113 @@ curl -X POST {CONSOLE}/api/v1/embed-tokens \\
 
 art_panel = f'''<figure class="relative overflow-hidden rounded-xl aspect-[4/3] md:aspect-[16/9] bg-[#2a46e0] bg-cover bg-center" style="background-image:url(/img/home/art-wide.jpg)"><img class="absolute left-[6%] top-[10%] w-[112%] max-w-none h-auto rounded-lg ring-1 ring-black/10 {SHADOW}" src="/elements/img/dashboard.jpg" alt="The Elements console: Gateway and Peak, connected systems, installations and recent events" width="2880" height="1800" loading="lazy"><figcaption class="absolute bottom-3 left-3 px-3 py-1.5 rounded-full bg-surface/90 backdrop-blur-md font-body-sm text-body-sm text-ink-dark">The Elements console</figcaption></figure>'''
 
+
+# ---------------------------------------------------------------- Calculator and demo
+
+def calc_field(name, label, value, hint, step="1", prefix=""):
+    return f"""<label class="flex flex-col gap-1.5 min-w-0"><span class="font-body-sm text-body-sm text-ink-dark font-medium">{label}</span>
+<span class="flex items-center gap-2 bg-surface-container-lowest border border-border-editorial rounded-lg px-3 focus-within:border-ink-primary">{f'<span class="text-ink-muted">{prefix}</span>' if prefix else ''}<input data-calc="{name}" type="number" inputmode="decimal" min="0" step="{step}" value="{value}" class="w-full min-w-0 bg-transparent py-2.5 font-body-md text-ink-dark focus:outline-none"></span>
+<span class="font-body-sm text-body-sm text-ink-muted">{hint}</span></label>"""
+
+
+def calc_result(key, label):
+    return f'<div class="py-4 border-b border-white/15 last:border-0"><p class="font-body-sm text-body-sm text-white/75">{label}</p><p data-out="{key}" class="font-stat-number text-stat-number text-white tracking-tight mt-1" aria-live="polite">–</p></div>'
+
+
+CALC = f"""<section id="savings" class="w-full scroll-mt-20 py-16 md:py-24 {W}">
+<div class="max-w-2xl mb-10">{eyebrow("WHAT THE GAP COSTS YOU")}<h2 class="{H2}">Work out what Gateway could save your agency.</h2><p class="font-body-lg text-ink-muted mt-3">Put in your own numbers. The figures already filled in are examples to change, not averages.</p></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<form class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 bg-surface-container-low border border-border-editorial rounded-xl p-6 md:p-8" onsubmit="return false" aria-label="Your numbers">
+{calc_field("missed", "Calls missed each week", 10, "Out of hours, or while everyone is busy.")}
+{calc_field("enquiry", "Of those, new enquiries (%)", 20, "Families or homes looking for care.")}
+{calc_field("convert", "Enquiries you'd win if answered (%)", 20, "Your usual conversion rate.")}
+{calc_field("value", "A client is worth, per week", 400, "Average weekly invoice for one client.", prefix="£")}
+{calc_field("weeks", "A client stays, in weeks", 20, "How long an average client stays.")}
+{calc_field("hours", "Hours spent on calls and messages each week", 15, "Across everyone in the office.")}
+{calc_field("rate", "Cost of an hour of office time", 14, "Pay plus on-costs.", step="0.5", prefix="£")}
+{calc_field("share", "Calls and messages Gateway handles (%)", 50, "Absences, cover requests and questions.")}
+</form>
+<div class="lg:col-span-5 relative overflow-hidden bg-[{BAND}] rounded-xl p-6 md:p-8 lg:sticky lg:top-24">{GRID}<div class="relative z-10">
+<p class="font-label-mono text-label-mono text-[{PILL_TEXT}] uppercase tracking-wider">Your estimate, per year</p>
+{calc_result("revenue", "Extra revenue from calls you'd now answer")}
+{calc_result("clients", "New clients won")}
+{calc_result("hoursBack", "Office hours back")}
+{calc_result("saved", "Office time saved")}
+<p class="font-body-sm text-body-sm text-white/70 mt-4">An estimate from the numbers you entered, not a promise. Revenue = missed calls × 52 × enquiries × win rate × weekly value × weeks a client stays.</p>
+<a class="mt-6 inline-flex items-center gap-2 bg-white text-ink-primary font-body-sm font-medium px-6 py-3 rounded-full hover:bg-white/90 transition-all" href="{DEMO}"><span>Talk it through with us</span>{ARROW}</a>
+</div></div>
+</div></section>"""
+
+CALC_JS = """<script>(()=>{const q=k=>document.querySelector(`[data-calc="${k}"]`),o=k=>document.querySelector(`[data-out="${k}"]`);
+const n=k=>{const v=parseFloat(q(k).value);return Number.isFinite(v)&&v>0?v:0};const pc=k=>Math.min(100,n(k))/100;
+const gbp=v=>new Intl.NumberFormat("en-GB",{style:"currency",currency:"GBP",maximumFractionDigits:0}).format(v);
+function run(){const clients=n("missed")*52*pc("enquiry")*pc("convert");const revenue=clients*n("value")*n("weeks");
+const hours=n("hours")*52*pc("share");o("clients").textContent=Math.round(clients).toLocaleString("en-GB");
+o("revenue").textContent=gbp(revenue);o("hoursBack").textContent=Math.round(hours).toLocaleString("en-GB");o("saved").textContent=gbp(hours*n("rate"));}
+document.querySelectorAll("[data-calc]").forEach(i=>i.addEventListener("input",run));run();})();</script>"""
+
+# A scripted walk-through of what Gateway does, so it needs no AI or phone line to show.
+SCENARIOS = [
+    ("sick", "A carer calls in sick", "SMS · 6:12am", [
+        ("them", "Grace", "Morning, it's Grace. I've got a temperature and can't do my 8am at Meadow View."),
+        ("gw", None, "Sorry to hear that, Grace. I've sent your absence for today's 8am at Meadow View to the rota team. They'll confirm with you shortly. Rest up."),
+    ], ("critical", "phone_in_talk", "Absence reported: Grace Miller", "Today 8am at Meadow View · Temperature · via Gateway", "Find cover")),
+    ("cover", "A care home needs a nurse", "Phone call · 9:40pm", [
+        ("them", "Sam, Meadow View", "Hi, it's Sam at Meadow View. We need a nurse for tomorrow night."),
+        ("gw", None, "Hi Sam. What time should the shift start and finish, and which unit is it for?"),
+        ("them", "Sam, Meadow View", "Eight till eight, on Rowan Unit."),
+        ("gw", None, "Thanks. I've sent a request for a nurse tomorrow, 8pm to 8am on Rowan Unit, to the rota team. They'll confirm who is coming."),
+    ], ("warning", "phone_in_talk", "Cover requested: Meadow View", "Tomorrow 20:00–08:00 · Nurse · Rowan Unit · via Gateway", "Create shift")),
+    ("urgent", "A relative in an emergency", "Web chat · 2:05am", [
+        ("them", "Visitor", "My mum has fallen and she's on the floor. Her carer isn't here yet."),
+        ("gw", None, "If anyone is in danger or needs urgent medical help, call 999 now. I'm getting a member of our team to you straight away."),
+    ], ("critical", "support_agent", "Urgent: a web chat visitor needs a person", "Possible emergency · on-call is alerted · via Gateway", "Open Gateway")),
+]
+
+
+def scenario_panel(key, title, channel, lines, card, first):
+    msgs = "".join(
+        f'<div data-line class="flex {"justify-start" if who == "them" else "justify-end"}"><div class="max-w-[85%] rounded-2xl px-3.5 py-2 font-body-md {"bg-surface-container-high text-ink-dark" if who == "them" else "bg-ink-primary text-on-primary"}"><p class="font-label-mono text-[10px] uppercase tracking-wider opacity-70 mb-0.5">{name or "Gateway"}</p><p>{text}</p></div></div>'
+        for who, name, text in lines
+    )
+    sev, icon, ctitle, cdetail, fix = card
+    crit = sev == "critical"
+    result = f"""<div data-result class="rounded-xl border {"border-red-200 bg-red-50" if crit else "border-amber-200 bg-amber-50"} p-4 flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
+<div class="flex items-start gap-3 min-w-0"><span class="material-symbols-outlined text-[20px] {"text-red-600" if crit else "text-amber-600"}" aria-hidden="true">{icon}</span><div class="min-w-0"><p class="font-body-md text-ink-dark font-medium">{ctitle} <span class="ml-1 align-middle font-label-mono text-[10px] px-1.5 py-0.5 rounded {"bg-red-100 text-red-700" if crit else "bg-amber-100 text-amber-800"}">{"CRITICAL" if crit else "REVIEW"}</span></p><p class="font-body-sm text-body-sm text-ink-muted">{cdetail}</p></div></div>
+<span class="shrink-0 inline-flex items-center rounded-lg px-3 py-1.5 font-body-sm text-white {"bg-red-600" if crit else "bg-ink-dark"}">{fix} →</span></div>"""
+    return f"""<div data-scenario="{key}" role="tabpanel" aria-label="{title}" {"" if first else "hidden"} class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="bg-surface-container-lowest border border-border-editorial rounded-xl flex flex-col min-h-[340px]"><div class="px-4 py-3 border-b border-border-editorial flex items-center justify-between gap-2"><span class="font-body-sm text-body-sm text-ink-dark font-medium">{title}</span><span class="font-label-mono text-label-mono text-ink-muted">{channel}</span></div>
+<div class="flex-1 p-4 space-y-3" data-thread aria-live="polite">{msgs}<div data-typing hidden class="flex justify-end"><span class="rounded-2xl bg-surface-container-high px-3.5 py-2 font-body-sm text-ink-muted">Gateway is typing…</span></div></div></div>
+<div class="flex flex-col gap-4"><p class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider">What your team sees in Pleasant</p>{result}
+<p class="font-body-sm text-body-sm text-ink-muted" data-note>The same record goes to your system, and staff can read the conversation, take over and reply.</p></div>
+</div>"""
+
+
+TABS = "".join(
+    f'<button type="button" role="tab" data-tab="{k}" aria-selected="{"true" if i == 0 else "false"}" class="px-4 py-2 rounded-full border font-body-sm text-body-sm transition-colors {"bg-ink-primary text-on-primary border-ink-primary" if i == 0 else "bg-surface text-ink-dark border-border-editorial hover:border-ink-primary"}">{t}</button>'
+    for i, (k, t, *_rest) in enumerate(SCENARIOS)
+)
+TRY = f"""<section id="try" class="w-full scroll-mt-20 border-t border-border-editorial"><div class="{W} py-16 md:py-24">
+<div class="max-w-2xl mb-8">{eyebrow("SEE IT WORK")}<h2 class="{H2}">Watch Gateway take a call.</h2><p class="font-body-lg text-ink-muted mt-3">Pick a situation. This is a scripted walk-through of what Gateway does, using made-up people.</p></div>
+<div class="flex flex-wrap items-center gap-2 mb-6" role="tablist" aria-label="Situations">{TABS}<button type="button" data-replay class="ml-auto inline-flex items-center gap-1 font-body-sm text-body-sm text-ink-primary hover:text-ink-dark"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">replay</span>Play again</button></div>
+{"".join(scenario_panel(k, t, ch, lines, card, i == 0) for i, (k, t, ch, lines, card) in enumerate(SCENARIOS))}
+</div></section>"""
+
+TRY_JS = """<script>(()=>{const tabs=[...document.querySelectorAll("[data-tab]")],panels=[...document.querySelectorAll("[data-scenario]")];
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;let timers=[];const ON=["bg-ink-primary","text-on-primary","border-ink-primary"],OFF=["bg-surface","text-ink-dark","border-border-editorial"];
+function play(p){timers.forEach(clearTimeout);timers=[];const lines=[...p.querySelectorAll("[data-line]")],typing=p.querySelector("[data-typing]"),result=p.querySelector("[data-result]"),note=p.querySelector("[data-note]");
+if(reduce){lines.forEach(l=>l.hidden=false);typing.hidden=true;result.hidden=false;note.hidden=false;return}
+lines.forEach(l=>l.hidden=true);result.hidden=true;note.hidden=true;typing.hidden=true;let t=300;
+lines.forEach((l,i)=>{const gw=l.classList.contains("justify-end");if(gw){timers.push(setTimeout(()=>{typing.hidden=false;l.before(typing)},t));t+=1100}
+timers.push(setTimeout(()=>{typing.hidden=true;l.hidden=false},t));t+=gw?700:900});
+timers.push(setTimeout(()=>{result.hidden=false;note.hidden=false},t+300))}
+function show(key){tabs.forEach(b=>{const on=b.dataset.tab===key;b.setAttribute("aria-selected",String(on));ON.forEach(c=>b.classList.toggle(c,on));OFF.forEach(c=>b.classList.toggle(c,!on))});
+panels.forEach(p=>p.hidden=p.dataset.scenario!==key);play(panels.find(p=>p.dataset.scenario===key))}
+tabs.forEach(b=>b.addEventListener("click",()=>show(b.dataset.tab)));document.querySelector("[data-replay]").addEventListener("click",()=>show(tabs.find(b=>b.getAttribute("aria-selected")==="true").dataset.tab));
+const section=document.getElementById("try");let started=false;const start=()=>{if(!started){started=true;show(tabs[0].dataset.tab)}};
+if("IntersectionObserver"in window){new IntersectionObserver((e,o)=>{if(e.some(x=>x.isIntersecting)){start();o.disconnect()}},{threshold:.3}).observe(section)}else start();})();</script>"""
+
+
 overview = main_wrap(f'''
 <section class="w-full pt-10 pb-16 md:pt-16 md:pb-24 {W}">
 <div class="max-w-4xl flex flex-col items-start gap-space-md mb-12">
@@ -151,12 +258,14 @@ overview = main_wrap(f'''
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6"><h2 class="{H2_WHITE}">Your phone rings. No one answers.</h2><p class="font-body-md text-white/80 max-w-md">Care agencies lose 20% of potential clients to after-hours gaps and spend 37% more on manual inbound handling.</p></div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">{stat("20%", "CLIENTS LOST", "Potential clients lost to after-hours gaps.")}{stat("37%", "EXTRA COST", "Additional expenses from manual inbound handling.")}{stat("4.2hr", "AVG DELAY", "Before a missed call is returned.")}{stat("68%", "CALLER FRUSTRATION", "Will call a competitor instead.", True)}</div>
 </div></section>
+{CALC}
 <section id="modules" class="w-full scroll-mt-20 py-16 md:py-24 {W}">
 <div class="max-w-2xl mb-12">{eyebrow("MODULES")}<h2 class="{H2}">Two modules. One foundation.</h2><p class="font-body-lg text-ink-muted mt-3">Elements closes the gaps between first contact and the people who deliver care. Add the modules you need and only pay for the ones you use.</p></div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 {module("gateway", "call", "Gateway", "One conversation layer for phone, SMS, WhatsApp and web chat. It recognises who is calling, routes to the right agent or person, and hands emergencies straight to a human.", ["LIVE CALLS", "CRM LOGS", "ABILITIES", "PERSONNEL IN LOOP"], ["Answers calls and messages at any hour", "Logs every interaction into your records", "Hands over to your team when a person is needed"])}
 {module("peak", "workspace_premium", "Peak", "Recognition that pays. Points for shifts, punctuality, and praise — cashed out, spent on benefits, or unlocked as financial perks.", ["EARN POINTS", "CASH OUT", "PERKS", "FINANCIAL LEDGER"], ["Points for shifts, punctuality and praise", "Cash out, spend on benefits or unlock perks", "Every point recorded in a ledger"])}
 </div></section>
+{TRY}
 {feature("persona", "PERSONA", "The AI that understands care delivery.", "Persona answers questions from your data and prepares work for your team, using the tools you choose to give it. Nothing changes until a person approves it.", ["Works with your systems' tools, inside each person's permissions", "Every change waits for approval, and every action is audited", "Automations such as a morning briefing or a compliance watch"], frame("assist.jpg", "Persona Assist in Pleasant, preparing a shift assignment and waiting for approval", base="/pleasant/img"))}
 <section id="how" class="w-full scroll-mt-20 border-t border-border-editorial"><div class="{W} py-16 md:py-24">
 <div class="max-w-2xl mb-12">{eyebrow("HOW IT WORKS")}<h2 class="{H2}">Your systems stay in charge.</h2><p class="font-body-lg text-ink-muted mt-3">Elements never writes to your data directly. It asks your system to act through its own tools, so your permissions, approvals and records still apply.</p></div>
@@ -184,7 +293,7 @@ overview = main_wrap(f'''
 </div></div></section>
 {cta_band("Add and only pay for the modules you use.", "Join the Gateway pilot, get early access to Persona, or tell us what you'd like built.", f'<a class="inline-flex items-center justify-center font-body-sm font-medium text-white hover:bg-white/10 border border-white/30 px-8 py-3.5 rounded-full transition-all" href="{CONSOLE}/login"><span>Log in to the console</span></a>')}
 ''')
-write(ROOT / "index.html", "Elements | Aultrum", "Elements: Gateway and Peak, the care modules that run on their own or inside Flowstate and Pleasant, managed from one console.", "", overview)
+write(ROOT / "index.html", "Elements | Aultrum", "Elements: Gateway and Peak, the care modules that run on their own or inside Flowstate and Pleasant, managed from one console.", "", overview, CALC_JS + TRY_JS)
 
 
 # ---------------------------------------------------------------- Book a demo
