@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/canvas", "destination": "/elements/", "permanent": true },
+    { "source": "/canvas/", "destination": "/elements/", "permanent": true },
+    { "source": "/canvas/book-a-demo", "destination": "/elements/book-a-demo/", "permanent": true },
+    { "source": "/canvas/book-a-demo/", "destination": "/elements/book-a-demo/", "permanent": true }
+  ]
+}
