@@ -2,296 +2,100 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pleasant · The operating system for care staffing agencies | Aultrum</title>
-<meta name="description" content="Pleasant runs the whole loop for agencies supplying care homes, nursing homes and domiciliary providers: rota, compliance, timesheets, payroll and client invoicing, with Persona AI.">
-<link rel="canonical" href="https://aultrum.co.uk/pleasant/">
-<meta property="og:title" content="Pleasant · The operating system for care staffing agencies | Aultrum">
-<meta property="og:description" content="Pleasant runs the whole loop for agencies supplying care homes, nursing homes and domiciliary providers: rota, compliance, timesheets, payroll and client invoicing, with Persona AI.">
+<meta name="description" content="Pleasant runs rota, compliance, timesheets, payroll and client invoicing for care staffing agencies, with Persona and Elements built in.">
 <meta property="og:image" content="https://aultrum.co.uk/pleasant/img/oversight.jpg">
-<meta name="theme-color" content="#fbfcfc">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/pleasant/assets/pleasant.css">
-<script defer src="/pleasant/assets/site.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&display=block">
+<link rel="stylesheet" href="/pleasant/assets/pleasant-home.css">
 </head>
-<body class="font-sans">
-<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:shadow">Skip to content</a>
-<header class="relative z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur">
-  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-    <a href="/" class="font-display text-lg font-bold tracking-tight text-ink">Aultrum</a>
-    <nav aria-label="Aultrum" class="hidden items-center gap-1 md:flex">
-<a href="/flowstatebeta/" class="rounded-full px-3 py-1.5 text-sm font-medium transition text-slate-500 hover:text-ink">Flowstate</a>
-<a href="/pleasant/" class="rounded-full px-3 py-1.5 text-sm font-medium transition text-ink" aria-current="page">Pleasant</a>
-<a href="/canvas/" class="rounded-full px-3 py-1.5 text-sm font-medium transition text-slate-500 hover:text-ink">Canvas</a>
-<a href="/research/index.html" class="rounded-full px-3 py-1.5 text-sm font-medium transition text-slate-500 hover:text-ink">Research</a>
-<a href="/blog/" class="rounded-full px-3 py-1.5 text-sm font-medium transition text-slate-500 hover:text-ink">Blog</a>
-<a href="/manifesto.html" class="rounded-full px-3 py-1.5 text-sm font-medium transition text-slate-500 hover:text-ink">Manifesto</a>
-    </nav>
-    <div class="flex items-center gap-2">
-      <a href="/pleasant/book-a-demo/" class="hidden rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 sm:inline-flex">Book a demo</a>
-      <button id="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu" class="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-700 md:hidden">
-        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
-  </div>
-  <nav id="mobile-menu" aria-label="Aultrum" class="hidden border-t border-slate-200 bg-white px-4 py-3 md:hidden">
-<a href="/flowstatebeta/" class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700">Flowstate</a>
-<a href="/pleasant/" class="block rounded-lg px-3 py-2 text-base font-medium bg-brand-50 text-brand-800">Pleasant</a>
-<a href="/canvas/" class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700">Canvas</a>
-<a href="/research/index.html" class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700">Research</a>
-<a href="/blog/" class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700">Blog</a>
-<a href="/manifesto.html" class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700">Manifesto</a>
-  </nav>
-</header>
-<div class="subnav pt-3">
-  <nav aria-label="Pleasant" class="subnav-pill">
-    <a href="/pleasant/" class="subnav-brand" aria-label="Pleasant overview" aria-current="page"><span class="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-b from-brand-500 to-brand-700 text-[13px] font-bold text-white">P</span><span class="hidden sm:inline">Pleasant</span></a>
-<a href="/pleasant/pricing/" class="subnav-link">Pricing</a>
-<a href="/pleasant/book-a-demo/" class="subnav-link"><span class="sm:hidden">Demo</span><span class="hidden sm:inline">Book demo</span></a>
-<a href="/pleasant/changelog/" class="subnav-link">Changelog</a>
-    <a href="https://pleasant.aultrum.co.uk/login" class="subnav-cta inline-flex items-center gap-1">Log in <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-  </nav>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-border-editorial"><div class="h-16 max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-xs text-ink-primary font-headline-sm text-headline-sm tracking-tight" data-path="ecosystem" href="/"><span class="">AULTRUM</span><span class="text-outline-variant font-body-sm">/</span><span class="text-ink-dark">PLEASANT</span></a></div><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-ink-primary font-headline-sm"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="#product">Product</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="#assist">Persona</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="#elements">Elements</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/pleasant/pricing/">Pricing</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/pleasant/changelog/">Changelog</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-block font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors py-1.5 px-space-xs" data-path="login" href="https://pleasant.aultrum.co.uk/login">Log in</a><a class="inline-flex items-center gap-space-xs bg-ink-primary text-on-primary font-body-sm text-body-sm px-space-md py-2 rounded-full hover:bg-primary-container hover:text-on-primary transition-all duration-150 shadow-sm" data-path="book-a-demo" href="/pleasant/book-a-demo/"><span class="">Book a demo</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a><a class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0" href="https://workspace.aultrum.co.uk" aria-label="Aultrum Workspace"><span class="material-symbols-outlined text-on-primary text-[18px]" aria-hidden="true">person</span></a></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full text-on-surface">
+<!-- Hero -->
+<section id="product" class="w-full scroll-mt-20 pt-10 pb-16 md:pt-16 md:pb-24 max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="max-w-4xl flex flex-col items-start gap-space-md mb-12">
+<a class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-highest text-ink-primary font-label-mono text-label-mono tracking-wider uppercase hover:bg-surface-container-high transition-colors" href="/pleasant/changelog/"><span class="w-1.5 h-1.5 rounded-full bg-ink-primary animate-pulse"></span>New: Persona Assist and the Needs attention centre</a>
+<h1 class="font-display-hero text-headline-lg md:text-display-hero text-ink-primary tracking-tight">The operating system for care staffing agencies.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-1">Pleasant runs the whole loop for agencies supplying care homes, nursing homes and domiciliary providers. Rota, compliance, timesheets, payroll and client invoicing in one place, with Persona, the AI that works alongside your team.</p>
+<div class="w-full max-w-xl mt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+<form class="flex-1 flex items-center bg-surface-container-lowest rounded-full p-1.5 shadow-sm focus-within:ring-2 focus-within:ring-ink-primary min-w-0" action="/pleasant/book-a-demo/" method="get">
+<label class="sr-only" for="work-email">Work email</label>
+<input class="w-full min-w-0 bg-transparent px-4 py-2 font-body-md text-ink-dark placeholder:text-ink-muted focus:outline-none" id="work-email" name="email" placeholder="Enter your work email..." required type="email">
+<button class="inline-flex items-center justify-center gap-1.5 bg-ink-primary text-on-primary font-body-sm px-5 py-2.5 rounded-full hover:bg-primary-container transition-all shrink-0 cursor-pointer" type="submit"><span>Book a demo</span><span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></button>
+</form>
+<a class="inline-flex items-center justify-center font-body-sm text-ink-primary hover:text-ink-dark px-4 py-3 rounded-full transition-colors font-medium text-center" href="/pleasant/pricing/">See pricing</a>
 </div>
-<main id="main">
-<section class="hero-glow relative -mt-16 overflow-hidden pt-28">
-  <div class="grid-lines pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)]"></div>
-  <div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6">
-    <a href="/pleasant/changelog/" class="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/80 px-3 py-1 text-xs font-medium text-brand-800 transition hover:border-brand-300">
-      <span class="rounded-full bg-brand-600 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">New</span>
-      Persona Assist and the Needs attention centre are live <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-    <h1 class="mt-7 font-display text-[44px] font-bold leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-      The operating system for <span class="font-serif font-normal italic text-brand-700">care</span> staffing agencies.
-    </h1>
-    <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-      Pleasant runs the whole loop for agencies supplying care homes, nursing homes and domiciliary providers. Rota, compliance, timesheets, payroll and client invoicing in one place, with Persona, the AI that works alongside your team.
-    </p>
-    <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
-      <a href="/pleasant/book-a-demo/" class="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition bg-ink text-white hover:bg-slate-800">Book a demo <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="/pleasant/pricing/" class="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition border border-slate-300 bg-white text-ink hover:border-slate-400">See pricing <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <p class="mt-4 text-xs text-slate-500">Pilot programme: founder pricing for our first agencies in Q4 2026.</p>
-  </div>
-  <div class="relative mx-auto mt-16 max-w-6xl px-4 sm:px-6">
-    <div class="frame shadow-frame reveal">
-  <div class="frame-bar"><span></span><span></span><span></span><p class="frame-url">pleasant.aultrum.co.uk/oversight</p></div>
-  <img src="/pleasant/img/oversight.jpg" alt="Pleasant's Oversight dashboard, showing the Needs attention list and today's numbers" width="2880" height="1800" loading="lazy">
 </div>
-  </div>
-</section>
-
-<section class="mx-auto mt-16 max-w-6xl px-4 sm:px-6">
-  <p class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Built for agencies supplying</p>
-  <ul class="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 font-display text-lg font-semibold text-slate-400">
-    <li>Care homes</li><li>Nursing homes</li><li>Domiciliary care</li><li>Supported living</li><li>NHS &amp; local authority frameworks</li>
-  </ul>
-</section>
-
-<section class="mx-auto mt-28 max-w-6xl px-4 sm:px-6">
-  <div class="reveal max-w-2xl">
-    <p class="text-sm font-semibold text-brand-700">One closed loop</p>
-    <h2 class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">From a shift request to a paid invoice, without re-keying anything.</h2>
-    <p class="mt-4 text-lg leading-relaxed text-slate-600">Most agencies stitch together a rota tool, a timesheet app, payroll software and a spreadsheet of invoices. Pleasant is one record from start to finish, so your margin is visible the moment a carer clocks in.</p>
-  </div>
-  <ol class="mt-12 grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-3">
-    <li class="reveal bg-white p-6">
-      <p class="font-display text-sm font-semibold text-brand-600">01</p>
-      <h3 class="mt-2 font-display text-xl font-semibold">Request</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">A care home or provider asks for cover, by phone or through their Pleasant Link.</p>
-    </li>
-    <li class="reveal bg-white p-6">
-      <p class="font-display text-sm font-semibold text-brand-600">02</p>
-      <h3 class="mt-2 font-display text-xl font-semibold">Match</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">Pleasant suggests carers who are free, cleared to work and right for the role.</p>
-    </li>
-    <li class="reveal bg-white p-6">
-      <p class="font-display text-sm font-semibold text-brand-600">03</p>
-      <h3 class="mt-2 font-display text-xl font-semibold">Clock in</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">Carers clock in and out on their phone against the real shift.</p>
-    </li>
-    <li class="reveal bg-white p-6">
-      <p class="font-display text-sm font-semibold text-brand-600">04</p>
-      <h3 class="mt-2 font-display text-xl font-semibold">Sign off</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">The client's named signatory approves the hours. No sign-off, no invoice.</p>
-    </li>
-    <li class="reveal bg-white p-6">
-      <p class="font-display text-sm font-semibold text-brand-600">05</p>
-      <h3 class="mt-2 font-display text-xl font-semibold">Pay</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">PAYE, NI and pension calculated from approved hours, with RTI and BACS files ready.</p>
-    </li>
-    <li class="reveal bg-white p-6">
-      <p class="font-display text-sm font-semibold text-brand-600">06</p>
-      <h3 class="mt-2 font-display text-xl font-semibold">Invoice</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">The client invoice comes from the same hours, with your margin on every shift.</p>
-    </li>
-  </ol>
-</section>
-<section class="mx-auto mt-28 grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:grid-cols-[1.1fr_0.9fr]">
-<div class="reveal"><div class="mx-auto max-w-[300px]"><div class="overflow-hidden rounded-[2.2rem] border-[10px] border-ink bg-ink shadow-frame"><img src="/pleasant/img/mobile.jpg" alt="The Needs attention list on a phone" width="780" height="1688" loading="lazy" class="block w-full rounded-[1.5rem]"></div></div></div>
-<div class="reveal">
-  <p class="text-sm font-semibold text-brand-700">Oversight</p>
-  <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Know what needs you before the phone rings.</h2>
-  <p class="mt-4 text-lg leading-relaxed text-slate-600">Oversight opens on the problems, most urgent first, each with the button that fixes it.</p>
-  <ul class="mt-6 space-y-3 text-[15px] text-slate-700">
-<li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Shifts starting in the next 48 hours with no carer, and unattended shifts</span></li>
-<li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Carers who aren't cleared to work: missing or expired DBS or right to work</span></li>
-<li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Clients missing a rate card or a timesheet signatory</span></li>
-<li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Timesheets to approve, and overdue invoices for admins</span></li>
-<li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Cover for the next 7 days, compared with the last 7</span></li>
-  </ul>
+<div class="w-full bg-surface-container-low/70 border border-border-editorial rounded-xl p-6 mb-12 shadow-sm flex flex-col gap-4">
+<div class="flex items-center gap-2 border-b border-border-editorial pb-3"><span class="w-1.5 h-1.5 rounded-full bg-ink-primary"></span><span class="font-label-mono text-label-mono text-ink-muted uppercase tracking-wider text-xs">BUILT FOR AGENCIES SUPPLYING</span></div>
+<ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-3 py-2"><li class="font-body-md text-ink-dark">Care homes</li><li class="font-body-md text-ink-dark">Nursing homes</li><li class="font-body-md text-ink-dark">Domiciliary care</li><li class="font-body-md text-ink-dark">Supported living</li><li class="font-body-md text-ink-dark">NHS &amp; local authority frameworks</li></ul>
 </div>
-</section><section class="mx-auto mt-28 grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
-<div class="reveal">
-  <p class="text-sm font-semibold text-brand-700">Clientpointe</p>
-  <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Clients are organisations, not names on a list.</h2>
-  <p class="mt-4 text-lg leading-relaxed text-slate-600">Every care home and provider has its units or branches, its contacts and its own rate card, so every shift is priced and signed off correctly.</p>
-  <ul class="mt-6 space-y-3 text-[15px] text-slate-700">
-<li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Rate cards by role: day, night, weekend, bank holiday and a flat sleep-in charge</span></li>
-<li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Rates for the whole client or for one unit</span></li>
-<li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Named signatories approve timesheets through a 24-hour Pleasant Link</span></li>
-<li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Framework or PO references and payment terms on every invoice</span></li>
-  </ul>
+<figure class="min-w-0 bg-surface-container-low border border-border-editorial rounded-xl p-2 shadow-sm"><img class="w-full h-auto rounded-lg border border-border-editorial" src="/pleasant/img/oversight.jpg" alt="Pleasant's Oversight dashboard, showing the Needs attention list and today's numbers" width="2880" height="1800" loading="lazy"></figure>
+</section>
+<!-- One closed loop -->
+<section class="w-full relative overflow-hidden bg-[#4c1d95]"><div class="absolute inset-0 z-0 overflow-hidden pointer-events-none"><div class="absolute inset-0 opacity-15" style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 32px 32px;"></div></div><div class="relative z-10 max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-16 md:pt-24 pb-16 md:pb-24">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6"><div class="max-w-2xl"><div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#ddd6fe] font-label-mono text-label-mono uppercase tracking-wider mb-3"><span class="w-1.5 h-1.5 rounded-full bg-[#a78bfa] animate-pulse"></span>ONE CLOSED LOOP</div><h2 class="font-headline-lg text-headline-md md:text-headline-lg text-white tracking-tight">From a shift request to a paid invoice, without re-keying anything.</h2></div><p class="font-body-md text-white/80 max-w-md">Most agencies stitch together a rota tool, a timesheet app, payroll software and a spreadsheet of invoices. Pleasant is one record from start to finish, so your margin is visible the moment a carer clocks in.</p></div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"><div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl flex flex-col shadow-sm"><div class="font-stat-number text-stat-number text-white tracking-tight">01</div><div class="font-headline-sm text-headline-sm text-[#e9d5ff] mt-2 uppercase">Request</div><p class="font-body-sm text-white/75 mt-6">A care home or provider asks for cover, by phone or through their Pleasant Link.</p></div><div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl flex flex-col shadow-sm"><div class="font-stat-number text-stat-number text-white tracking-tight">02</div><div class="font-headline-sm text-headline-sm text-[#e9d5ff] mt-2 uppercase">Match</div><p class="font-body-sm text-white/75 mt-6">Pleasant suggests carers who are free, cleared to work and right for the role.</p></div><div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl flex flex-col shadow-sm"><div class="font-stat-number text-stat-number text-white tracking-tight">03</div><div class="font-headline-sm text-headline-sm text-[#e9d5ff] mt-2 uppercase">Clock in</div><p class="font-body-sm text-white/75 mt-6">Carers clock in and out on their phone against the real shift.</p></div><div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl flex flex-col shadow-sm"><div class="font-stat-number text-stat-number text-white tracking-tight">04</div><div class="font-headline-sm text-headline-sm text-[#e9d5ff] mt-2 uppercase">Sign off</div><p class="font-body-sm text-white/75 mt-6">The client's named signatory approves the hours. No sign-off, no invoice.</p></div><div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl flex flex-col shadow-sm"><div class="font-stat-number text-stat-number text-white tracking-tight">05</div><div class="font-headline-sm text-headline-sm text-[#e9d5ff] mt-2 uppercase">Pay</div><p class="font-body-sm text-white/75 mt-6">PAYE, NI and pension calculated from approved hours, with RTI and BACS files ready.</p></div><div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl flex flex-col shadow-sm"><div class="font-stat-number text-stat-number text-white tracking-tight">06</div><div class="font-headline-sm text-headline-sm text-[#e9d5ff] mt-2 uppercase">Invoice</div><p class="font-body-sm text-white/75 mt-6">The client invoice comes from the same hours, with your margin on every shift.</p></div></div>
+</div></section>
+<section id="oversight" class="w-full scroll-mt-20 border-t border-border-editorial"><div class="max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center"><div class="lg:col-span-5 flex flex-col items-start gap-4 min-w-0"><div class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-2">OVERSIGHT</div><h2 class="font-headline-lg text-headline-md md:text-headline-lg text-ink-dark tracking-tight">Know what needs you before the phone rings.</h2><p class="font-body-lg text-body-lg text-ink-muted">Oversight opens on the problems, most urgent first, each with the button that fixes it.</p><ul class="w-full"><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Shifts starting in the next 48 hours with no carer, and unattended shifts</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Carers who aren't cleared to work: missing or expired DBS or right to work</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Clients missing a rate card or a timesheet signatory</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Timesheets to approve, and overdue invoices for admins</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Cover for the next 7 days, compared with the last 7</span></li></ul></div><div class="lg:col-span-7 min-w-0 lg:order-first"><div class="max-w-[300px] mx-auto"><figure class="min-w-0 bg-surface-container-low border border-border-editorial rounded-xl p-2 shadow-sm"><img class="w-full h-auto rounded-lg border border-border-editorial" src="/pleasant/img/mobile.jpg" alt="The Needs attention list on a phone" width="780" height="1688" loading="lazy"></figure></div></div></div></section>
+<section id="clients" class="w-full scroll-mt-20 border-t border-border-editorial"><div class="max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center"><div class="lg:col-span-5 flex flex-col items-start gap-4 min-w-0"><div class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-2">CLIENTPOINTE</div><h2 class="font-headline-lg text-headline-md md:text-headline-lg text-ink-dark tracking-tight">Clients are organisations, not names on a list.</h2><p class="font-body-lg text-body-lg text-ink-muted">Every care home and provider has its units or branches, its contacts and its own rate card, so every shift is priced and signed off correctly.</p><ul class="w-full"><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Rate cards by role: day, night, weekend, bank holiday and a flat sleep-in charge</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Rates for the whole client or for one unit</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Named signatories approve timesheets through a 24-hour Pleasant Link</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Framework or PO references and payment terms on every invoice</span></li></ul></div><div class="lg:col-span-7 min-w-0 "><figure class="min-w-0 bg-surface-container-low border border-border-editorial rounded-xl p-2 shadow-sm"><img class="w-full h-auto rounded-lg border border-border-editorial" src="/pleasant/img/client.jpg" alt="A client in Pleasant with its rate card, Pleasant Link and contacts" width="2880" height="1800" loading="lazy"></figure></div></div></section>
+<section id="payroll" class="w-full scroll-mt-20 border-t border-border-editorial"><div class="max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center"><div class="lg:col-span-5 flex flex-col items-start gap-4 min-w-0"><div class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-2">PAYROLL AND BILLING</div><h2 class="font-headline-lg text-headline-md md:text-headline-lg text-ink-dark tracking-tight">Pay carers and bill clients from the same approved hours.</h2><p class="font-body-lg text-body-lg text-ink-muted">Payroll and invoices come from one set of approved, client-signed timesheets, so they always agree.</p><ul class="w-full"><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">UK PAYE, National Insurance and pension for every carer, with payslips</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">FPS-ready RTI file for HMRC, plus BACS STD18 and bank payment files</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Client invoices with sleep-ins shown as flat charges, not hours</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Xero sales-invoice export for your accounts</span></li></ul></div><div class="lg:col-span-7 min-w-0 lg:order-first"><figure class="min-w-0 bg-surface-container-low border border-border-editorial rounded-xl p-2 shadow-sm"><img class="w-full h-auto rounded-lg border border-border-editorial" src="/pleasant/img/payroll.jpg" alt="A Pleasant payroll run with PAYE, NI, pension and payment files" width="2880" height="1800" loading="lazy"></figure></div></div></section>
+<section id="assist" class="w-full scroll-mt-20 border-t border-border-editorial"><div class="max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center"><div class="lg:col-span-5 flex flex-col items-start gap-4 min-w-0"><div class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-2">PERSONA ASSIST</div><h2 class="font-headline-lg text-headline-md md:text-headline-lg text-ink-dark tracking-tight">Assist does the work. You approve it.</h2><p class="font-body-lg text-body-lg text-ink-muted">Ask in plain English: fill tomorrow's open shifts, chase unsigned timesheets, set up a new care home. Assist finds the answer in your live data and prepares the change. Nothing happens until someone approves it.</p><ul class="w-full"><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Every change waits on an Approve or Decline card, and is written to the audit log</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Works within each person's role. Admins choose which areas Assist can read or change</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Scheduled automations such as a morning briefing or a compliance watch, which can only read</span></li><li class="flex gap-3 py-3 border-t border-border-editorial"><span class="material-symbols-outlined text-[18px] text-ink-primary shrink-0" aria-hidden="true">check</span><span class="font-body-md text-ink-dark">Saved, searchable chat history, private to each user</span></li></ul></div><div class="lg:col-span-7 min-w-0 "><figure class="min-w-0 bg-surface-container-low border border-border-editorial rounded-xl p-2 shadow-sm"><img class="w-full h-auto rounded-lg border border-border-editorial" src="/pleasant/img/assist.jpg" alt="Persona Assist preparing a shift assignment and waiting for approval" width="2880" height="1800" loading="lazy"></figure></div></div></section>
+<!-- Elements inside Pleasant -->
+<section id="elements" class="w-full scroll-mt-20 border-t border-border-editorial"><div class="max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-16 md:py-24">
+<div class="max-w-2xl mb-12"><div class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-2">ELEMENTS // INSIDE PLEASANT</div><h2 class="font-headline-lg text-headline-md md:text-headline-lg text-ink-dark tracking-tight">Add the modules you need, inside Pleasant.</h2><p class="font-body-lg text-ink-muted mt-3">Gateway and Peak are Aultrum Elements. Switch them on in Pleasant and they work on the same carers, clients and shifts.</p></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="group relative bg-surface-container-low rounded-xl p-8 flex flex-col justify-between transition-all hover:bg-surface-container shadow-sm border border-border-editorial">
+<div><div class="flex items-center justify-between mb-6"><div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-ink-primary text-on-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[20px]" aria-hidden="true">call</span></span><div><span class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider block text-xs">MODULE // 01</span><h3 class="font-headline-md text-headline-sm md:text-headline-md text-ink-dark">Gateway</h3></div></div><span class="px-2.5 py-1 rounded-full bg-ink-primary/10 text-ink-primary font-label-mono text-[10px] tracking-wider font-medium uppercase">SWITCH ON</span></div>
+<p class="font-body-md text-ink-muted mb-6">The always-on contact centre that logs every interaction straight into your CRM. Live calls, Abilities, and your people in the loop.</p><div class="flex flex-wrap gap-2 mb-8"><span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">LIVE CALLS</span><span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">CRM LOGS</span><span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">ABILITIES</span><span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">PERSONNEL IN LOOP</span></div></div>
+<div class="pt-6 border-t border-border-editorial flex items-center justify-between"><a class="inline-flex items-center gap-2 font-body-sm font-medium text-ink-primary group-hover:translate-x-1 transition-transform" href="/elements/#gateway"><span>EXPLORE GATEWAY</span><span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span></a></div>
 </div>
-<div class="reveal"><div class="frame shadow-frame ">
-  <div class="frame-bar"><span></span><span></span><span></span><p class="frame-url">pleasant.aultrum.co.uk/clients</p></div>
-  <img src="/pleasant/img/client.jpg" alt="A client in Pleasant with its rate card, Pleasant Link and contacts" width="2880" height="1800" loading="lazy">
-</div></div>
-</section><section class="mx-auto mt-28 grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:grid-cols-[1.1fr_0.9fr]">
-<div class="reveal"><div class="frame shadow-frame ">
-  <div class="frame-bar"><span></span><span></span><span></span><p class="frame-url">pleasant.aultrum.co.uk/payroll</p></div>
-  <img src="/pleasant/img/payroll.jpg" alt="A Pleasant payroll run with PAYE, NI, pension and payment files" width="2880" height="1800" loading="lazy">
-</div></div>
-<div class="reveal">
-  <p class="text-sm font-semibold text-brand-700">Payroll and billing</p>
-  <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Pay carers and bill clients from the same approved hours.</h2>
-  <p class="mt-4 text-lg leading-relaxed text-slate-600">Payroll and invoices come from one set of approved, client-signed timesheets, so they always agree.</p>
-  <ul class="mt-6 space-y-3 text-[15px] text-slate-700">
-<li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>UK PAYE, National Insurance and pension for every carer, with payslips</span></li>
-<li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>FPS-ready RTI file for HMRC, plus BACS STD18 and bank payment files</span></li>
-<li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Client invoices with sleep-ins shown as flat charges, not hours</span></li>
-<li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Xero sales-invoice export for your accounts</span></li>
-  </ul>
+<div class="group relative bg-surface-container-low rounded-xl p-8 flex flex-col justify-between transition-all hover:bg-surface-container shadow-sm border border-border-editorial">
+<div><div class="flex items-center justify-between mb-6"><div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-ink-primary text-on-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[20px]" aria-hidden="true">workspace_premium</span></span><div><span class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider block text-xs">MODULE // 02</span><h3 class="font-headline-md text-headline-sm md:text-headline-md text-ink-dark">Peak</h3></div></div><span class="px-2.5 py-1 rounded-full bg-ink-primary/10 text-ink-primary font-label-mono text-[10px] tracking-wider font-medium uppercase">SWITCH ON</span></div>
+<p class="font-body-md text-ink-muted mb-6">Recognition that pays. Points for shifts, punctuality, and praise — cashed out, spent on benefits, or unlocked as financial perks.</p><div class="flex flex-wrap gap-2 mb-8"><span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">EARN POINTS</span><span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">CASH OUT</span><span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">PERKS</span><span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">FINANCIAL LEDGER</span></div></div>
+<div class="pt-6 border-t border-border-editorial flex items-center justify-between"><a class="inline-flex items-center gap-2 font-body-sm font-medium text-ink-primary group-hover:translate-x-1 transition-transform" href="/elements/#peak"><span>EXPLORE PEAK</span><span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span></a></div>
 </div>
-</section>
-<section class="mt-28 bg-ink py-24 text-white">
-  <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
-    <div class="reveal">
-      <p class="text-sm font-semibold text-brand-300">Persona Assist</p>
-      <h2 class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Assist does the work. <span class="font-serif font-normal italic text-brand-300">You</span> approve it.</h2>
-      <p class="mt-4 text-lg leading-relaxed text-slate-300">Ask in plain English: fill tomorrow's open shifts, chase unsigned timesheets, set up a new care home. Assist finds the answer in your live data and prepares the change. Nothing happens until someone approves it.</p>
-      <ul class="mt-6 space-y-3 text-[15px] text-slate-200">
-        <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Every change waits on an Approve or Decline card, and is written to the audit log</span></li>
-        <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Works within each person's role. Admins choose which areas Assist can read or change</span></li>
-        <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Scheduled automations such as a morning briefing or a compliance watch, which can only read</span></li>
-        <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Saved, searchable chat history, private to each user</span></li>
-      </ul>
-    </div>
-    <div class="reveal"><div class="frame shadow-frame ">
-  <div class="frame-bar"><span></span><span></span><span></span><p class="frame-url">pleasant.aultrum.co.uk/persona/assist</p></div>
-  <img src="/pleasant/img/assist.jpg" alt="Persona Assist preparing a shift assignment and waiting for approval" width="2880" height="1800" loading="lazy">
-</div></div>
-  </div>
-</section>
-
-<section class="mx-auto mt-28 max-w-6xl px-4 sm:px-6">
-  <div class="reveal max-w-2xl">
-    <p class="text-sm font-semibold text-brand-700">Persona</p>
-    <h2 class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">Built on the first layers of quality care.</h2>
-    <p class="mt-4 text-lg leading-relaxed text-slate-600">Persona maps every carer's abilities to every client's needs. Pleasant starts where care must start: is this carer capable, lawful and fit for this shift?</p>
-  </div>
-  <div class="mt-10 grid gap-4 md:grid-cols-3">
-    <div class="reveal rounded-2xl border border-slate-200 bg-white p-6">
-      <p class="font-display text-sm font-semibold text-slate-400">Layer I</p>
-      <h3 class="mt-1 font-display text-xl font-semibold">Competence</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">Skills matched to this client's needs, not just credentials held. Anchored in the Care Certificate, the RQF, the Core Skills Training Framework and NICE guidance.</p>
-    </div>
-    <div class="reveal rounded-2xl border border-slate-200 bg-white p-6">
-      <p class="font-display text-sm font-semibold text-slate-400">Layer II</p>
-      <h3 class="mt-1 font-display text-xl font-semibold">Compliance</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">A gate, not a trade-off. DBS, right to work and training are checked on every carer, and gaps surface before anyone is booked.</p>
-    </div>
-    <div class="reveal rounded-2xl border border-slate-200 bg-white p-6">
-      <p class="font-display text-sm font-semibold text-slate-400">Layer III</p>
-      <h3 class="mt-1 font-display text-xl font-semibold">Shift Readiness</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">Protecting the carer's capacity to care is protecting the client. Pleasant already refuses overlapping bookings; fatigue-aware readiness is next.</p>
-    </div>
-  </div>
-  <a href="/manifesto.html" class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800">Read the Aultrum manifesto <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-</section>
-
-<section class="mx-auto mt-28 max-w-6xl px-4 sm:px-6">
-  <h2 class="reveal font-display text-3xl font-bold tracking-tight sm:text-4xl">Secure and accountable by design.</h2>
-  <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-    <div class="reveal rounded-2xl border border-slate-200 bg-white p-6">
-      <h3 class="font-semibold">Roles and permissions</h3>
-      <p class="mt-2 text-sm leading-relaxed text-slate-600">Admins, managers and carers each see only what their role allows, enforced on the server.</p>
-    </div>
-    <div class="reveal rounded-2xl border border-slate-200 bg-white p-6">
-      <h3 class="font-semibold">Full audit trail</h3>
-      <p class="mt-2 text-sm leading-relaxed text-slate-600">Sign-ins, approvals, payroll, invoices, exports and every change made through Assist are recorded.</p>
-    </div>
-    <div class="reveal rounded-2xl border border-slate-200 bg-white p-6">
-      <h3 class="font-semibold">GDPR-aligned</h3>
-      <p class="mt-2 text-sm leading-relaxed text-slate-600">Worker and client data handled under UK GDPR rules and isolated per agency.</p>
-    </div>
-    <div class="reveal rounded-2xl border border-slate-200 bg-white p-6">
-      <h3 class="font-semibold">Session security</h3>
-      <p class="mt-2 text-sm leading-relaxed text-slate-600">Sign-in lockout, revocable sessions and “sign out of all devices”.</p>
-    </div>
-  </div>
-</section>
-
-<section class="mx-auto mt-28 max-w-6xl px-4 sm:px-6">
-  <div class="reveal relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-700 to-brand-950 px-6 py-16 text-center text-white sm:px-12">
-    <div class="grid-lines pointer-events-none absolute inset-0 opacity-20"></div>
-    <h2 class="relative font-display text-3xl font-bold tracking-tight sm:text-5xl">See Pleasant run your week.</h2>
-    <p class="relative mx-auto mt-4 max-w-xl text-lg text-brand-100">A short demo with real workflows: a shift request, a clock-in, a signed timesheet, a payroll run and an invoice.</p>
-    <div class="relative mt-8 flex flex-wrap justify-center gap-3">
-      <a href="/pleasant/book-a-demo/" class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:bg-brand-50">Book a demo <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="/pleasant/pricing/" class="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">From £149 a month</a>
-    </div>
-  </div>
-</section>
-</main>
-<footer class="mt-24 border-t border-slate-200 bg-white">
-  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
-    <div>
-      <a href="/" class="font-display text-lg font-bold tracking-tight">Aultrum</a>
-      <p class="mt-3 max-w-xs text-sm text-slate-500">Quality care is computable. Personalised care is protectable.</p>
-    </div>
-    <div>
-      <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Pleasant</p>
-      <ul class="mt-3 space-y-2 text-sm text-slate-600">
-        <li><a class="hover:text-ink" href="/pleasant/">Overview</a></li>
-        <li><a class="hover:text-ink" href="/pleasant/pricing/">Pricing</a></li>
-        <li><a class="hover:text-ink" href="/pleasant/book-a-demo/">Book a demo</a></li>
-        <li><a class="hover:text-ink" href="/pleasant/changelog/">Changelog</a></li>
-        <li><a class="hover:text-ink" href="https://pleasant.aultrum.co.uk/login">Log in</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Aultrum</p>
-      <ul class="mt-3 space-y-2 text-sm text-slate-600">
-        <li><a class="hover:text-ink" href="/manifesto.html">Manifesto</a></li>
-        <li><a class="hover:text-ink" href="/research/index.html">Research</a></li>
-        <li><a class="hover:text-ink" href="/canvas/">Canvas</a></li>
-        <li><a class="hover:text-ink" href="/flowstatebeta/">Flowstate</a></li>
-        <li><a class="hover:text-ink" href="/blog/">Blog</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Company</p>
-      <ul class="mt-3 space-y-2 text-sm text-slate-600">
-        <li><a class="hover:text-ink" href="mailto:Wisdom@aultrum.co.uk">Wisdom@aultrum.co.uk</a></li>
-        <li><a class="hover:text-ink" href="/privacy.html">Privacy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="border-t border-slate-100">
-    <p class="mx-auto max-w-6xl px-4 py-6 text-xs text-slate-400 sm:px-6">&copy; 2026 Aultrum Technologies Ltd. Pleasant is part of the Aultrum family.</p>
-  </div>
-</footer>
+</div></div></section>
+<!-- First layers of quality care -->
+<section class="w-full border-t border-border-editorial"><div class="max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-16 md:py-24">
+<div class="max-w-2xl mb-12"><div class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-2">PERSONA</div><h2 class="font-headline-lg text-headline-md md:text-headline-lg text-ink-dark tracking-tight">Built on the first layers of quality care.</h2><p class="font-body-lg text-ink-muted mt-3">Persona maps every carer's abilities to every client's needs. Pleasant starts where care must start: is this carer capable, lawful and fit for this shift?</p></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-editorial border border-border-editorial rounded-xl overflow-hidden">
+<div class="bg-surface-container-lowest p-6 md:p-8 flex flex-col gap-3"><span class="material-symbols-outlined text-[22px] text-ink-primary" aria-hidden="true">school</span><span class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider">LAYER I</span><h3 class="font-headline-sm text-headline-sm text-ink-dark">Competence</h3><p class="font-body-md text-ink-muted">Skills matched to this client's needs, not just credentials held. Anchored in the Care Certificate, the RQF, the Core Skills Training Framework and NICE guidance.</p></div>
+<div class="bg-surface-container-lowest p-6 md:p-8 flex flex-col gap-3"><span class="material-symbols-outlined text-[22px] text-ink-primary" aria-hidden="true">verified_user</span><span class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider">LAYER II</span><h3 class="font-headline-sm text-headline-sm text-ink-dark">Compliance</h3><p class="font-body-md text-ink-muted">A gate, not a trade-off. DBS, right to work and training are checked on every carer, and gaps surface before anyone is booked.</p></div>
+<div class="bg-surface-container-lowest p-6 md:p-8 flex flex-col gap-3"><span class="material-symbols-outlined text-[22px] text-ink-primary" aria-hidden="true">health_and_safety</span><span class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider">LAYER III</span><h3 class="font-headline-sm text-headline-sm text-ink-dark">Shift Readiness</h3><p class="font-body-md text-ink-muted">Protecting the carer's capacity to care is protecting the client. Pleasant already refuses overlapping bookings; fatigue-aware readiness is next.</p></div>
+</div>
+<a class="inline-flex items-center gap-2 font-body-sm font-medium text-ink-primary hover:translate-x-1 transition-transform mt-8" href="/manifesto.html"><span>READ THE AULTRUM MANIFESTO</span><span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span></a>
+</div></section>
+<!-- Security -->
+<section class="w-full border-t border-border-editorial"><div class="max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-16 md:py-24">
+<div class="max-w-2xl mb-12"><div class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-2">SECURITY</div><h2 class="font-headline-lg text-headline-md md:text-headline-lg text-ink-dark tracking-tight">Secure and accountable by design.</h2></div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border-editorial border border-border-editorial rounded-xl overflow-hidden">
+<div class="bg-surface-container-lowest p-6 md:p-8 flex flex-col gap-3"><span class="material-symbols-outlined text-[22px] text-ink-primary" aria-hidden="true">admin_panel_settings</span><h3 class="font-headline-sm text-headline-sm text-ink-dark">Roles and permissions</h3><p class="font-body-md text-ink-muted">Admins, managers and carers each see only what their role allows, enforced on the server.</p></div>
+<div class="bg-surface-container-lowest p-6 md:p-8 flex flex-col gap-3"><span class="material-symbols-outlined text-[22px] text-ink-primary" aria-hidden="true">history</span><h3 class="font-headline-sm text-headline-sm text-ink-dark">Full audit trail</h3><p class="font-body-md text-ink-muted">Sign-ins, approvals, payroll, invoices, exports and every change made through Assist are recorded.</p></div>
+<div class="bg-surface-container-lowest p-6 md:p-8 flex flex-col gap-3"><span class="material-symbols-outlined text-[22px] text-ink-primary" aria-hidden="true">shield_lock</span><h3 class="font-headline-sm text-headline-sm text-ink-dark">GDPR-aligned</h3><p class="font-body-md text-ink-muted">Worker and client data handled under UK GDPR rules and isolated per agency.</p></div>
+<div class="bg-surface-container-lowest p-6 md:p-8 flex flex-col gap-3"><span class="material-symbols-outlined text-[22px] text-ink-primary" aria-hidden="true">lock</span><h3 class="font-headline-sm text-headline-sm text-ink-dark">Session security</h3><p class="font-body-md text-ink-muted">Sign-in lockout, revocable sessions and “sign out of all devices”.</p></div>
+</div></div></section>
+<!-- CTA -->
+<section class="w-full relative overflow-hidden bg-[#5b21b6] py-20 md:py-28 text-center flex flex-col items-center"><div class="absolute inset-0 z-0 overflow-hidden pointer-events-none"><div class="absolute inset-0 opacity-15" style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 32px 32px;"></div></div><div class="relative z-10 max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex flex-col items-center"><div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#ddd6fe] font-label-mono text-label-mono uppercase tracking-wider mb-3"><span class="w-1.5 h-1.5 rounded-full bg-[#a78bfa] animate-pulse"></span>DEPLOY_PLEASANT</div><h2 class="font-display-hero text-headline-lg md:text-display-hero text-white tracking-tight max-w-3xl">See Pleasant run your week.</h2><p class="font-body-lg text-white/80 max-w-xl mt-4 mb-8">A short demo with real workflows: a shift request, a clock-in, a signed timesheet, a payroll run and an invoice.</p><div class="flex flex-col sm:flex-row items-center gap-4"><a class="inline-flex items-center gap-2 bg-white text-ink-primary font-body-sm font-medium px-8 py-3.5 rounded-full hover:bg-white/90 transition-all shadow-md" href="/pleasant/book-a-demo/"><span>Book a demo</span><span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span></a><a class="inline-flex items-center justify-center font-body-sm font-medium text-white hover:bg-white/10 border border-white/30 px-8 py-3.5 rounded-full transition-all" href="/pleasant/pricing/"><span>From £149 a month</span></a></div></div></section>
+</div></main><footer class="w-full bg-canvas-warm border-t border-border-editorial"><div class="max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-16 pb-10">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10">
+<div class="col-span-2 md:col-span-3 lg:col-span-2 flex flex-col gap-4 max-w-sm">
+<a class="flex items-center gap-space-xs text-ink-primary font-headline-sm text-headline-sm tracking-tight" href="/"><span>AULTRUM</span><span class="text-outline-variant font-body-sm">/</span></a>
+<p class="font-body-sm text-body-sm text-ink-muted">Proactive care through Empathetic Intelligence. AI-native infrastructure for social care.</p>
+<div class="flex flex-wrap gap-x-4 gap-y-2"><a class="inline-flex items-center gap-1.5 font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="https://x.com/aultrumai"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">alternate_email</span>X (Twitter)</a><a class="inline-flex items-center gap-1.5 font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="https://instagram.com/aultrumai"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">photo_camera</span>Instagram</a><a class="inline-flex items-center gap-1.5 font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="https://linkedin.com"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">link</span>LinkedIn</a><a class="inline-flex items-center gap-1.5 font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="https://youtube.com"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">smart_display</span>YouTube</a></div>
+</div>
+<div><h4 class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-4">Products</h4><div class="flex flex-col gap-3"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/elements/">Elements</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/pleasant/">Pleasant</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/pleasant/pricing/">Pricing</a></div></div>
+<div><h4 class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-4">Resources</h4><div class="flex flex-col gap-3"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/research/index.html">Blog</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/shop.html">Merch</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/research/index.html">Research</a></div></div>
+<div><h4 class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-4">Company</h4><div class="flex flex-col gap-3"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/manifesto.html">Manifesto</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="https://clumsy-bellflower-61e.notion.site/Careers-3d8547e8d49a808e9582e864183d1d9f?source=copy_link">Careers</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/apply.html">Contact</a></div></div>
+<div><h4 class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-4">Privacy</h4><div class="flex flex-col gap-3"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="/privacy.html">Privacy Policy</a></div></div>
+</div>
+<div class="mt-12 pt-6 border-t border-border-editorial flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<p class="font-label-mono text-label-mono text-ink-muted">© 2026 Aultrum. All rights reserved. Proactive care through Empathetic Intelligence.</p>
+<a class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider hover:text-ink-dark" href="/manifesto.html">Manifesto</a>
+</div>
+</div></footer>
 </body>
 </html>
