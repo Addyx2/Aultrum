@@ -161,7 +161,7 @@ CALC = f"""<section id="savings" class="w-full scroll-mt-20 py-16 md:py-24 {W}">
 {calc_field("weeks", "A client stays, in weeks", 20, "How long an average client stays.")}
 {calc_field("hours", "Hours spent on calls and messages each week", 15, "Across everyone in the office.")}
 {calc_field("rate", "Cost of an hour of office time", 14, "Pay plus on-costs.", step="0.5", prefix="£")}
-{calc_field("share", "Calls and messages Gateway handles (%)", 50, "Absences, cover requests and questions.")}
+{calc_field("share", "Calls and messages Gateway handles (%)", 50, "Questions it can answer and messages it takes.")}
 </form>
 <div class="lg:col-span-5 relative overflow-hidden bg-[{BAND}] rounded-xl p-6 md:p-8 lg:sticky lg:top-24">{GRID}<div class="relative z-10">
 <p class="font-label-mono text-label-mono text-[{PILL_TEXT}] uppercase tracking-wider">Your estimate, per year</p>
@@ -184,18 +184,18 @@ document.querySelectorAll("[data-calc]").forEach(i=>i.addEventListener("input",r
 
 # A scripted walk-through of what Gateway does, so it needs no AI or phone line to show.
 SCENARIOS = [
-    ("sick", "A carer calls in sick", "SMS · 6:12am", [
+    ("enquiry", "A family looking for care", "Phone call · 7:45pm", [
+        ("them", "Caller", "Hello, I'm looking for some help at home for my dad in Clifton."),
+        ("gw", None, "Of course. Could I take your name and the best number to reach you on?"),
+        ("them", "Priya", "Priya Shah, this number's fine. Ideally three mornings a week."),
+        ("gw", None, "Thanks, Priya. I've passed your enquiry to the team and they'll call you back. Is there anything else I can help with?"),
+    ], ("warning", "phone_in_talk", "New enquiry: Priya Shah", "Home care for her father · three mornings a week, Clifton · via Gateway", "Call back")),
+    ("message", "A message for the team", "SMS · 6:12am", [
         ("them", "Grace", "Morning, it's Grace. I've got a temperature and can't do my 8am at Meadow View."),
-        ("gw", None, "Sorry to hear that, Grace. I've sent your absence for today's 8am at Meadow View to the rota team. They'll confirm with you shortly. Rest up."),
-    ], ("critical", "phone_in_talk", "Absence reported: Grace Miller", "Today 8am at Meadow View · Temperature · via Gateway", "Find cover")),
-    ("cover", "A care home needs a nurse", "Phone call · 9:40pm", [
-        ("them", "Sam, Meadow View", "Hi, it's Sam at Meadow View. We need a nurse for tomorrow night."),
-        ("gw", None, "Hi Sam. What time should the shift start and finish, and which unit is it for?"),
-        ("them", "Sam, Meadow View", "Eight till eight, on Rowan Unit."),
-        ("gw", None, "Thanks. I've sent a request for a nurse tomorrow, 8pm to 8am on Rowan Unit, to the rota team. They'll confirm who is coming."),
-    ], ("warning", "phone_in_talk", "Cover requested: Meadow View", "Tomorrow 20:00–08:00 · Nurse · Rowan Unit · via Gateway", "Create shift")),
-    ("urgent", "A relative in an emergency", "Web chat · 2:05am", [
-        ("them", "Visitor", "My mum has fallen and she's on the floor. Her carer isn't here yet."),
+        ("gw", None, "Sorry to hear that, Grace. I've passed your message to the team and someone will get back to you shortly."),
+    ], ("warning", "sms", "Message from Grace Miller", "Can't do her 8am at Meadow View: temperature · via Gateway", "Call back")),
+    ("urgent", "Someone in danger", "Web chat · 2:05am", [
+        ("them", "Visitor", "My mum has fallen and she's on the floor."),
         ("gw", None, "If anyone is in danger or needs urgent medical help, call 999 now. I'm getting a member of our team to you straight away."),
     ], ("critical", "support_agent", "Urgent: a web chat visitor needs a person", "Possible emergency · on-call is alerted · via Gateway", "Open Gateway")),
 ]
@@ -215,7 +215,7 @@ def scenario_panel(key, title, channel, lines, card, first):
 <div class="bg-surface-container-lowest border border-border-editorial rounded-xl flex flex-col min-h-[340px]"><div class="px-4 py-3 border-b border-border-editorial flex items-center justify-between gap-2"><span class="font-body-sm text-body-sm text-ink-dark font-medium">{title}</span><span class="font-label-mono text-label-mono text-ink-muted">{channel}</span></div>
 <div class="flex-1 p-4 space-y-3" data-thread aria-live="polite">{msgs}<div data-typing hidden class="flex justify-end"><span class="rounded-2xl bg-surface-container-high px-3.5 py-2 font-body-sm text-ink-muted">Gateway is typing…</span></div></div></div>
 <div class="flex flex-col gap-4"><p class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider">What your team sees in Pleasant</p>{result}
-<p class="font-body-sm text-body-sm text-ink-muted" data-note>The same record goes to your system, and staff can read the conversation, take over and reply.</p></div>
+<p class="font-body-sm text-body-sm text-ink-muted" data-note>The same record goes to your system, and staff can read the conversation, take over and reply. Nothing is booked or changed until a person does it.</p></div>
 </div>"""
 
 
@@ -224,7 +224,7 @@ TABS = "".join(
     for i, (k, t, *_rest) in enumerate(SCENARIOS)
 )
 TRY = f"""<section id="try" class="w-full scroll-mt-20 border-t border-border-editorial"><div class="{W} py-16 md:py-24">
-<div class="max-w-2xl mb-8">{eyebrow("SEE IT WORK")}<h2 class="{H2}">Watch Gateway take a call.</h2><p class="font-body-lg text-ink-muted mt-3">Pick a situation. This is a scripted walk-through of what Gateway does, using made-up people.</p></div>
+<div class="max-w-2xl mb-8">{eyebrow("SEE IT WORK")}<h2 class="{H2}">Watch Gateway take a call.</h2><p class="font-body-lg text-ink-muted mt-3">Pick a situation. This is a scripted walk-through of what Gateway does, using made-up people. Gateway takes enquiries and messages; it never arranges anything itself.</p></div>
 <div class="flex flex-wrap items-center gap-2 mb-6" role="tablist" aria-label="Situations">{TABS}<button type="button" data-replay class="ml-auto inline-flex items-center gap-1 font-body-sm text-body-sm text-ink-primary hover:text-ink-dark"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">replay</span>Play again</button></div>
 {"".join(scenario_panel(k, t, ch, lines, card, i == 0) for i, (k, t, ch, lines, card) in enumerate(SCENARIOS))}
 </div></section>"""
@@ -248,7 +248,7 @@ overview = main_wrap(f'''
 <section class="w-full pt-10 pb-16 md:pt-16 md:pb-24 {W}">
 <div class="max-w-4xl flex flex-col items-start gap-space-md mb-12">
 <h1 class="{H1}">Care modules that run on their own, or inside the platform you use.</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-1">Elements is the foundation underneath Aultrum. Gateway answers every call and message; Peak rewards the people who deliver care. Switch them on in Flowstate or Pleasant, or run them on their own.</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-1">Elements is the foundation underneath Aultrum. Gateway answers every enquiry; Peak rewards the people who deliver care. Switch them on in Flowstate or Pleasant, or run them on their own.</p>
 <div class="w-full max-w-xl mt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"><a class="{BTN}" href="{DEMO}"><span>Book a demo</span><span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a><a class="inline-flex items-center justify-center font-body-sm text-ink-primary hover:text-ink-dark px-4 py-3 rounded-full transition-colors font-medium" href="#how">See how it works</a></div>
 <div class="flex flex-wrap items-center gap-2 mt-6"><span class="font-label-mono text-label-mono text-ink-muted uppercase tracking-wider mr-1">Runs on its own, or inside</span>{chip("FLOWSTATE")}{chip("PLEASANT")}</div>
 </div>
@@ -262,7 +262,7 @@ overview = main_wrap(f'''
 <section id="modules" class="w-full scroll-mt-20 py-16 md:py-24 {W}">
 <div class="max-w-2xl mb-12">{eyebrow("MODULES")}<h2 class="{H2}">Two modules. One foundation.</h2><p class="font-body-lg text-ink-muted mt-3">Elements closes the gaps between first contact and the people who deliver care. Add the modules you need and only pay for the ones you use.</p></div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-{module("gateway", "call", "Gateway", "One conversation layer for phone, SMS, WhatsApp and web chat. It recognises who is calling, routes to the right agent or person, and hands emergencies straight to a human.", ["LIVE CALLS", "CRM LOGS", "ABILITIES", "PERSONNEL IN LOOP"], ["Answers calls and messages at any hour", "Logs every interaction into your records", "Hands over to your team when a person is needed"])}
+{module("gateway", "call", "Gateway", "An AI receptionist for enquiries. It answers calls, texts and web chat at any hour, answers questions from your own information, and takes down every enquiry and message for your team.", ["CALLS", "TEXTS", "WEB CHAT", "PERSONNEL IN LOOP"], ["Answers questions from what you tell it, and nothing else", "Takes down every enquiry and message, and sends it to your team", "Puts callers through to a person whenever they ask"])}
 {module("peak", "workspace_premium", "Peak", "Recognition that pays. Points for shifts, punctuality, and praise — cashed out, spent on benefits, or unlocked as financial perks.", ["EARN POINTS", "CASH OUT", "PERKS", "FINANCIAL LEDGER"], ["Points for shifts, punctuality and praise", "Cash out, spend on benefits or unlock perks", "Every point recorded in a ledger"])}
 </div></section>
 {TRY}
