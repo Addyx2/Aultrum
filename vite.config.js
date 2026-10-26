@@ -6,6 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        vision: resolve(__dirname, 'vision.html'),
         manifesto: resolve(__dirname, 'manifesto.html'),
         apply: resolve(__dirname, 'apply.html'),
         success: resolve(__dirname, 'success.html'),

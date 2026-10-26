@@ -19,8 +19,9 @@ body { background: #fbfcfc; color: #0b0f14; -webkit-font-smoothing: antialiased;
 .subnav-cta { white-space: nowrap; border-radius: 9999px; padding: 7px 14px; margin-left: 4px; font-size: 14px; font-weight: 600; background: #237670; color: #fff; transition: background .15s; }
 .subnav-cta:hover { background: #1f5f5b; }
 @media (max-width: 639px) {
-  .subnav-link, .subnav-cta { padding: 6px 11px; font-size: 13px; }
-  .subnav-brand { padding-right: 8px; }
+  .subnav-pill { gap: 0; padding: 5px; }
+  .subnav-link, .subnav-cta { padding: 6px 9px; font-size: 13px; }
+  .subnav-brand { padding-right: 6px; margin-right: 2px; }
 }
 
 /* Product screenshots in a browser frame. */

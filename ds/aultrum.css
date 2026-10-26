@@ -1,0 +1,131 @@
+/* Aultrum Design System: tokens and components (light). Source of truth: the Aultrum Design System. */
+:root, [data-theme="light"] {
+  --canvas: #f9f4eb;
+  --surface: #ffffff;
+  --surface-subtle: #eee8dd;
+  --border: #e3dccf;
+  --border-strong: #c9c0b0;
+  --ink: #121417;
+  --ink-muted: #6e6b65;
+  --ink-secondary: #34407d;
+  --cobalt: #0021cc;
+  --cobalt-hover: #2563eb;
+  --on-cobalt: #ffffff;
+  --cobalt-tint: rgba(0, 33, 204, 0.08);
+  --band: #0021cc;
+  --on-band: #ffffff;
+  --band-line: rgba(255, 255, 255, 0.16);
+  --good: #11704a;
+  --warning: #8a5a00;
+  --critical: #ba1a1a;
+  --critical-tint: #ffdad6;
+  --shadow-pop: 2px 2px 0px rgba(0, 33, 204, 0.10);
+}
+
+:root {
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-xxl: 64px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-pill: 9999px;
+  --container-max: 1320px;
+  --measure: 65ch;
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+.display-hero { font-family: var(--font-sans); font-size: 64px; line-height: 68px; font-weight: 600; letter-spacing: -0.035em; }
+.display-hero-mobile { font-family: var(--font-sans); font-size: 38px; line-height: 42px; font-weight: 600; letter-spacing: -0.03em; }
+.headline-lg { font-family: var(--font-sans); font-size: 40px; line-height: 46px; font-weight: 600; letter-spacing: -0.03em; }
+.headline-md { font-family: var(--font-sans); font-size: 28px; line-height: 34px; font-weight: 500; letter-spacing: -0.02em; }
+.headline-sm { font-family: var(--font-sans); font-size: 20px; line-height: 26px; font-weight: 600; letter-spacing: -0.015em; }
+.stat-number { font-family: var(--font-sans); font-size: 44px; line-height: 48px; font-weight: 600; letter-spacing: -0.03em; }
+.body-lg { font-family: var(--font-sans); font-size: 17px; line-height: 26px; font-weight: 400; letter-spacing: -0.01em; }
+.body-md { font-family: var(--font-sans); font-size: 15px; line-height: 22px; font-weight: 400; letter-spacing: -0.005em; }
+.body-sm { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 400; }
+.label-pill { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.01em; }
+.label-mono { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.02em; }
+
+/* Aultrum components. Every value comes from tokens.css. Class prefix: au- */
+
+.au-root { background: var(--canvas); color: var(--ink); font-family: var(--font-sans); font-size: 15px; line-height: 22px; -webkit-font-smoothing: antialiased; }
+.au-root :focus-visible { outline: 2px solid var(--cobalt); outline-offset: 2px; }
+
+/* Button: pill. Primary is cobalt; ghost is outlined; quiet is text only. */
+.au-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); border-radius: var(--radius-pill); padding: 10px 20px; font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 500; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: background-color .15s, transform .15s, color .15s; white-space: nowrap; }
+.au-btn--primary { background: var(--cobalt); color: var(--on-cobalt); }
+.au-btn--primary:hover { background: var(--cobalt-hover); }
+.au-btn--primary .au-arrow { transition: transform .15s; }
+.au-btn--primary:hover .au-arrow { transform: translateX(2px); }
+.au-btn--ghost { background: transparent; color: var(--cobalt); border-color: var(--cobalt); }
+.au-btn--ghost:hover { background: var(--cobalt-tint); }
+.au-btn--quiet { background: transparent; color: var(--cobalt); padding-inline: 8px; }
+.au-btn--quiet:hover { color: var(--cobalt-hover); }
+.au-btn--on-band { background: var(--on-band); color: var(--band); }
+.au-btn--sm { padding: 6px 14px; font-size: 13px; line-height: 18px; }
+.au-btn[disabled], .au-btn[aria-disabled="true"] { opacity: .55; pointer-events: none; }
+
+/* Badge: pill metadata. */
+.au-badge { display: inline-flex; align-items: center; gap: 6px; border-radius: var(--radius-pill); padding: 4px 12px; font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: .01em; color: var(--cobalt); background: var(--surface); border: 1px solid var(--border); }
+.au-badge--tint { background: var(--cobalt-tint); border-color: transparent; }
+.au-badge--mono { font-family: var(--font-mono); letter-spacing: .02em; text-transform: uppercase; }
+.au-badge--good { color: var(--good); }
+.au-badge--warning { color: var(--warning); }
+.au-badge--critical { color: var(--critical); }
+.au-badge .au-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+/* Eyebrow: mono section label, optionally with a hairline. */
+.au-eyebrow { display: flex; align-items: center; gap: var(--space-sm); font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: var(--ink-secondary); }
+.au-eyebrow--rule::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
+/* Action field: input and button in one pill. */
+.au-action { display: flex; align-items: center; gap: var(--space-sm); background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: 6px 6px 6px 16px; max-width: 440px; }
+.au-action input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 15px; color: var(--ink); }
+.au-action input::placeholder { color: var(--ink-muted); }
+.au-action:focus-within { border-color: var(--cobalt); }
+
+/* Field: label + input for forms. */
+.au-field { display: grid; gap: 6px; }
+.au-field label { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--ink); }
+.au-input { width: 100%; box-sizing: border-box; background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--radius-md); padding: 9px 12px; font: inherit; font-size: 15px; color: var(--ink); }
+.au-input::placeholder { color: var(--ink-muted); }
+.au-input:focus { outline: 2px solid var(--cobalt); outline-offset: 0; border-color: var(--cobalt); }
+.au-field .au-help { font-size: 13px; line-height: 18px; color: var(--ink-muted); }
+.au-field--invalid .au-input { border-color: var(--critical); }
+.au-field--invalid .au-help { color: var(--critical); }
+
+/* Panel: a bordered surface. */
+.au-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-lg); }
+
+/* Grid: cells share hairlines instead of floating as cards. */
+.au-grid { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.au-grid > * { background: var(--surface); padding: var(--space-lg); }
+
+/* Stat: a figure with a mono label. */
+.au-stat-label { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: var(--ink-secondary); }
+.au-stat-number { font-size: 44px; line-height: 48px; font-weight: 600; letter-spacing: -0.03em; color: var(--cobalt); font-variant-numeric: tabular-nums; margin-block: 8px 4px; }
+.au-stat-note { font-size: 13px; line-height: 18px; color: var(--ink-muted); }
+
+/* Numbered list: rows with hairlines and mono indices (only for real sequences). */
+.au-steps { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); counter-reset: au-step; }
+.au-steps > li { counter-increment: au-step; display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: var(--space-md); padding-block: var(--space-md); border-bottom: 1px solid var(--border); }
+.au-steps > li::before { content: counter(au-step, decimal-leading-zero); font-family: var(--font-mono); font-size: 12px; line-height: 22px; font-weight: 500; color: var(--cobalt); }
+
+/* Band: full-width cobalt section with a faint grid. */
+.au-band { background-color: var(--band); color: var(--on-band); background-image: linear-gradient(var(--band-line) 1px, transparent 1px), linear-gradient(90deg, var(--band-line) 1px, transparent 1px); background-size: 48px 48px; }
+
+/* Nav item for product sidebars. */
+.au-nav-item { display: flex; align-items: center; gap: 10px; padding: 7px 12px; border-radius: var(--radius-md); font-size: 13px; line-height: 18px; font-weight: 500; color: var(--ink-muted); text-decoration: none; }
+.au-nav-item:hover { background: var(--surface-subtle); color: var(--ink); }
+.au-nav-item[aria-current="page"] { background: var(--cobalt-tint); color: var(--cobalt); }
+
+/* Banner: inline status messages. */
+.au-banner { display: flex; gap: var(--space-sm); align-items: flex-start; border-radius: var(--radius-md); padding: 10px 14px; font-size: 14px; line-height: 20px; border: 1px solid var(--border); background: var(--surface); color: var(--ink); }
+.au-banner--critical { background: var(--critical-tint); border-color: transparent; color: var(--critical); }
+.au-banner--good { color: var(--good); }
