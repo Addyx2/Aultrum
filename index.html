@@ -2,331 +2,186 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aultrum | Software for UK care</title>
-<meta name="description" content="Aultrum builds the software UK care providers run on: Pleasant for care staffing, Canvas, Flowstate and Tender, with Persona AI and Elements inside each one.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aultrum | Competent, compliant and consistent care</title>
+<meta name="description" content="Competent, compliant, and consistent care delivery — around the clock.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./ds/aultrum.css">
-<style>
-  /* Homepage layout. Every colour, size and radius comes from the Aultrum Design System. */
-  html { color-scheme: light; scroll-behavior: smooth; }
-  body { margin: 0; }
-  .wrap { max-width: var(--container-max); margin: 0 auto; padding-inline: 20px; }
-  @media (min-width: 768px) { .wrap { padding-inline: var(--space-xl); } }
-  @media (min-width: 1200px) { .wrap { padding-inline: var(--space-xxl); } }
-  a { color: inherit; }
-  img { max-width: 100%; display: block; }
-
-  /* Header */
-  .site-head { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--canvas) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
-  .site-head .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); }
-  .mark { display: inline-flex; align-items: baseline; gap: 6px; text-decoration: none; font-size: 20px; line-height: 26px; font-weight: 600; letter-spacing: -0.015em; color: var(--cobalt); }
-  .mark span { color: var(--border-strong); font-weight: 400; }
-  .nav { display: none; gap: var(--space-lg); }
-  .nav a { font-size: 13px; line-height: 18px; color: var(--ink-muted); text-decoration: none; }
-  .nav a:hover { color: var(--cobalt); }
-  .head-actions { display: flex; align-items: center; gap: var(--space-sm); }
-  .menu-btn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: var(--radius-pill); border: 1px solid var(--border-strong); background: var(--surface); color: var(--ink); cursor: pointer; }
-  .mobile-nav[hidden] { display: none; }
-  .mobile-nav { border-top: 1px solid var(--border); padding-block: var(--space-sm) var(--space-md); }
-  .mobile-nav a { display: block; padding: 10px 0; font-size: 15px; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--border); }
-  .hide-sm, .au-btn.hide-sm { display: none; }
-  @media (min-width: 960px) {
-    .nav { display: flex; }
-    .menu-btn, .mobile-nav { display: none !important; }
-  }
-  @media (min-width: 560px) { .hide-sm, .au-btn.hide-sm { display: inline-flex; } }
-
-  /* Hero */
-  .hero { padding-block: var(--space-xxl) var(--space-xl); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }
-  .hero h1 { margin: 0; color: var(--cobalt); font-size: 38px; line-height: 42px; font-weight: 600; letter-spacing: -0.03em; max-width: 15ch; text-wrap: balance; }
-  @media (min-width: 768px) { .hero h1 { font-size: 64px; line-height: 68px; letter-spacing: -0.035em; } }
-  .lead { margin: 0; font-size: 17px; line-height: 26px; letter-spacing: -0.01em; color: var(--ink); max-width: 56ch; }
-  .hero-copy { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); justify-items: start; }
-  .hero-copy > * { max-width: 100%; }
-  .hero-actions .au-action input { min-width: 0; width: 100%; }
-  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md); width: 100%; }
-  .hero-actions .au-action { flex: 1 1 320px; min-width: 0; }
-  .shot { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); padding: 8px; }
-  .shot img { border-radius: var(--radius-sm); border: 1px solid var(--border); width: 100%; height: auto; }
-  .shot figcaption { display: flex; justify-content: space-between; gap: var(--space-md); padding: 10px 6px 2px; font-family: var(--font-mono); font-size: 12px; line-height: 16px; letter-spacing: .02em; text-transform: uppercase; color: var(--ink-secondary); }
-
-  /* Sections */
-  section { scroll-margin-top: 72px; }
-  .section { padding-block: var(--space-xxl); display: grid; gap: var(--space-xl); }
-  .section-head { display: grid; gap: var(--space-md); max-width: 760px; }
-  .section-head h2 { margin: 0; color: var(--cobalt); font-size: 28px; line-height: 34px; font-weight: 600; letter-spacing: -0.025em; text-wrap: balance; }
-  @media (min-width: 768px) { .section-head h2 { font-size: 40px; line-height: 46px; letter-spacing: -0.03em; } }
-  .section-head p { margin: 0; font-size: 17px; line-height: 26px; color: var(--ink-muted); max-width: 60ch; }
-
-  /* Platforms grid */
-  .platforms { grid-template-columns: 1fr; }
-  @media (min-width: 720px) { .platforms { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  .platform { display: grid; gap: var(--space-md); align-content: start; }
-  .platform-top { display: flex; justify-content: space-between; align-items: center; gap: var(--space-md); }
-  .platform h3 { margin: 0; font-size: 28px; line-height: 34px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
-  .platform p { margin: 0; color: var(--ink-muted); max-width: 48ch; }
-  .platform ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
-  .platform .au-btn { justify-self: start; }
-  .muted-badge { color: var(--ink-muted); }
-
-  /* Band */
-  .band-inner { padding-block: var(--space-xxl); display: grid; gap: var(--space-xl); }
-  .band-head { display: grid; gap: var(--space-md); max-width: 760px; }
-  .band-head h2 { margin: 0; font-size: 28px; line-height: 34px; font-weight: 600; letter-spacing: -0.025em; color: var(--on-band); text-wrap: balance; }
-  @media (min-width: 768px) { .band-head h2 { font-size: 40px; line-height: 46px; letter-spacing: -0.03em; } }
-  .band-head p { margin: 0; font-size: 17px; line-height: 26px; color: var(--on-band); opacity: .86; max-width: 60ch; }
-  .band-tag { justify-self: start; background: transparent; color: var(--on-band); border-color: var(--band-line); }
-  .band-grid { display: grid; gap: 1px; background: var(--band-line); border: 1px solid var(--band-line); border-radius: var(--radius-lg); overflow: hidden; grid-template-columns: 1fr; }
-  @media (min-width: 900px) { .band-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  .band-cell { background: var(--band); padding: var(--space-lg); display: grid; gap: var(--space-sm); align-content: start; }
-  .band-cell .label { font-family: var(--font-mono); font-size: 12px; line-height: 16px; letter-spacing: .02em; text-transform: uppercase; color: var(--on-band); opacity: .75; }
-  .band-cell h3 { margin: 0; font-size: 20px; line-height: 26px; font-weight: 600; letter-spacing: -0.015em; color: var(--on-band); }
-  .band-cell p { margin: 0; color: var(--on-band); opacity: .86; }
-
-  /* ID + Workspace */
-  .split { display: grid; gap: var(--space-xl); align-items: start; }
-  @media (min-width: 900px) { .split { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
-  .au-steps strong { display: block; font-weight: 600; color: var(--ink); }
-  .au-steps .note { color: var(--ink-muted); }
-
-  /* Principles */
-  .principles { grid-template-columns: 1fr; }
-  @media (min-width: 720px) { .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (min-width: 1100px) { .principles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-  .principle { display: grid; gap: var(--space-sm); align-content: start; }
-  .principle h3 { margin: 0; font-size: 17px; line-height: 24px; font-weight: 600; color: var(--ink); }
-  .principle p { margin: 0; color: var(--ink-muted); font-size: 15px; line-height: 22px; }
-
-  /* Closing band */
-  .close { padding-block: var(--space-xxl); display: grid; gap: var(--space-lg); justify-items: center; text-align: center; }
-  .close h2 { margin: 0; color: var(--on-band); font-size: 38px; line-height: 42px; font-weight: 600; letter-spacing: -0.03em; max-width: 18ch; text-wrap: balance; }
-  @media (min-width: 768px) { .close h2 { font-size: 64px; line-height: 68px; letter-spacing: -0.035em; } }
-  .close p { margin: 0; color: var(--on-band); opacity: .86; font-size: 17px; line-height: 26px; max-width: 52ch; }
-  .close-actions { display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center; }
-  .ghost-on-band { background: transparent; color: var(--on-band); border: 1px solid var(--band-line); }
-  .ghost-on-band:hover { background: var(--band-line); }
-
-  /* Footer */
-  .site-foot { padding-block: var(--space-xl); border-top: 1px solid var(--border); }
-  .foot-grid { display: grid; gap: var(--space-xl); grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  @media (min-width: 900px) { .foot-grid { grid-template-columns: 2fr repeat(3, minmax(0, 1fr)); } }
-  .foot-grid h4 { margin: 0 0 var(--space-sm); }
-  .foot-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-  .foot-grid a { font-size: 13px; line-height: 18px; color: var(--ink-muted); text-decoration: none; }
-  .foot-grid a:hover { color: var(--cobalt); }
-  .foot-brand { grid-column: 1 / -1; display: grid; gap: var(--space-sm); }
-  @media (min-width: 900px) { .foot-brand { grid-column: auto; } }
-  .foot-brand p { margin: 0; color: var(--ink-muted); font-size: 13px; line-height: 18px; max-width: 34ch; }
-  .copyright { margin-top: var(--space-xl); font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted); }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .au-btn, .au-arrow { transition: none !important; } }
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&display=block">
+<link rel="stylesheet" href="/assets/home.css">
 </head>
-<body class="au-root">
-<header class="site-head">
-  <div class="wrap">
-    <a class="mark" href="/" aria-label="Aultrum home">AULTRUM<span>/</span></a>
-    <nav class="nav" aria-label="Main">
-      <a href="#platforms">Platforms</a>
-      <a href="#persona-elements">Persona and Elements</a>
-      <a href="/pleasant/pricing/">Pricing</a>
-      <a href="/research/index.html">Research</a>
-      <a href="/vision.html">Vision</a>
-    </nav>
-    <div class="head-actions">
-      <a class="au-btn au-btn--quiet hide-sm" href="https://workspace.aultrum.co.uk">Aultrum Workspace</a>
-      <a class="au-btn au-btn--primary au-btn--sm" href="/pleasant/book-a-demo/">Book a demo <span class="au-arrow" aria-hidden="true">→</span></a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu" id="menu-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
-  </div>
-  <div class="wrap mobile-nav" id="mobile-nav" hidden>
-    <a href="#platforms">Platforms</a>
-    <a href="#persona-elements">Persona and Elements</a>
-    <a href="/pleasant/pricing/">Pricing</a>
-    <a href="/research/index.html">Research</a>
-    <a href="/vision.html">Vision</a>
-    <a href="https://workspace.aultrum.co.uk">Aultrum Workspace</a>
-  </div>
-</header>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-border-editorial"><div class="h-16 max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-xs text-ink-primary font-headline-sm text-headline-sm tracking-tight" data-path="ecosystem" href="/"><span class="">AULTRUM</span><span class="text-outline-variant font-body-sm">/</span></a></div><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-ink-primary font-headline-sm"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" data-path="platforms" href="/pleasant/">More Platforms</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" data-path="elements" href="#elements">Elements</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" data-path="pricing" href="/pleasant/pricing/">Pricing</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" data-path="platform" href="/vision.html">Statements</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-block font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors py-1.5 px-space-xs" data-path="login" href="https://workspace.aultrum.co.uk">Log in</a><a class="inline-flex items-center gap-space-xs bg-ink-primary text-on-primary font-body-sm text-body-sm px-space-md py-2 rounded-full hover:bg-primary-container hover:text-on-primary transition-all duration-150 shadow-sm" data-path="book-a-demo" href="/pleasant/book-a-demo/"><span class="">Book a demo</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a><a class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0" href="https://workspace.aultrum.co.uk" aria-label="Aultrum Workspace"><span class="material-symbols-outlined text-on-primary text-[18px]" aria-hidden="true">person</span></a></div></div></header><main class="w-full pt-16 bg-surface min-h-[calc(100vh-4rem)]"><div class="flex flex-col w-full text-on-surface">
+<!-- =========================================================================
+       HERO SECTION: ListenLabs Editorial Warmth + Precision Blue
+       ========================================================================= -->
+<section class="w-full pt-10 pb-16 md:pt-16 md:pb-24 px-margin md:px-margin-md lg:px-margin-lg max-w-[1320px] mx-auto">
+<div class="max-w-4xl flex flex-col items-start gap-space-md mb-12">
+<!-- Top Pill Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-highest text-ink-primary font-label-mono text-label-mono tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-ink-primary animate-pulse"></span>
 
-<main>
-  <div class="wrap hero">
-    <div class="hero-copy">
-      <span class="au-eyebrow">Software for UK care</span>
-      <h1>Competent, compliant and consistent care, around the clock.</h1>
-      <p class="lead">Aultrum builds the platforms care providers run on. Pleasant runs care staffing agencies today, with Canvas, Flowstate and Tender to follow, and Persona AI and Elements working inside each one.</p>
-      <div class="hero-actions">
-        <form class="au-action" action="/pleasant/book-a-demo/" method="get">
-          <input type="email" name="email" aria-label="Your work email" placeholder="Your work email" autocomplete="email">
-          <button class="au-btn au-btn--primary au-btn--sm" type="submit">Book a demo <span class="au-arrow" aria-hidden="true">→</span></button>
-        </form>
-        <a class="au-btn au-btn--quiet" href="https://workspace.aultrum.co.uk">Log in</a>
-      </div>
-    </div>
-    <figure class="shot" style="margin:0">
-      <img src="/pleasant/img/oversight.jpg" alt="Pleasant's Oversight page: shifts that need a carer, carers not cleared to work, and timesheets waiting for approval." width="2880" height="1800" fetchpriority="high">
-      <figcaption><span>Pleasant // Oversight</span><span>Live product</span></figcaption>
-    </figure>
-  </div>
+</div>
+<!-- Main Display Headline -->
+<h1 class="font-display-hero text-headline-lg md:text-display-hero text-ink-primary tracking-tight">Competent, compliant, and consistent care delivery — around the clock.
+      </h1>
+<!-- Subheadline -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-1">We have set ourself apart as a company to create a frictionless approach to delivering care in non-institutional places.</p>
+<!-- Integrated Interactive Input + Action Bar (Listenlabs archetype) -->
+<div class="w-full max-w-xl mt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+<form class="flex-1 flex items-center bg-surface-container-lowest rounded-full p-1.5 shadow-sm focus-within:ring-2 focus-within:ring-ink-primary" action="/pleasant/book-a-demo/" method="get">
+<label class="sr-only" for="work-email">Work email</label>
+<input class="w-full bg-transparent px-4 py-2 font-body-md text-ink-dark placeholder:text-ink-muted focus:outline-none" id="work-email" name="email" placeholder="Enter your work email..." required="" type="email">
+<button class="inline-flex items-center justify-center gap-1.5 bg-ink-primary text-on-primary font-body-sm px-5 py-2.5 rounded-full hover:bg-primary-container transition-all shrink-0 cursor-pointer" type="submit">
+<span class="">Book a demo</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</form>
+<a class="inline-flex items-center justify-center font-body-sm text-ink-primary hover:text-ink-dark px-4 py-3 rounded-full transition-colors font-medium text-center" data-path="login" href="https://workspace.aultrum.co.uk">
+          Log in
+        </a>
+</div>
+</div>
+<!-- Live Telemetry Matrix Bar -->
+<div class="w-full bg-surface-container-low/70 border border-border-editorial rounded-xl p-6 mb-12 shadow-sm flex flex-col gap-4"><div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border-editorial pb-3"><div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-ink-primary"></span><span class="font-label-mono text-label-mono text-ink-muted uppercase tracking-wider text-xs">BACKED &amp; TRUSTED BY EARLY BELIEVERS ACROSS UK HEALTHCARE</span></div><div class="flex items-center gap-1.5 font-label-mono text-label-mono text-ink-secondary text-xs"><span class="material-symbols-outlined text-[14px] text-ink-primary">verified</span><span class="">INNOVATION NETWORK</span></div></div><div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-8 items-center justify-items-center py-2"><div class="flex items-center gap-2 group cursor-pointer opacity-85 hover:opacity-100 transition-opacity"><div class="px-2 py-1 rounded bg-[#005EB8] text-white tracking-tighter text-sm italic font-sans flex items-center justify-center shadow-xs">NHS</div><div class="flex flex-col leading-none"><span class="font-semibold text-ink-dark text-xs tracking-tight">South Yorkshire</span><span class="font-label-mono text-[10px] text-ink-muted uppercase">ICB Partner</span></div></div><div class="flex items-center gap-2.5 group cursor-pointer opacity-80 hover:opacity-100 transition-opacity"><svg class="w-6 h-6 text-ink-dark shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 2.18l6 2.25v4.66c0 4.1-2.67 7.91-6 8.91-3.33-1-6-4.81-6-8.91V6.43l6-2.25zM11 7h2v6h-2zm0 8h2v2h-2z"></path></svg><div class="flex flex-col leading-tight"><span class="font-bold text-ink-dark text-xs tracking-tight">University of</span><span class="font-bold text-ink-dark text-xs tracking-tight -mt-0.5">Sheffield</span></div></div><div class="flex items-center gap-2.5 group cursor-pointer opacity-80 hover:opacity-100 transition-opacity"><svg class="w-6 h-6 text-ink-primary shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h7v7H4zm9 0h7v7h-7zm0 9h7v7h-7zM4 13h7v7H4z"></path></svg><div class="flex flex-col leading-tight"><span class="font-semibold text-ink-dark text-xs tracking-tight">Sheffield Hallam</span><span class="font-label-mono text-[10px] text-ink-muted uppercase">Health Innovation</span></div></div><div class="flex items-center gap-2 group cursor-pointer opacity-80 hover:opacity-100 transition-opacity"><div class="w-7 h-7 rounded bg-ink-secondary/10 flex items-center justify-center text-ink-primary text-xs"><span class="material-symbols-outlined text-[18px]">local_hospital</span></div><div class="flex flex-col leading-tight"><span class="font-bold text-ink-dark text-xs tracking-tight">Barnsley</span><span class="font-label-mono text-[10px] text-ink-muted">Healthcare Fed</span></div></div><div class="col-span-2 sm:col-span-1 flex items-center gap-2 group cursor-pointer opacity-80 hover:opacity-100 transition-opacity"><div class="w-7 h-7 rounded-full bg-ink-primary/10 flex items-center justify-center text-ink-primary"><span class="material-symbols-outlined text-[17px]">neurology</span></div><div class="flex flex-col leading-tight"><span class="font-bold text-ink-dark text-xs tracking-tight">NIHR</span><span class="font-label-mono text-[10px] text-ink-muted uppercase">Care Accelerator</span></div></div></div></div>
+<!-- Human Care Portrait Showcase (Matching ListenLabs 4-Portrait Hero Grid) -->
+<div class="w-full relative">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+<!-- Subject 1 -->
+<div class="relative group overflow-hidden rounded-xl bg-surface-container aspect-[3/4] shadow-sm">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="/img/home/portrait-1.jpg" alt="Coordinator, London" loading="lazy" width="544" height="592">
+<div class="absolute bottom-3 left-3 right-3 p-3 bg-surface/90 backdrop-blur-md rounded-lg flex flex-col">
+<span class="font-label-mono text-label-mono text-ink-primary uppercase">COORDINATOR // LONDON</span>
+<span class="font-body-sm text-ink-dark font-medium text-xs truncate">Eleanor Vance, Registered Care Mgr</span>
+</div>
+</div>
+<!-- Subject 2 -->
+<div class="relative group overflow-hidden rounded-xl bg-surface-container aspect-[3/4] shadow-sm">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="/img/home/portrait-2.jpg" alt="Field operative, Manchester" loading="lazy" width="544" height="592">
+<div class="absolute bottom-3 left-3 right-3 p-3 bg-surface/90 backdrop-blur-md rounded-lg flex flex-col">
+<span class="font-label-mono text-label-mono text-ink-primary uppercase">FIELD OPERATIVE // MANCHESTER</span>
+<span class="font-body-sm text-ink-dark font-medium text-xs truncate">David O'Keeffe, Senior Dispatch</span>
+</div>
+</div>
+<!-- Subject 3 -->
+<div class="relative group overflow-hidden rounded-xl bg-surface-container aspect-[3/4] shadow-sm">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="/img/home/portrait-3.jpg" alt="Clinical triage, Leeds" loading="lazy" width="544" height="592">
+<div class="absolute bottom-3 left-3 right-3 p-3 bg-surface/90 backdrop-blur-md rounded-lg flex flex-col">
+<span class="font-label-mono text-label-mono text-ink-primary uppercase">CLINICAL TRIAGE // LEEDS</span>
+<span class="font-body-sm text-ink-dark font-medium text-xs truncate">Dr. Sarah Thornton, Lead Nurse</span>
+</div>
+</div>
+<!-- Subject 4 -->
+<div class="relative group overflow-hidden rounded-xl bg-surface-container aspect-[3/4] shadow-sm">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="/img/home/portrait-4.jpg" alt="On-call, Bristol" loading="lazy" width="544" height="592">
+<div class="absolute bottom-3 left-3 right-3 p-3 bg-surface/90 backdrop-blur-md rounded-lg flex flex-col">
+<span class="font-label-mono text-label-mono text-ink-primary uppercase">ON-CALL // BRISTOL</span>
+<span class="font-body-sm text-ink-dark font-medium text-xs truncate">Marcus Chen, Support Worker</span>
+</div>
+</div>
+</div>
+<!-- Live badge floating over grid -->
 
-  <section id="platforms" class="wrap section" aria-labelledby="platforms-title">
-    <div class="section-head">
-      <span class="au-eyebrow au-eyebrow--rule">Platforms</span>
-      <h2 id="platforms-title">One company, four platforms for the way care is delivered.</h2>
-      <p>Each platform is complete on its own and shares one sign-in, one design and the same AI and modules.</p>
-    </div>
-    <div class="au-grid platforms">
-      <article class="platform">
-        <div class="platform-top"><span class="au-eyebrow">Care staffing</span><span class="au-badge au-badge--good"><span class="au-dot"></span>Live</span></div>
-        <h3>Pleasant</h3>
-        <p>The back office for agencies supplying carers and nurses: shifts, compliance, timesheets, payroll and invoicing from one set of hours.</p>
-        <ul><li class="au-badge au-badge--mono">Shift offers by text</li><li class="au-badge au-badge--mono">UK payroll</li><li class="au-badge au-badge--mono">Xero sync</li></ul>
-        <a class="au-btn au-btn--ghost au-btn--sm" href="/pleasant/">Explore Pleasant <span class="au-arrow" aria-hidden="true">→</span></a>
-      </article>
-      <article class="platform">
-        <div class="platform-top"><span class="au-eyebrow">Open care operations</span><span class="au-badge au-badge--tint">Pilot</span></div>
-        <h3>Canvas</h3>
-        <p>The console for bringing Persona and Elements into the systems you already use, and for custom modules built on the same foundations.</p>
-        <ul><li class="au-badge au-badge--mono">Embeds</li><li class="au-badge au-badge--mono">Signed webhooks</li><li class="au-badge au-badge--mono">Module API</li></ul>
-        <a class="au-btn au-btn--ghost au-btn--sm" href="/canvas/">Explore Canvas <span class="au-arrow" aria-hidden="true">→</span></a>
-      </article>
-      <article class="platform">
-        <div class="platform-top"><span class="au-eyebrow">Full care operations</span><span class="au-badge muted-badge">In development</span></div>
-        <h3>Flowstate</h3>
-        <p>Care coordination for home care providers: visits, care plans and families, run as one operation.</p>
-        <a class="au-btn au-btn--quiet au-btn--sm" href="/apply.html">Talk to us about Flowstate</a>
-      </article>
-      <article class="platform">
-        <div class="platform-top"><span class="au-eyebrow">NHS discharge to assess</span><span class="au-badge muted-badge">In development</span></div>
-        <h3>Tender</h3>
-        <p>Getting people home from hospital sooner: referral, assessment and placement across the NHS and care providers.</p>
-        <a class="au-btn au-btn--quiet au-btn--sm" href="/apply.html">Talk to us about Tender</a>
-      </article>
-    </div>
-  </section>
-
-  <section id="persona-elements" class="au-band" aria-labelledby="pe-title">
-    <div class="wrap band-inner">
-      <div class="band-head">
-        <span class="au-badge au-badge--mono band-tag">Persona and Elements</span>
-        <h2 id="pe-title">AI and modules that work inside every platform.</h2>
-        <p>Switch them on where they help. Persona understands care work; Elements add whole capabilities without another system to learn.</p>
-      </div>
-      <div class="band-grid">
-        <div class="band-cell">
-          <span class="label">Persona // Live in Pleasant</span>
-          <h3>Assist</h3>
-          <p>Ask questions and get work done across Pleasant. Every change it suggests waits for a person to approve.</p>
-        </div>
-        <div class="band-cell">
-          <span class="label">Element // Pilot</span>
-          <h3>Gateway</h3>
-          <p>One conversation layer for calls, messages and people, so enquiries reach the right person and the rota.</p>
-        </div>
-        <div class="band-cell">
-          <span class="label">Element // Coming soon</span>
-          <h3>Peak</h3>
-          <p>Recognition that pays: points for shifts, punctuality and praise, fed straight from the work.</p>
+</div>
+</section>
+<!-- =========================================================================
+       SECTION 02: PROBLEM & THE AFTER-HOURS GAP (Bento Metric Breakdown)
+       ========================================================================= -->
+<section class="w-full relative overflow-hidden bg-[#001da6]"><div class="absolute inset-0 z-0 overflow-hidden pointer-events-none"><div class="absolute inset-0 opacity-15" style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 32px 32px;"></div></div><div class="relative z-10 max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-16 md:pt-24 pb-12"><div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6"><div><div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#a5c4ff] font-label-mono text-label-mono uppercase tracking-wider mb-3"><span class="w-1.5 h-1.5 rounded-full bg-[#528eff] animate-pulse"></span>GATEWAY</div><h2 class="font-headline-lg text-headline-md md:text-headline-lg text-white tracking-tight">Gateway provides 24/7 Always On Contact Centres for Care Providers&nbsp;</h2></div><p class="font-body-md text-white/80 max-w-md">Care agencies lose 20% of potential clients to after-hours gaps and spend 37% more on manual inbound handling.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl flex flex-col justify-between shadow-sm transition-all hover:bg-white/15"><div><div class="font-stat-number text-stat-number text-white tracking-tight">20%</div><div class="font-headline-sm text-headline-sm text-[#b8d2ff] mt-2">CLIENTS LOST</div></div><p class="font-body-sm text-white/75 mt-6">Potential clients lost to after-hours gaps when families call in crisis mode.</p></div><div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl flex flex-col justify-between shadow-sm transition-all hover:bg-white/15"><div><div class="font-stat-number text-stat-number text-white tracking-tight">37%</div><div class="font-headline-sm text-headline-sm text-[#b8d2ff] mt-2">EXTRA COST</div></div><p class="font-body-sm text-white/75 mt-6">Additional expenses incurred through fragmented manual inbound triage and overtime.</p></div><div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl flex flex-col justify-between shadow-sm transition-all hover:bg-white/15"><div><div class="font-stat-number text-stat-number text-white tracking-tight">4.2hr</div><div class="font-headline-sm text-headline-sm text-[#b8d2ff] mt-2">AVG DELAY</div></div><p class="font-body-sm text-white/75 mt-6">Average delay before a missed care coordination or family enquiry call is returned.</p></div><div class="relative overflow-hidden bg-gradient-to-b from-[#0021cc]/80 to-[#001490] backdrop-blur-md border border-[#528eff]/40 p-8 rounded-xl flex flex-col justify-between shadow-md transition-all hover:border-[#528eff]/70"><div class="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-[#528eff]/30 blur-2xl pointer-events-none"></div><div class="relative z-10"><div><div class="font-stat-number text-stat-number text-white tracking-tight">68%</div><div class="font-headline-sm text-headline-sm text-[#b8d2ff] mt-2">CALLER FRUSTRATION</div></div><p class="font-body-sm text-white/80 mt-6">Will immediately call a competing local provider instead of leaving a voicemail.</p></div></div></div><div class="mt-14 pt-8 border-t border-white/15 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-label-mono text-white/80"><div class="flex items-center gap-6 opacity-90"><span class="font-bold text-[#b8d2ff]">NHS INTEGRATED</span><span class="text-white/40">•</span><span class="font-bold text-[#b8d2ff]">CQC ALIGNED</span><span class="text-white/40">•</span><span class="font-bold text-[#b8d2ff]">DSP TOOLKIT COMPLIANT</span></div></div></div></section>
+<!-- =========================================================================
+       SECTION 03: ECOSYSTEM // 4 MODULES (ListenLabs Deep Product Bento)
+       ========================================================================= -->
+<section id="elements" class="w-full scroll-mt-20 py-16 md:py-24 px-margin md:px-margin-md lg:px-margin-lg max-w-[1320px] mx-auto">
+<!-- Header -->
+<div class="max-w-2xl mb-12">
+<div class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider mb-2">INTRODUCING ELEMENTS</div>
+<h2 class="font-headline-lg text-headline-md md:text-headline-lg text-ink-dark tracking-tight">Supercharge Social Care Admin with Canvas , Add the product you need.</h2>
+<p class="font-body-lg text-ink-muted mt-3">Assign Gateway to your triaging enquiries and keeping you less on your toes for inbounds and much more.</p>
+</div>
+<!-- 4 Module Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6"><!-- Quadrant 1: Gateway (Top Left) -->
+<div class="group relative bg-surface-container-low rounded-xl p-8 flex flex-col justify-between transition-all hover:bg-surface-container shadow-sm border border-border-editorial">
+  <div>
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 rounded-full bg-ink-primary text-on-primary flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-[20px]">call</span>
+        </span>
+        <div>
+          <span class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider block text-xs">CANVAS</span>
+          <h3 class="font-headline-md text-headline-sm md:text-headline-md text-ink-dark">Gateway</h3>
         </div>
       </div>
+      <span class="px-2.5 py-1 rounded-full bg-ink-primary/10 text-ink-primary font-label-mono text-[10px] tracking-wider font-medium uppercase">LIVE</span>
     </div>
-  </section>
-
-  <section class="wrap section" aria-labelledby="id-title">
-    <div class="split">
-      <div class="section-head">
-        <span class="au-eyebrow au-eyebrow--rule">Aultrum ID</span>
-        <h2 id="id-title">One account for every platform you use.</h2>
-        <p>Aultrum Workspace shows the organisations you belong to across Aultrum and opens any of them already signed in.</p>
-      </div>
-      <ol class="au-steps">
-        <li><div><strong>Sign in once with your Aultrum ID</strong><span class="note">Your work email and one password for every Aultrum platform.</span></div></li>
-        <li><div><strong>Open any platform from Aultrum Workspace</strong><span class="note">Each organisation you belong to, with what needs your attention.</span></div></li>
-        <li><div><strong>Each platform keeps its own records</strong><span class="note">Care records stay where they are held. Workspace sees counts, never people.</span></div></li>
-      </ol>
+    <p class="font-body-md text-ink-muted mb-6">
+      The always-on contact centre that logs every interaction straight into your CRM. Live calls, Abilities, and your people in the loop.
+    </p>
+    <div class="flex flex-wrap gap-2 mb-8">
+      <span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">LIVE CALLS</span>
+      <span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">CRM LOGS</span>
+      <span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">ABILITIES</span>
+      <span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">PERSONNEL IN LOOP</span>
     </div>
-  </section>
-
-  <section class="wrap section" aria-labelledby="principles-title" style="padding-top:0">
-    <div class="section-head">
-      <span class="au-eyebrow au-eyebrow--rule">How we build</span>
-      <h2 id="principles-title">Built for regulated care from the first line.</h2>
-    </div>
-    <div class="au-grid principles">
-      <div class="principle"><span class="au-stat-label">01 // People decide</span><h3>AI suggests, a person approves</h3><p>Persona never changes a record on its own. Every action shows what it will do before anyone says yes.</p></div>
-      <div class="principle"><span class="au-stat-label">02 // Records stay put</span><h3>Care data stays in its platform</h3><p>Platforms share sign-in and summaries, never care records or personal details.</p></div>
-      <div class="principle"><span class="au-stat-label">03 // Kept separate</span><h3>Every organisation on its own</h3><p>An agency only ever sees its own carers, clients and figures, enforced on every request.</p></div>
-      <div class="principle"><span class="au-stat-label">04 // Audited</span><h3>Every change on the record</h3><p>Pay, invoices, access and connections are logged with who did what and when.</p></div>
-    </div>
-  </section>
-
-  <section class="au-band" aria-labelledby="close-title">
-    <div class="wrap close">
-      <span class="au-badge au-badge--mono band-tag" style="border-color:var(--band-line)">Start with Pleasant</span>
-      <h2 id="close-title">Run your agency from one place.</h2>
-      <p>See Pleasant with your own rota and pay rules in a 30-minute demo.</p>
-      <div class="close-actions">
-        <a class="au-btn au-btn--on-band" href="/pleasant/book-a-demo/">Book a demo <span class="au-arrow" aria-hidden="true">→</span></a>
-        <a class="au-btn ghost-on-band" href="/apply.html">Contact us</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="site-foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a class="mark" href="/">AULTRUM<span>/</span></a>
-        <p>Software for UK care providers, from staffing to NHS discharge.</p>
-      </div>
-      <div>
-        <h4 class="au-eyebrow">Platforms</h4>
-        <ul>
-          <li><a href="/pleasant/">Pleasant</a></li>
-          <li><a href="/canvas/">Canvas</a></li>
-          <li><a href="/flowstatebeta/">Flowstate</a></li>
-          <li><a href="https://workspace.aultrum.co.uk">Aultrum Workspace</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="au-eyebrow">Company</h4>
-        <ul>
-          <li><a href="/vision.html">Vision</a></li>
-          <li><a href="/manifesto.html">Manifesto</a></li>
-          <li><a href="/research/index.html">Research</a></li>
-          <li><a href="/honor.html">Honor</a></li>
-          <li><a href="/shop.html">Merch</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="au-eyebrow">Get in touch</h4>
-        <ul>
-          <li><a href="/pleasant/book-a-demo/">Book a demo</a></li>
-          <li><a href="/apply.html">Contact</a></li>
-          <li><a href="/privacy.html">Privacy policy</a></li>
-        </ul>
-      </div>
-    </div>
-    <p class="copyright">© 2026 Aultrum Technologies Ltd.</p>
   </div>
-</footer>
+  <div class="pt-6 border-t border-border-editorial flex items-center justify-between">
+    <a class="inline-flex items-center gap-2 font-body-sm font-medium text-ink-primary group-hover:translate-x-1 transition-transform" data-path="gateway" href="/canvas/">
+      <span class="">EXPLORE GATEWAY</span>
+      <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+    </a>
+  </div>
+</div>
 
-<script>
-  const btn = document.getElementById("menu-btn");
-  const panel = document.getElementById("mobile-nav");
-  btn.addEventListener("click", () => {
-    const open = panel.hidden;
-    panel.hidden = !open;
-    btn.setAttribute("aria-expanded", String(open));
-    btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-  });
-  panel.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => { panel.hidden = true; btn.setAttribute("aria-expanded", "false"); }));
-</script>
+<!-- Quadrant 2: Peak (Top Right) -->
+<div class="group relative bg-surface-container-low rounded-xl p-8 flex flex-col justify-between transition-all hover:bg-surface-container shadow-sm border border-border-editorial">
+  <div>
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 rounded-full bg-ink-primary text-on-primary flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+        </span>
+        <div>
+          <span class="font-label-mono text-label-mono text-ink-primary uppercase tracking-wider block text-xs">MODULE // 02</span>
+          <h3 class="font-headline-md text-headline-sm md:text-headline-md text-ink-dark">Peak</h3>
+        </div>
+      </div>
+      <span class="px-2.5 py-1 rounded-full bg-ink-primary/10 text-ink-primary font-label-mono text-[10px] tracking-wider font-medium uppercase">LIVE</span>
+    </div>
+    <p class="font-body-md text-ink-muted mb-6">
+      Recognition that pays. Points for shifts, punctuality, and praise — cashed out, spent on benefits, or unlocked as financial perks. No compliance constraint.
+    </p>
+    <div class="flex flex-wrap gap-2 mb-8">
+      <span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">EARN POINTS</span>
+      <span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">CASH OUT</span>
+      <span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">PERKS</span>
+      <span class="px-2.5 py-1 bg-surface rounded-full text-ink-secondary font-label-mono text-label-mono border border-border-editorial">FINANCIAL LEDGER</span>
+    </div>
+  </div>
+  <div class="pt-6 border-t border-border-editorial flex items-center justify-between">
+    <a class="inline-flex items-center gap-2 font-body-sm font-medium text-ink-primary group-hover:translate-x-1 transition-transform" data-path="peak" href="/canvas/">
+      <span class="">EXPLORE PEAK</span>
+      <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+    </a>
+  </div>
+</div>
+
+<!-- Quadrant 3: Flowstate Compliance (Bottom Left) -->
+
+
+<!-- Quadrant 4: Flowstate Metrics (Bottom Right - Distinct Light Blue styling) -->
+</div>
+</section>
+<!-- =========================================================================
+       SECTION 04: PLATFORM ARCHITECTURE // BUILT FOR SOCIAL CARE
+       ========================================================================= -->
+
+<!-- =========================================================================
+       SECTION 05: HIGH-IMPACT FINAL CTA SECTION (ListenLabs Style)
+       ========================================================================= -->
+<section class="w-full relative overflow-hidden bg-[#0021cc] py-20 md:py-28 text-center flex flex-col items-center"><div class="absolute inset-0 z-0 overflow-hidden pointer-events-none"><div class="absolute inset-0 opacity-15" style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 32px 32px;"></div></div><div class="relative z-10 max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex flex-col items-center"><div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#a5c4ff] font-label-mono text-label-mono mb-4 uppercase tracking-wider"><span class="w-1.5 h-1.5 rounded-full bg-[#528eff] animate-pulse"></span>DEPLOY_FLOWSTATE</div><h2 class="font-display-hero text-headline-lg md:text-display-hero text-white tracking-tight max-w-3xl">Add and only pay for the modules you use.</h2><p class="font-body-lg text-white/80 max-w-xl mt-4 mb-8">Canvas is built make care administration less tiresome and expensive</p><div class="flex flex-col sm:flex-row items-center gap-4"><a class="inline-flex items-center gap-2 bg-white text-ink-primary font-body-sm font-medium px-8 py-3.5 rounded-full hover:bg-white/90 transition-all shadow-md" data-path="book-a-demo" href="/pleasant/book-a-demo/"><span class="">Book a demo</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span></a><a class="inline-flex items-center justify-center font-body-sm font-medium text-white hover:bg-white/10 border border-white/30 px-8 py-3.5 rounded-full transition-all" data-path="sales" href="mailto:Wisdom@aultrum.co.uk"><span class="">Contact Sales</span></a></div><div class="mt-12 flex items-center gap-2 font-label-mono text-label-mono text-white/60 text-xs"><span class="w-2 h-2 rounded-full bg-[#528eff]"></span></div></div></section>
+</div></main><footer class="w-full bg-canvas-warm border-t border-border-editorial"></footer>
+
 </body>
 </html>
