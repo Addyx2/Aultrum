@@ -10,7 +10,6 @@ export default defineConfig({
         manifesto: resolve(__dirname, 'manifesto.html'),
         apply: resolve(__dirname, 'apply.html'),
         success: resolve(__dirname, 'success.html'),
-        privacy: resolve(__dirname, 'privacy.html'),
         shop: resolve(__dirname, 'shop.html'),
         'research/index': resolve(__dirname, 'research/index.html'),
         'research/papers/competence': resolve(__dirname, 'research/papers/competence.html'),

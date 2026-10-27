@@ -79,6 +79,11 @@
       "source": "/blog/persona-intelligence.html",
       "destination": "/statements/persona-intelligence/",
       "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy/",
+      "permanent": true
     }
   ]
 }

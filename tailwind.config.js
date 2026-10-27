@@ -5,7 +5,6 @@ export default {
     "./manifesto.html",
     "./apply.html",
     "./success.html",
-    "./privacy.html",
     "./shop.html",
     "./research/**/*.html",
     "./**/*.{js,ts,jsx,tsx}",
