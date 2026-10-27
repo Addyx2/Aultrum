@@ -1,8 +1,59 @@
 {
   "redirects": [
-    { "source": "/canvas", "destination": "/elements/", "permanent": true },
-    { "source": "/canvas/", "destination": "/elements/", "permanent": true },
-    { "source": "/canvas/book-a-demo", "destination": "/elements/book-a-demo/", "permanent": true },
-    { "source": "/canvas/book-a-demo/", "destination": "/elements/book-a-demo/", "permanent": true }
+    {
+      "source": "/canvas",
+      "destination": "/elements/",
+      "permanent": true
+    },
+    {
+      "source": "/canvas/",
+      "destination": "/elements/",
+      "permanent": true
+    },
+    {
+      "source": "/canvas/book-a-demo",
+      "destination": "/elements/book-a-demo/",
+      "permanent": true
+    },
+    {
+      "source": "/canvas/book-a-demo/",
+      "destination": "/elements/book-a-demo/",
+      "permanent": true
+    },
+    {
+      "source": "/flowstatebeta",
+      "destination": "/elements/",
+      "permanent": true
+    },
+    {
+      "source": "/flowstatebeta/:path*",
+      "destination": "/elements/",
+      "permanent": true
+    },
+    {
+      "source": "/honor",
+      "destination": "/elements/",
+      "permanent": true
+    },
+    {
+      "source": "/honor.html",
+      "destination": "/elements/",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home/index.html",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }

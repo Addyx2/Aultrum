@@ -39,3 +39,6 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 
 /* Elements hidden with the hidden attribute stay hidden, whatever display class they carry. */
 [hidden] { display: none !important; }
+
+/* The Aultrum wordmark, painted in the current text colour. */
+.brand-logo { display: inline-block; aspect-ratio: 3251 / 638; background-color: currentColor; -webkit-mask: url(/brand/aultrum.svg) center / contain no-repeat; mask: url(/brand/aultrum.svg) center / contain no-repeat; }

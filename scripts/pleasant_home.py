@@ -27,8 +27,9 @@ def page_head(title, description):
 
 
 def page_header(active):
-    """Homepage header as AULTRUM / PLEASANT, with Pleasant's menu and log in to the app."""
-    h = header.replace('<span class="text-outline-variant font-body-sm">/</span>', '<span class="text-outline-variant font-body-sm">/</span><span class="text-ink-dark">PLEASANT</span>', 1)
+    """Homepage header with the Aultrum logo and Pleasant, Pleasant's menu and log in to the app."""
+    lockup = '<span class="brand-logo h-5 sm:h-6" aria-hidden="true"></span><span class="w-px h-5 bg-border-editorial" aria-hidden="true"></span><span class="font-headline-sm text-[17px] sm:text-[19px] leading-none tracking-tight text-ink-dark">Pleasant</span>'
+    h = header.replace('<span class="brand-logo h-5 sm:h-6" aria-hidden="true"></span>', lockup, 1).replace('aria-label="Aultrum home"', 'aria-label="Pleasant home"', 1)
     h = h.replace('data-path="ecosystem" href="/"', 'data-path="ecosystem" href="/pleasant/"', 1)
     nav = re.search(r'<nav class="hidden lg:flex[^"]*"[^>]*>.*?</nav>', h, re.S).group(0)
     def item(t, href, key):
@@ -36,6 +37,7 @@ def page_header(active):
             return f'<a class="font-body-sm text-body-sm text-ink-primary" aria-current="page" href="{href}">{t}</a>'
         return f'<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="{href}">{t}</a>'
     h = h.replace(nav, re.sub(r">.*</nav>", ">" + "".join(item(*n) for n in NAV) + "</nav>", nav, flags=re.S))
+    h = h.replace('href="https://workspace.aultrum.co.uk" aria-label="Aultrum Workspace"', f'href="{APP}/login" aria-label="Log in to Pleasant"')
     return h.replace('data-path="login" href="https://workspace.aultrum.co.uk"', f'data-path="login" href="{APP}/login"')
 
 
