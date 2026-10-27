@@ -223,3 +223,6 @@
   #mobile-menu-overlay.active a:nth-child(2) { transition-delay: 0.2s; }
   #mobile-menu-overlay.active a:nth-child(3) { transition-delay: 0.3s; }
 }
+
+/* The Aultrum wordmark, painted in the current text colour. */
+.brand-logo { display: inline-block; aspect-ratio: 3251 / 638; background-color: currentColor; -webkit-mask: url(/brand/aultrum.svg) center / contain no-repeat; mask: url(/brand/aultrum.svg) center / contain no-repeat; }

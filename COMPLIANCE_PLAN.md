@@ -1,7 +1,7 @@
 # Aultrum Compliance Plan — Roles & Roll-Out for Gateway
 
 > Version: 1.0 · Sep 2026 · Owner: Flowstate (Aultrum)
-> Applies to: Flowstate Platform, Peak, **Gateway**, Tender (when live)
+> Applies to: Elements (**Gateway**, Peak) and Pleasant
 > Sequencing: aligned to `ROADMAP.md` — Gateway launch **Dec 2026**, compliance land-grab during P5.
 
 ---
@@ -46,7 +46,7 @@ This matters because it defines which roles Aultrum *owns* and which belong to *
 
 | Role | Regulation | Trigger |
 |------|-----------|---------|
-| Caldicott Guardian | NHS data governance | Only if Aultrum becomes an NHS processor holding identifiable patient data via Tender — not needed for Gateway v1 |
+| Caldicott Guardian | NHS data governance | Only if Aultrum becomes an NHS processor holding identifiable patient data — not needed for Gateway v1 |
 | CQC Responsible Individual | HSCA 2008 | Only if Aultrum ever registers as a provider (not planned) |
 | Ofcom Communications lead | PECR / Ofcom | Owns outbound-call consent + number porting rules for Gateway's Telephony ability |
 | Supplier / Data Processor reviewer | UK GDPR Art. 28 | Every vendor onboarding (Twilio, Deepgram, AI providers, Stripe, Tango) |

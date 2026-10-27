@@ -11,14 +11,19 @@ SITE = Path(__file__).resolve().parents[1]
 ROOT = SITE / "public" / "elements"
 CONSOLE = "https://canvas.aultrum.co.uk"
 DEMO = "/elements/book-a-demo/"
+SIGNUP = f"{CONSOLE}/signup"
+LOGIN = f"{CONSOLE}/login"
 CONTACT = "Wisdom@aultrum.co.uk"
 
 home = (SITE / "index.html").read_text(encoding="utf-8")
-head = home[: home.index("<header")].replace('<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">\n', "")
+head = home[: home.index("<header")].replace('<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">\n', '<link rel="icon" href="/brand/icon.svg" type="image/svg+xml">\n')
 header = home[home.index("<header") : home.index("</header>") + 9]
 footer = home[home.index("<footer") : home.index("</footer>") + 9]
 
-NAV = [("Modules", "/elements/#modules", "modules"), ("How it works", "/elements/#how", "how"), ("Custom builds", "/elements/#custom", "custom"), ("Console", "/elements/#console", "console"), ("Pleasant", "/pleasant/", "pleasant")]
+NAV = [("Modules", "/elements/#modules", "modules"), ("How it works", "/elements/#how", "how"), ("Custom builds", "/elements/#custom", "custom"), ("The app", "/elements/#console", "console"), ("Pleasant", "/pleasant/", "pleasant")]
+
+
+LOCKUP = '<span class="brand-logo h-5 sm:h-6" aria-hidden="true"></span><span class="w-px h-5 bg-border-editorial" aria-hidden="true"></span><span class="font-headline-sm text-[17px] sm:text-[19px] leading-none tracking-tight text-ink-dark">Elements</span>'
 
 
 def page_head(title, description):
@@ -27,8 +32,9 @@ def page_head(title, description):
 
 
 def page_header(active):
-    """Homepage header as AULTRUM / ELEMENTS, with the Elements menu, demo and console log in."""
-    h = header.replace('<span class="text-outline-variant font-body-sm">/</span>', '<span class="text-outline-variant font-body-sm">/</span><span class="text-ink-dark">ELEMENTS</span>', 1)
+    """Homepage header with the Aultrum logo and Elements, the Elements menu, and sign up and log in to the console."""
+    h = header.replace('<span class="brand-logo h-5 sm:h-6" aria-hidden="true"></span>', LOCKUP, 1).replace('aria-label="Aultrum home"', 'aria-label="Aultrum Elements home"', 1)
+    h = h.replace('data-path="ecosystem" href="/"', 'data-path="ecosystem" href="/elements/"', 1)
     nav = re.search(r'<nav class="hidden lg:flex[^"]*"[^>]*>.*?</nav>', h, re.S).group(0)
 
     def item(t, href, key):
@@ -37,8 +43,11 @@ def page_header(active):
         return f'<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="{href}">{t}</a>'
 
     h = h.replace(nav, re.sub(r">.*</nav>", ">" + "".join(item(*n) for n in NAV) + "</nav>", nav, flags=re.S))
-    h = h.replace('data-path="login" href="https://workspace.aultrum.co.uk"', f'data-path="login" href="{CONSOLE}/login"')
-    return h.replace('data-path="book-a-demo" href="/pleasant/book-a-demo/"', f'data-path="book-a-demo" href="{DEMO}"')
+    h = h.replace('data-path="login" href="https://workspace.aultrum.co.uk"', f'data-path="login" href="{LOGIN}"')
+    h = h.replace('href="https://workspace.aultrum.co.uk" aria-label="Aultrum Workspace"', f'href="{LOGIN}" aria-label="Log in to Elements"')
+    h = h.replace('data-path="book-a-demo" href="/pleasant/book-a-demo/"><span class="">Book a demo</span>', f'data-path="signup" href="{SIGNUP}"><span class="">Sign up</span>')
+    assert SIGNUP in h and LOGIN in h
+    return h
 
 
 def write(path, title, description, active, main, extra=""):
@@ -97,7 +106,7 @@ def module(id, icon, name, text, chips, points):
 <p class="font-body-md text-ink-muted mb-6">{text}</p>
 <div class="flex flex-wrap gap-2 mb-6">{"".join(chip(c) for c in chips)}</div>
 {check_list(points)}
-<a class="mt-8 inline-flex items-center gap-2 font-body-sm font-medium text-ink-primary hover:translate-x-1 transition-transform" href="{DEMO}"><span>BOOK A {name.upper()} DEMO</span>{ARROW}</a>
+<a class="mt-8 inline-flex items-center gap-2 font-body-sm font-medium text-ink-primary hover:translate-x-1 transition-transform" href="{SIGNUP}"><span>START WITH {name.upper()}</span>{ARROW}</a>
 </article>'''
 
 
@@ -107,8 +116,8 @@ def feature(id, label, title, body, items, image, flip=False):
     return f'<section id="{id}" class="w-full scroll-mt-20 border-t border-border-editorial"><div class="{W} py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">{text}{pic}</div></section>'
 
 
-def cta_band(title, text, second):
-    return f'''<section class="w-full relative overflow-hidden bg-[{CTA}] py-20 md:py-28 text-center flex flex-col items-center">{GRID}<div class="relative z-10 {W} flex flex-col items-center">{pill("DEPLOY_ELEMENTS")}<h2 class="font-display-hero text-headline-lg md:text-display-hero text-white tracking-tight max-w-3xl">{title}</h2><p class="font-body-lg text-white/80 max-w-xl mt-4 mb-8">{text}</p><div class="flex flex-col sm:flex-row items-center gap-4"><a class="inline-flex items-center gap-2 bg-white text-ink-primary font-body-sm font-medium px-8 py-3.5 rounded-full hover:bg-white/90 transition-all shadow-md" href="{DEMO}"><span>Book a demo</span>{ARROW}</a>{second}</div></div></section>'''
+def cta_band(title, text, second, primary=None):
+    return f'''<section class="w-full relative overflow-hidden bg-[{CTA}] py-20 md:py-28 text-center flex flex-col items-center">{GRID}<div class="relative z-10 {W} flex flex-col items-center">{pill("DEPLOY_ELEMENTS")}<h2 class="font-display-hero text-headline-lg md:text-display-hero text-white tracking-tight max-w-3xl">{title}</h2><p class="font-body-lg text-white/80 max-w-xl mt-4 mb-8">{text}</p><div class="flex flex-col sm:flex-row items-center gap-4"><a class="inline-flex items-center gap-2 bg-white text-ink-primary font-body-sm font-medium px-8 py-3.5 rounded-full hover:bg-white/90 transition-all shadow-md" href="{primary[0] if primary else DEMO}"><span>{primary[1] if primary else "Book a demo"}</span>{ARROW}</a>{second}</div></div></section>'''
 
 
 def main_wrap(inner):
@@ -117,8 +126,8 @@ def main_wrap(inner):
 
 # ---------------------------------------------------------------- Overview
 STEPS = [
-    ("key", "01", "Get your keys", "Create your organisation in the Elements console and get credentials for your own systems."),
-    ("toggle_on", "02", "Switch on what you need", "Add Gateway, Peak or Persona for the services you run, in Flowstate, Pleasant or your own system."),
+    ("key", "01", "Sign up", "Create your organisation in the Elements app. Connect your own systems with keys whenever you need to."),
+    ("toggle_on", "02", "Switch on what you need", "Add Gateway, Peak or Persona for the services you run, in Pleasant or your own system."),
     ("cable", "03", "Connect your systems", "Show Elements inside your software, exchange signed events, and give Persona the tools it may use, under your own rules."),
     ("monitoring", "04", "Watch it work", "See every installation, conversation and event in one console, with delivery status and an audit trail."),
 ]
@@ -248,9 +257,9 @@ overview = main_wrap(f'''
 <section class="w-full pt-10 pb-16 md:pt-16 md:pb-24 {W}">
 <div class="max-w-4xl flex flex-col items-start gap-space-md mb-12">
 <h1 class="{H1}">Care modules that run on their own, or inside the platform you use.</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-1">Elements is the foundation underneath Aultrum. Gateway answers every enquiry; Peak rewards the people who deliver care. Switch them on in Flowstate or Pleasant, or run them on their own.</p>
-<div class="w-full max-w-xl mt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"><a class="{BTN}" href="{DEMO}"><span>Book a demo</span><span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a><a class="inline-flex items-center justify-center font-body-sm text-ink-primary hover:text-ink-dark px-4 py-3 rounded-full transition-colors font-medium" href="#how">See how it works</a></div>
-<div class="flex flex-wrap items-center gap-2 mt-6"><span class="font-label-mono text-label-mono text-ink-muted uppercase tracking-wider mr-1">Runs on its own, or inside</span>{chip("FLOWSTATE")}{chip("PLEASANT")}</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-1">Elements is the foundation underneath Aultrum. Gateway answers every enquiry; Peak rewards the people who deliver care. Run them on their own, or switch them on in Pleasant.</p>
+<div class="w-full max-w-xl mt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"><a class="{BTN}" href="{SIGNUP}"><span>Sign up</span><span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a><a class="inline-flex items-center justify-center font-body-sm text-ink-primary hover:text-ink-dark px-4 py-3 rounded-full transition-colors font-medium" href="{DEMO}">Book a demo</a><a class="inline-flex items-center justify-center font-body-sm text-ink-muted hover:text-ink-dark px-4 py-3 rounded-full transition-colors" href="{LOGIN}">Log in</a></div>
+<div class="flex flex-wrap items-center gap-2 mt-6"><span class="font-label-mono text-label-mono text-ink-muted uppercase tracking-wider mr-1">Runs on its own, or inside</span>{chip("PLEASANT")}</div>
 </div>
 {art_panel}
 </section>
@@ -273,16 +282,15 @@ overview = main_wrap(f'''
 </div></section>
 <section class="w-full border-t border-border-editorial"><div class="{W} py-16 md:py-24">
 <div class="max-w-2xl mb-12">{eyebrow("WHERE IT RUNS")}<h2 class="{H2}">One set of modules, wherever you work.</h2><p class="font-body-lg text-ink-muted mt-3">Elements is built once and shows up where your team already is.</p></div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-editorial border border-border-editorial rounded-xl overflow-hidden">
-{cell("hub", "", "On its own", "Run Gateway and Peak alongside the systems you already have, managed from the Elements console.")}
-{cell("home_health", "", "Inside Flowstate", "Switch modules on in Flowstate, Aultrum’s platform for home care coordination.")}
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-border-editorial border border-border-editorial rounded-xl overflow-hidden">
+{cell("hub", "", "On its own", "Run Gateway and Peak in the Elements app, alongside the systems you already have.")}
 {cell("badge", "", "Inside Pleasant", "Switch modules on in Pleasant, the back office for care staffing agencies.")}
 </div></div></section>
 <section id="custom" class="w-full scroll-mt-20 relative overflow-hidden bg-[{BAND}]">{GRID}<div class="relative z-10 {W} py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 <div class="lg:col-span-5 flex flex-col items-start gap-4 min-w-0">{pill("CUSTOM BUILDS")}<h2 class="{H2_WHITE}">Have an idea? We build it on Elements.</h2><p class="font-body-lg text-white/80">Tell us the workflow you wish you had. We build it as a custom module for your organisation, on the same foundations as Gateway and Peak, and it appears in the console alongside them.</p>{check_list(["Private to your organisation by default", "The same security as every Element: signed links, signed events, full audit trail", "Works with Persona, so your AI can use it too"], dark=True)}<a class="mt-2 inline-flex items-center gap-2 bg-white text-ink-primary font-body-sm font-medium px-6 py-3 rounded-full hover:bg-white/90 transition-all" href="{DEMO}"><span>Talk to us about a build</span>{ARROW}</a></div>
 <div class="lg:col-span-7 min-w-0"><pre class="overflow-x-auto bg-[#000b63]/70 border border-white/15 rounded-xl p-5 md:p-6 font-label-mono text-[12px] leading-relaxed text-white/90"><code>{CODE}</code></pre></div>
 </div></section>
-{feature("console", "THE CONSOLE", "Everything in one place.", "Manage your keys, the systems you've connected, what's switched on where, and everything flowing between them.", ["Preview any Element exactly as your team sees it", "Pause an installation, or send a test event to check the connection", "Credentials shown once, rotated or revoked in a click"], frame("installations.jpg", "Installations in the Elements console: each Element and service with its status and events"), flip=True)}
+{feature("console", "THE APP", "Everything in one place.", "Elements is an app of its own. Work Gateway's inbox, approve Peak rewards, and keep your people and team in one place. Developers connect their own systems from the same app.", ["An inbox of enquiries and messages to follow up", "Carers sign in to see their own points and ask for rewards", "Invite your team, and connect your systems when you're ready"], frame("app.jpg", "Gateway in the Elements app: conversations to follow up, and those waiting for a person"), flip=True)}
 <section class="w-full border-t border-border-editorial"><div class="{W} py-16 md:py-24">
 <div class="max-w-2xl mb-12">{eyebrow("SECURITY")}<h2 class="{H2}">Built for care data.</h2></div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border-editorial border border-border-editorial rounded-xl overflow-hidden">
@@ -291,15 +299,15 @@ overview = main_wrap(f'''
 {cell("verified", "", "Signed everything", "Links and events are signed and expire, so they can't be forged or replayed.")}
 {cell("history", "", "Full event log", "Every event in and out is recorded, with delivery status.")}
 </div></div></section>
-{cta_band("Add and only pay for the modules you use.", "Join the Gateway pilot, get early access to Persona, or tell us what you'd like built.", f'<a class="inline-flex items-center justify-center font-body-sm font-medium text-white hover:bg-white/10 border border-white/30 px-8 py-3.5 rounded-full transition-all" href="{CONSOLE}/login"><span>Log in to the console</span></a>')}
+{cta_band("Add and only pay for the modules you use.", "Elements is in open beta. Create your organisation, switch on Gateway and Peak, and tell us what to improve.", f'<a class="inline-flex items-center justify-center font-body-sm font-medium text-white hover:bg-white/10 border border-white/30 px-8 py-3.5 rounded-full transition-all" href="{LOGIN}"><span>Log in</span></a>', (SIGNUP, "Sign up"))}
 ''')
-write(ROOT / "index.html", "Elements | Aultrum", "Elements: Gateway and Peak, the care modules that run on their own or inside Flowstate and Pleasant, managed from one console.", "", overview, CALC_JS + TRY_JS)
+write(ROOT / "index.html", "Elements | Aultrum", "Elements: Gateway and Peak, the care modules that run on their own or inside Pleasant, managed from one console.", "", overview, CALC_JS + TRY_JS)
 
 
 # ---------------------------------------------------------------- Book a demo
 demo = main_wrap(f'''<section class="w-full pt-10 pb-16 md:pt-16 md:pb-24 {W} grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 <div class="lg:col-span-5 flex flex-col items-start gap-space-md min-w-0">{eyebrow("BOOK A DEMO")}<h1 class="{H1}">See Elements at work.</h1><p class="font-body-lg text-body-lg text-on-surface-variant">Pick a time that suits you. We'll confirm straight away and send a calendar invite.</p>
-<div class="w-full mt-4">{eyebrow("WHAT WE'LL COVER")}{check_list(["Gateway answering a call and handing it to your team", "Peak turning clock-ins and praise into points", "Switching Elements on in Flowstate, Pleasant or your own system", "Persona working with your systems' tools", "A custom module for the workflow you wish you had"])}</div>
+<div class="w-full mt-4">{eyebrow("WHAT WE'LL COVER")}{check_list(["Gateway answering a call and handing it to your team", "Peak turning clock-ins and praise into points", "Switching Elements on in Pleasant or your own system", "Persona working with your systems' tools", "A custom module for the workflow you wish you had"])}</div>
 <p class="font-body-sm text-body-sm text-ink-muted mt-2">Prefer email? <a class="text-ink-primary font-medium hover:underline" href="mailto:{CONTACT}?subject=Aultrum%20Elements">{CONTACT}</a></p></div>
 <div class="lg:col-span-7 min-w-0 bg-surface-container-lowest border border-border-editorial rounded-xl p-2 sm:p-4 shadow-sm"><div id="cal-elements-demo" style="width:100%;min-height:680px;overflow:auto"></div></div>
 </section>''')
