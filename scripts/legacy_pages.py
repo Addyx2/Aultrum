@@ -29,7 +29,7 @@ FOOTER = f'''<footer class="w-full relative bg-surface-container-lowest border-t
 </div>
 {col("Products", [("Elements", "/elements/"), ("Pleasant", "/pleasant/"), ("Pricing", "/pleasant/pricing/")])}
 {col("Resources", [("Statements", "/statements/"), ("Editorials", "/research/index.html"), ("Merch", "/shop.html")])}
-{col("Company", [("Vision", "/vision.html"), ("Manifesto", "/manifesto.html"), ("Careers", "https://clumsy-bellflower-61e.notion.site/Careers-3d8547e8d49a808e9582e864183d1d9f?source=copy_link"), ("Contact", "/apply.html")])}
+{col("Company", [("Mantle", "/mantle/"), ("Vision", "/vision.html"), ("Manifesto", "/manifesto.html"), ("Careers", "https://clumsy-bellflower-61e.notion.site/Careers-3d8547e8d49a808e9582e864183d1d9f?source=copy_link"), ("Contact", "/apply.html")])}
 {col("Privacy", [("Privacy Policy", "/privacy.html")])}
 </div>
 <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">

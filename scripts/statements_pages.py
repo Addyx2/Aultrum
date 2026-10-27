@@ -73,7 +73,8 @@ def card(s):
 </a>'''
 
 
-also = f'''<section class="w-full border-t border-border-editorial"><div class="{W} py-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+also = f'''<section class="w-full border-t border-border-editorial"><div class="{W} py-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+<a class="flex items-center justify-between gap-4 p-6 rounded-xl border border-border-editorial hover:border-ink-primary transition-colors" href="/mantle/"><span><span class="block {EYEBROW}">Mantle</span><span class="block mt-1 font-body-lg text-ink-dark">The golden foundation</span></span>{ARROW}</a>
 <a class="flex items-center justify-between gap-4 p-6 rounded-xl border border-border-editorial hover:border-ink-primary transition-colors" href="/vision.html"><span><span class="block {EYEBROW}">Vision</span><span class="block mt-1 font-body-lg text-ink-dark">Our invitation to partners</span></span>{ARROW}</a>
 <a class="flex items-center justify-between gap-4 p-6 rounded-xl border border-border-editorial hover:border-ink-primary transition-colors" href="/manifesto.html"><span><span class="block {EYEBROW}">Manifesto</span><span class="block mt-1 font-body-lg text-ink-dark">What we believe about care</span></span>{ARROW}</a>
 </div></section>'''
