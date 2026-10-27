@@ -16,7 +16,7 @@ head = home[: home.index("<header")]
 header = home[home.index("<header") : home.index("</header>") + 9]
 footer = home[home.index("<footer") : home.index("</footer>") + 9]
 
-head = head.replace('<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">\n', "")
+head = head.replace('<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">\n', '<link rel="icon" href="/brand/icon.svg" type="image/svg+xml">\n')
 head = head.replace('href="/assets/home.css"', 'href="/pleasant/assets/pleasant-home.css"')
 NAV = [("Product", "/pleasant/#product", "product"), ("Persona", "/pleasant/#assist", "persona"), ("Elements", "/pleasant/#elements", "elements"), ("Pricing", "/pleasant/pricing/", "pricing"), ("Changelog", "/pleasant/changelog/", "changelog")]
 

@@ -28,7 +28,7 @@ FOOTER = f'''<footer class="w-full relative bg-surface-container-lowest border-t
 <div class="flex flex-wrap gap-x-4 gap-y-2"><a class="{LINK} flex items-center gap-2" href="https://x.com/aultrumai"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">alternate_email</span>X (Twitter)</a><a class="{LINK} flex items-center gap-2" href="https://instagram.com/aultrumai"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">photo_camera</span>Instagram</a></div>
 </div>
 {col("Products", [("Elements", "/elements/"), ("Pleasant", "/pleasant/"), ("Pricing", "/pleasant/pricing/")])}
-{col("Resources", [("Blog", "/blog/"), ("Research", "/research/index.html"), ("Merch", "/shop.html")])}
+{col("Resources", [("Statements", "/statements/"), ("Editorials", "/research/index.html"), ("Merch", "/shop.html")])}
 {col("Company", [("Vision", "/vision.html"), ("Manifesto", "/manifesto.html"), ("Careers", "https://clumsy-bellflower-61e.notion.site/Careers-3d8547e8d49a808e9582e864183d1d9f?source=copy_link"), ("Contact", "/apply.html")])}
 {col("Privacy", [("Privacy Policy", "/privacy.html")])}
 </div>
@@ -61,7 +61,7 @@ for name in PAGES:
                lambda m: f'<a href="{m.group(1)}" class="flex items-center hover:opacity-80 transition-opacity" aria-label="Aultrum home">{LOGO}</a>', s)
     # Retired pages point to what replaced them.
     for old, new in [('href="../honor.html">Honor</a>', 'href="/elements/">Elements</a>'), ('href="honor.html">Honor</a>', 'href="/elements/">Elements</a>'),
-                     ('href="../../flowstatebeta/peak/"', 'href="/elements/#peak"'), ('href="index.html#manifesto"', 'href="/manifesto.html"')]:
+                     ('href="../../flowstatebeta/peak/"', 'href="/elements/#peak"'), ('href="index.html#manifesto"', 'href="/manifesto.html"'), ('href="/blog/"', 'href="/statements/"')]:
         s = s.replace(old, new)
     # One footer per page, the current one.
     footers = list(re.finditer(r"<footer\b.*?</footer>", s, re.S))

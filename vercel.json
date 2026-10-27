@@ -54,6 +54,31 @@
       "source": "/home/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/statements/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/statements/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.html",
+      "destination": "/statements/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/quality-yardstick.html",
+      "destination": "/statements/quality-yardstick/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/persona-intelligence.html",
+      "destination": "/statements/persona-intelligence/",
+      "permanent": true
     }
   ]
 }

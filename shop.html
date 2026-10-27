@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta name="description" content="Official Aultrum, Flowstate, and Honor merch. Wear the brand behind AI-native social care.">
+<meta name="description" content="Official Aultrum merch. Wear the brand behind AI-native social care.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=EB+Garamond:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
@@ -44,7 +44,7 @@
 </div>
 <h1 class="display-text text-display-lg text-on-surface leading-tight mb-6">Wear the <span class="italic">brand</span> behind AI-native care.</h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant scholarly-measure max-w-2xl">
-Aultrum, Flowstate, and Honor apparel and goods. Every purchase supports the mission — upgrading social care with Empathetic Intelligence.
+Aultrum apparel and goods. Every purchase supports the mission — upgrading social care with Empathetic Intelligence.
 </p>
 <div class="flex items-center gap-4 mt-8" id="cartBar"></div>
 </section>
@@ -63,7 +63,7 @@ Aultrum, Flowstate, and Honor apparel and goods. Every purchase supports the mis
 <div class="flex flex-wrap gap-x-4 gap-y-2"><a class="text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-2" href="https://x.com/aultrumai"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">alternate_email</span>X (Twitter)</a><a class="text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-2" href="https://instagram.com/aultrumai"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">photo_camera</span>Instagram</a></div>
 </div>
 <div><h4 class="font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-widest mb-4">Products</h4><div class="flex flex-col gap-2"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/elements/">Elements</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/pleasant/">Pleasant</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/pleasant/pricing/">Pricing</a></div></div>
-<div><h4 class="font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-widest mb-4">Resources</h4><div class="flex flex-col gap-2"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/blog/">Blog</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/research/index.html">Research</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/shop.html">Merch</a></div></div>
+<div><h4 class="font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-widest mb-4">Resources</h4><div class="flex flex-col gap-2"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/statements/">Statements</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/research/index.html">Editorials</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/shop.html">Merch</a></div></div>
 <div><h4 class="font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-widest mb-4">Company</h4><div class="flex flex-col gap-2"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/vision.html">Vision</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/manifesto.html">Manifesto</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="https://clumsy-bellflower-61e.notion.site/Careers-3d8547e8d49a808e9582e864183d1d9f?source=copy_link">Careers</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/apply.html">Contact</a></div></div>
 <div><h4 class="font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-widest mb-4">Privacy</h4><div class="flex flex-col gap-2"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/privacy.html">Privacy Policy</a></div></div>
 </div>
@@ -77,17 +77,13 @@ Aultrum, Flowstate, and Honor apparel and goods. Every purchase supports the mis
 
 <script>
 const PRODUCTS = [
-  { id:"fs-tee", brand:"flowstate", name:"Flowstate Tee", price:25, desc:"Heavyweight organic cotton tee with the Flowstate wordmark in Obsidian Precision.", img:null },
   { id:"aultrum-tee", brand:"aultrum", name:"Aultrum Garamond Tee", price:28, desc:"EB Garamond serif wordmark. The quiet confidence of the Aultrum brand.", img:null },
-  { id:"honor-gold", brand:"honor", name:"Honor Gold Cap", price:22, desc:"Embroidered Honor crest in gold on black. Wear the standard you earn.", img:null },
-  { id:"fs-mug", brand:"flowstate", name:"Telemetry Mug", price:18, desc:"Black 11oz mug with the Flowstate telemetry readout.", img:null },
   { id:"aultrum-tote", brand:"aultrum", name:"Aultrum Canvas Tote", price:20, desc:"Heavy canvas tote. Carry the layers.", img:null },
-  { id:"honor-pin", brand:"honor", name:"Honor Enamel Pin", price:9, desc:"Gold enamel lapel pin. Silver / Gold / Platinum tier flair.", img:null },
-  { id:"layers-book", brand:"aultrum", name:"The Six Layers — Field Notes", price:24, desc:"Pocket field notes on the Aultrum Layers: Competence to Purpose.", img:null },
-  { id:"fs-hoodie", brand:"flowstate", name:"Flowstate Hoodie", price:55, desc:"Midweight fleece hoodie, embroidered chest mark.", img:null }
+  { id:"layers-book", brand:"aultrum", name:"The Six Layers — Field Notes", price:24, desc:"Pocket field notes on the Aultrum Layers: Competence to Purpose.", img:null }
 ];
-const BRAND_COLOR = { aultrum:"#c6c6cc", flowstate:"#4a9eff", honor:"#e6b356" };
-let cart = JSON.parse(localStorage.getItem("aultrum_cart") || "[]");
+const BRAND_COLOR = { aultrum:"#c6c6cc" };
+// Drop anything left in a saved cart that is no longer sold.
+let cart = JSON.parse(localStorage.getItem("aultrum_cart") || "[]").filter(c => PRODUCTS.some(p => p.id === c.id));
 
 function brandBadge(b){ return '<span class="inline-block px-2 py-0.5 rounded-full border font-label-sm text-label-sm uppercase tracking-widest mb-3" style="color:'+BRAND_COLOR[b]+';border-color:'+BRAND_COLOR[b]+'55">'+b+'</span>'; }
 function money(n){ return "£"+n.toFixed(2); }
@@ -97,7 +93,7 @@ function renderCatalog(){
   el.innerHTML = PRODUCTS.map(p => `
     <div class="prod-card glass-panel rounded-xl border border-white/10 overflow-hidden flex flex-col">
       <div class="aspect-square w-full flex items-center justify-center" style="background:radial-gradient(circle at 50% 30%, #1c1b1c, #0e0e0e)">
-        <span class="font-headline-lg text-headline-lg display-text" style="color:${BRAND_COLOR[p.brand]}">${p.brand === "honor" ? "Honor" : p.brand === "flowstate" ? "Flowstate" : "Aultrum"}</span>
+        <span class="font-headline-lg text-headline-lg display-text" style="color:${BRAND_COLOR[p.brand]}">Aultrum</span>
       </div>
       <div class="p-6 flex flex-col flex-1">
         ${brandBadge(p.brand)}
