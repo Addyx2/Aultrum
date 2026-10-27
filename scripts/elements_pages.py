@@ -43,9 +43,7 @@ def page_header(active):
         return f'<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="{href}">{t}</a>'
 
     h = h.replace(nav, re.sub(r">.*</nav>", ">" + "".join(item(*n) for n in NAV) + "</nav>", nav, flags=re.S))
-    h = h.replace('data-path="login" href="https://workspace.aultrum.co.uk"', f'data-path="login" href="{LOGIN}"')
-    h = h.replace('href="https://workspace.aultrum.co.uk" aria-label="Aultrum Workspace"', f'href="{LOGIN}" aria-label="Log in to Elements"')
-    h = h.replace('data-path="book-a-demo" href="/pleasant/book-a-demo/"><span class="">Book a demo</span>', f'data-path="signup" href="{SIGNUP}"><span class="">Sign up</span>')
+    h = h.replace('data-path="book-a-demo" href="/elements/book-a-demo/"><span class="">Book a demo</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a><a class="w-8', f'data-path="signup" href="{SIGNUP}"><span class="">Sign up</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a><a class="w-8')
     assert SIGNUP in h and LOGIN in h
     return h
 
