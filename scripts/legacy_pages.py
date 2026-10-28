@@ -1,4 +1,4 @@
-"""Tidies the original dark pages (manifesto, research, privacy, apply, shop, vision...)
+"""Tidies the original dark pages (manifesto, research, apply, shop, vision...)
 for launch: the Aultrum logo instead of the typed name, the current footer, and
 text that was saved with the wrong encoding put right. Safe to run more than once.
 CSS for these pages comes from index.css through Vite (npm run build).
@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parents[1]
-PAGES = ["manifesto.html", "privacy.html", "apply.html", "success.html", "shop.html", "vision.html", *[str(p.relative_to(SITE)) for p in sorted((SITE / "research").rglob("*.html"))]]
+PAGES = ["manifesto.html", "apply.html", "success.html", "shop.html", "vision.html", *[str(p.relative_to(SITE)) for p in sorted((SITE / "research").rglob("*.html"))]]
 
 LOGO = '<span class="brand-logo h-6 text-on-surface" aria-hidden="true"></span>'
 LINK = "text-on-surface-variant hover:text-on-surface transition-colors"
@@ -30,7 +30,7 @@ FOOTER = f'''<footer class="w-full relative bg-surface-container-lowest border-t
 {col("Products", [("Elements", "/elements/"), ("Pleasant", "/pleasant/"), ("Pricing", "/pleasant/pricing/")])}
 {col("Resources", [("Statements", "/statements/"), ("Editorials", "/research/index.html"), ("Merch", "/shop.html")])}
 {col("Company", [("Mantle", "/mantle/"), ("Vision", "/vision.html"), ("Manifesto", "/manifesto.html"), ("Careers", "https://clumsy-bellflower-61e.notion.site/Careers-3d8547e8d49a808e9582e864183d1d9f?source=copy_link"), ("Contact", "/apply.html")])}
-{col("Privacy", [("Privacy Policy", "/privacy.html")])}
+{col("Legal", [("Privacy policy", "/privacy/"), ("Terms of service", "/terms/"), ("Data processing", "/dpa/")])}
 </div>
 <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
 <p class="font-body-md text-body-md text-on-surface-variant/60">© 2026 Aultrum. All rights reserved.</p>
@@ -61,7 +61,7 @@ for name in PAGES:
                lambda m: f'<a href="{m.group(1)}" class="flex items-center hover:opacity-80 transition-opacity" aria-label="Aultrum home">{LOGO}</a>', s)
     # Retired pages point to what replaced them.
     for old, new in [('href="../honor.html">Honor</a>', 'href="/elements/">Elements</a>'), ('href="honor.html">Honor</a>', 'href="/elements/">Elements</a>'),
-                     ('href="../../flowstatebeta/peak/"', 'href="/elements/#peak"'), ('href="index.html#manifesto"', 'href="/manifesto.html"'), ('href="/blog/"', 'href="/statements/"')]:
+                     ('href="../../flowstatebeta/peak/"', 'href="/elements/#peak"'), ('href="index.html#manifesto"', 'href="/manifesto.html"'), ('href="/blog/"', 'href="/statements/"'), ('href="/privacy.html"', 'href="/privacy/"'), ('href="privacy.html"', 'href="/privacy/"')]:
         s = s.replace(old, new)
     # One footer per page, the current one.
     footers = list(re.finditer(r"<footer\b.*?</footer>", s, re.S))

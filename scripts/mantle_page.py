@@ -65,12 +65,6 @@ EXAMPLES = [
     ("The flag that stayed", "A compliance flag that no longer applies keeps someone out of work. The person changed; the record didn’t."),
 ]
 
-PHASES = [
-    ("M0: Foundations", "Sep–Oct 2026", "How skills fade, how obligations age, and how to describe each person’s pattern of change", "Mantle thesis paper"),
-    ("M1: In Aultrum", "Nov 2026", "Shift readiness and rapport, from Peak, read as signals over time", "A time-aware signal of care quality"),
-    ("M2: A second field", "Q1 2027", "The same model applied to employment or finance", "Evidence that it holds outside care"),
-    ("M3: Publication", "Q2 2027", "Temporal modelling of human attributes: architecture and evidence", "Peer-reviewed paper and published architecture"),
-]
 
 hero = f'''<section class="w-full pt-10 pb-16 md:pt-16 md:pb-24 {W}">
 <div class="max-w-4xl flex flex-col items-start gap-space-md">
@@ -100,7 +94,7 @@ deterrent = section("obligations", "Deterrent obligations", "When a record outli
     cards(EXAMPLES) + f'<p class="mt-6 max-w-3xl {LEAD}">Part of the duty of care is noticing when an obligation has become a deterrent, and producing the evidence that lets someone release it, replace it, or look at it again.</p>')
 
 engine = section("research", "The research", "A model whose main variable is time.",
-    "Mantle’s research builds a temporal model: one that learns how a particular person changes over time, how their situation moves on, and how the obligations on them age. It is not a language model, and it is not a prediction engine.",
+    "Mantle’s research is building a temporal model: one that learns how a particular person changes over time, how their situation moves on, and how the obligations on them age. It is not a language model, and it is not a prediction engine. We don’t claim to have solved time; we have found a gap no existing system fills, and we are testing whether this fills it.",
     f'''<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-px bg-border-editorial border border-border-editorial rounded-xl overflow-hidden">
 <div class="bg-surface p-6 flex flex-col gap-2"><p class="{EYEBROW}">In</p><p class="font-body-md text-ink-dark">A person’s record over time: what they did, how it was assessed, how it turned out. The field it comes from, and the obligations on them, with when each began.</p></div>
@@ -126,9 +120,6 @@ why_now = section("now", "Why now", "Three reasons this matters now.", "",
         ("The workforce crisis is about time.", "Skills fade faster than training cycles, and tiredness builds faster than rest. Retention is a question of balance over time."),
     ]))
 
-programme = section("programme", "Programme", "What we are testing, and when.",
-    "We don’t claim to have solved time. We have found a gap no existing system fills, and we are testing whether this fills it.",
-    table(["Phase", "When", "Focus", "Result"], PHASES))
 
 close = f'''<section class="w-full relative overflow-hidden bg-[{GOLD_BAND}] py-20 md:py-28 text-center"><div class="{W} flex flex-col items-center gap-4">
 <p class="font-label-mono text-label-mono text-[{GOLD_LIGHT}] uppercase tracking-wider">Mantle</p>
@@ -137,7 +128,7 @@ close = f'''<section class="w-full relative overflow-hidden bg-[{GOLD_BAND}] py-
 <div class="flex flex-col sm:flex-row items-center gap-3 mt-4"><a class="inline-flex items-center gap-2 bg-[{GOLD_LIGHT}] text-[{GOLD_BAND}] font-body-sm font-medium px-8 py-3.5 rounded-full hover:bg-white transition-all" href="/vision.html">Our vision</a><a class="inline-flex items-center gap-2 border border-white/30 text-white font-body-sm font-medium px-8 py-3.5 rounded-full hover:bg-white/10 transition-all" href="/statements/">Statements</a></div>
 </div></section>'''
 
-main = f'<main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full text-on-surface">{hero}{principles}{axiom}{deterrent}{engine}{in_aultrum}{why_now}{programme}{close}</div></main>'
+main = f'<main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full text-on-surface">{hero}{principles}{axiom}{deterrent}{engine}{in_aultrum}{why_now}{close}</div></main>'
 
 page_head = re.sub(r"<title>[^<]*</title>", "<title>Mantle · The golden foundation | Aultrum</title>", head)
 page_head = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Mantle is the foundation beneath everything Aultrum builds: everyone has a duty of care, and AI is a means to deliver it more accurately and with more insight.">', page_head)

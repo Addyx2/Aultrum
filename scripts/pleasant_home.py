@@ -37,8 +37,9 @@ def page_header(active):
             return f'<a class="font-body-sm text-body-sm text-ink-primary" aria-current="page" href="{href}">{t}</a>'
         return f'<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-ink-primary transition-colors" href="{href}">{t}</a>'
     h = h.replace(nav, re.sub(r">.*</nav>", ">" + "".join(item(*n) for n in NAV) + "</nav>", nav, flags=re.S))
-    h = h.replace('href="https://workspace.aultrum.co.uk" aria-label="Aultrum Workspace"', f'href="{APP}/login" aria-label="Log in to Pleasant"')
-    return h.replace('data-path="login" href="https://workspace.aultrum.co.uk"', f'data-path="login" href="{APP}/login"')
+    h = h.replace('href="https://canvas.aultrum.co.uk/login" aria-label="Log in to Elements"', f'href="{APP}/login" aria-label="Log in to Pleasant"')
+    h = h.replace('data-path="book-a-demo" href="/elements/book-a-demo/"', 'data-path="book-a-demo" href="/pleasant/book-a-demo/"')
+    return h.replace('data-path="login" href="https://canvas.aultrum.co.uk/login"', f'data-path="login" href="{APP}/login"')
 
 
 def write(path, title, description, active, main, extra=""):
